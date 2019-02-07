@@ -26,14 +26,7 @@ export class DaoService {
       // Aqui le digo que lo que devuelva se llame codigoRecibido y realice lo que esta despues de =>
       // Con toPromise, mi programa espera la respuesta del servidor, importante!
 
-      this.http.get<string>(Url).toPromise().then(
-        recibido => {
-          this.codigo = recibido;
-          console.log(this.codigo);
-        }
-    ).catch( e => {
-        alert('error fetching data');
-    });
+      this.http.get<string>(Url).toPromise().then(codigoR => this.codigo = codigoR);
 
 
 
@@ -56,6 +49,15 @@ export class DaoService {
       this.http.get<string>(Url).subscribe(codigoR => codigo = codigoR);
       this.http.get<string>(Url).subscribe(codigoR => codigo = codigoR); // Me traigo el codigo
       this.http.get<string>(Url).toPromise().then((response: any) => {  this.codigo1 = response.results; });
+
+            this.http.get<string>(Url).toPromise().then(
+        recibido => {
+          this.codigo = recibido;
+          console.log(this.codigo);
+        }
+    ).catch( e => {
+        alert('error fetching data');
+    });
     */
 
 
