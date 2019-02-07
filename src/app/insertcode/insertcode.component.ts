@@ -9,7 +9,10 @@ export class InsertcodeComponent implements OnInit {
 
   constructor() { }
 
+  codigo: string;
+
   ngOnInit() {
   }
+
 
 }

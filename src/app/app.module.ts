@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { InsertcodeComponent } from './insertcode/insertcode.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule // Aqui esta el modulo NgModel
   ],
   providers: [],
   bootstrap: [AppComponent]
