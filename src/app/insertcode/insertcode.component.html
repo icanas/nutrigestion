@@ -3,12 +3,12 @@
     Inserta tu codigo
     </h1>
     <div>
-      <label>Codigo
-        <input ><br>
-        {{codigo}}<br>
+      <label>{{Codigo}}
+        <input [(ngModel)] = codigo><br>
 
       </label>
 
     </div>
-    <button (click)="validate2()"> </button>
+    <button (click)="validate()"> </button><br>
+    {{valido}}
   </div>
