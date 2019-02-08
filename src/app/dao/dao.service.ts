@@ -12,10 +12,6 @@ export class DaoService {
     private http: HttpClient) { }
 
     codigo: string;
-    codigo1: string;
-    Url = 'http://localhost:80/api/getCode.php';
-
-
 
 
     isValid(codigoInsertado: string): boolean {
@@ -27,9 +23,6 @@ export class DaoService {
       // Con toPromise, mi programa espera la respuesta del servidor, importante!
 
       this.http.get<string>(Url).toPromise().then(codigoR => this.codigo = codigoR);
-
-
-
 
       if (this.codigo == codigoInsertado) {
           valido = true;

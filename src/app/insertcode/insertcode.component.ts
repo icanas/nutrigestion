@@ -21,8 +21,6 @@ export class InsertcodeComponent implements OnInit {
       this.valido = 'NO';
     }
 
-
-
   }
 
 
