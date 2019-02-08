@@ -11,8 +11,6 @@ export class DaoService {
   constructor(
     private http: HttpClient) { }
 
-    codigo: string;
-
 
     isValid(codigoInsertado: string): boolean {
 
@@ -22,13 +20,16 @@ export class DaoService {
       // Aqui le digo que lo que devuelva se llame codigoRecibido y realice lo que esta despues de =>
       // Con toPromise, mi programa espera la respuesta del servidor, importante!
 
-      this.http.get<string>(Url).toPromise().then(codigoR => this.codigo = codigoR);
+      this.http.get<string>(Url).toPromise().then(
+        codigoR => {
+          if (codigoInsertado == codigoR) {
+            valido = true;
+        }
+          console.log(codigoR); // debug
+          console.log(valido);
+        });
 
-      if (this.codigo == codigoInsertado) {
-          valido = true;
-      }
-      console.log(codigoInsertado); // debug
-      console.log(valido);
+
 
       return valido;
     }
