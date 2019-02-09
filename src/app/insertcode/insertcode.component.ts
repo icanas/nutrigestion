@@ -1,5 +1,7 @@
+/* tslint:disable:triple-equals*/
 import { Component, OnInit } from '@angular/core';
 import { DaoService } from '../dao/dao.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-insertcode',
@@ -8,18 +10,30 @@ import { DaoService } from '../dao/dao.service';
 })
 export class InsertcodeComponent implements OnInit {
 
-  constructor(private daoService: DaoService) { }
+  constructor(
+    private daoService: DaoService,
+    private route: Router) { }
 
   codigo: string;
   valido: string;
 
   validate(): void {
 
-    if (this.daoService.isValid(this.codigo)) {
-      this.valido = 'SI';
-    } else {
-      this.valido = 'NO';
-    }
+    this.daoService.getCode().subscribe(
+      codigo => {
+        if (codigo == this.codigo) {
+          this.route.navigate(['.']);
+        }
+      }
+      );
+
+
+  }
+
+
+  validate2(): void {
+
+    this.daoService.getCode().subscribe(codigo => this.codigo = codigo);
 
   }
 
@@ -31,11 +45,3 @@ export class InsertcodeComponent implements OnInit {
 }
 
 
-
-/*
-  validate2(): void {
-
-    this.daoService.getCode().subscribe(codigo => this.codigo = codigo);
-
-  }
-*/
