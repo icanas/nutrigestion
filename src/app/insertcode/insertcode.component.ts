@@ -15,16 +15,19 @@ export class InsertcodeComponent implements OnInit {
     private route: Router) { }
 
   codigo: string;
-  valido: string;
+  Valido = true;
+
 
   validate(): void {
-
+    this.Valido = true;
     this.daoService.getCode().subscribe(
       codigo => {
         if (codigo == this.codigo) {
-          // this.route.navigate(['.']);
+          this.route.navigate(['/nuevoProfesional']);
+        } else {
+          this.Valido = false;
         }
-        this.codigo = codigo;
+
       }
       );
 

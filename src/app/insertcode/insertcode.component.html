@@ -9,8 +9,6 @@
       </label>
 
     </div>
-    {{Codigo}}
-    <button (click)="validate()"> </button><br>
-    {{codigo}}
-    {{codigo}}
+    <button (click)="validate()">Validar</button><br>
+    <div *ngIf="!Valido">No Valido</div>
   </div>
