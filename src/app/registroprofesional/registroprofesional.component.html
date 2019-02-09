@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<div *ngIf="!muestraExito" style="text-align:center">
   <h1>
   Resgistro Profesional
   </h1>
@@ -10,7 +10,16 @@
       <input [(ngModel)]="profesional.pass">
     </label> <br>
     <button (click)="registrar()"> Registrar</button><br>
-    {{texto}}
+    <div *ngIf="correoDuplicado">No Valido</div>
   </div>
+
+</div>
+
+
+<div *ngIf="muestraExito" style="text-align:center">
+  <h1>
+  Registrado con exito, redirigiendo a log-in
+  </h1>
+
 
 </div>
