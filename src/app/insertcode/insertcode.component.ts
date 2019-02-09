@@ -20,9 +20,9 @@ export class InsertcodeComponent implements OnInit {
 
   validate(): void {
     this.Valido = true;
-    this.daoService.getCode().subscribe(
-      codigo => {
-        if (codigo == this.codigo) {
+    this.daoService.validateCode(this.codigo).subscribe(
+      R => {
+        if (R == this.codigo) {
           this.route.navigate(['/nuevoProfesional']);
         } else {
           this.Valido = false;
@@ -31,13 +31,6 @@ export class InsertcodeComponent implements OnInit {
       }
       );
 
-
-  }
-
-
-  validate2(): void {
-
-    this.daoService.getCode().subscribe(codigo => this.codigo = codigo);
 
   }
 

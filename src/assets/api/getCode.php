@@ -1,23 +1,19 @@
 <?php
 include 'config.php';
 
-// crea conexion
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Test Conexion
-if ($conn->connect_error) {
-    die("Fallo conexion " . $conn->connect_error);
-}
 
-$sql = "SELECT * FROM codigoRegistro";
+$data = file_get_contents("php://input");
+
+
+$sql = "SELECT codigo FROM codigoRegistro where codigo = '$data';";
 $result = $conn->query($sql);
+$row = $result->fetch_assoc();
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["codigo"];
-    }
+if ($result->num_rows > 1 || $result->num_rows == 0) {
+    echo "-1";
 } else {
-    echo "0 results";
+    echo $row["codigo"];
 }
 $conn->close();
 ?>

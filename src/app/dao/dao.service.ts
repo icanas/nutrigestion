@@ -13,9 +13,9 @@ export class DaoService {
   constructor(
     private http: HttpClient) { }
 
-    getCode(): Observable<string> {
+    validateCode(code: string): Observable<string> {
       const Url = 'http://localhost:80/api/getCode.php';
-      return this.http.get<string>(Url);
+      return this.http.post<string>(Url, code);
     }
 
     registrarProfesional(profesional: Profesional): Observable<Profesional> {
