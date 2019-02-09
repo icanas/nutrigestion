@@ -22,8 +22,9 @@ export class InsertcodeComponent implements OnInit {
     this.daoService.getCode().subscribe(
       codigo => {
         if (codigo == this.codigo) {
-          this.route.navigate(['.']);
+          // this.route.navigate(['.']);
         }
+        this.codigo = codigo;
       }
       );
 

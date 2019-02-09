@@ -1,0 +1,16 @@
+<div style="text-align:center">
+  <h1>
+  Resgistro Profesional
+  </h1>
+  <div>
+    <label>Correo:
+      <input [(ngModel)]="profesional.correo"placeholder="Correo Electronico">
+    </label> <br>
+    <label>Contraseña:
+      <input [(ngModel)]="profesional.pass">
+    </label> <br>
+    <button (click)="registrar()"> Registrar</button><br>
+    {{texto}}
+  </div>
+
+</div>
