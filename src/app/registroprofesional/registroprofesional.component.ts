@@ -18,7 +18,11 @@ export class RegistroprofesionalComponent implements OnInit {
 
   registrar(): void {
 
-    this.daoService.registrarProfesional(this.profesional).subscribe();
+    this.daoService.registrarProfesional(this.profesional).subscribe(
+      R => {
+        console.log(R);
+      }
+      );
 
   }
 

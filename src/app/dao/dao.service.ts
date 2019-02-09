@@ -21,7 +21,6 @@ export class DaoService {
     registrarProfesional(profesional: Profesional): Observable<Profesional> {
       const Url = 'http://localhost:80/api/insertP.php';
       const profesionalParse = JSON.stringify(profesional);
-      console.log(profesionalParse);
       return this.http.post<Profesional>(Url, profesionalParse);
     }
 
