@@ -4,6 +4,8 @@ class Profesional {
     private $correo;
     private $pass;
     private $conn;
+        ////////////////////// Añadir database name del profesional como campo de un profesional
+    ////////////////////// en la base de datos raiz de nutrigestion
 
     function __construct($conn, $data) {
         $this->correo = $data->correo;
