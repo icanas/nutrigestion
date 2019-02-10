@@ -14,13 +14,23 @@ export class DaoService {
     private http: HttpClient) { }
 
     validateCode(code: string): Observable<string> {
-      const Url = 'http://localhost:80/api/getCode.php';
-      return this.http.post<string>(Url, code);
+      const Url = 'http://localhost/api/api.php';
+
+      let cadena = 
+      {
+          "action": "validateCode",
+          "codigo": code
+
+      };
+
+      return this.http.post<string>(Url, cadena);
     }
 
     registrarProfesional(profesional: Profesional): Observable<string> {
-      const Url = 'http://localhost:80/api/insertProfesional.php';
+      const Url = 'http://localhost/api/api.php';
+      profesional['action'] = "test";
       const profesionalParse = JSON.stringify(profesional);
+      console.log(profesionalParse);
       return this.http.post<string>(Url, profesionalParse);
     }
 

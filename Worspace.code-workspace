@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "src"
+		},
+		{
+			"path": "C:\\xampp\\htdocs\\api"
 		}
 	]
 }
