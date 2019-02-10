@@ -10,6 +10,7 @@ $sql = "SELECT codigo FROM codigoRegistro where codigo = '$data';";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
+
 if ($result->num_rows > 1 || $result->num_rows == 0) {
     echo "-1";
 } else {
