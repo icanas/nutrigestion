@@ -11,7 +11,7 @@ class Profesional {
         $this->correo = $data->correo;
         $this->pass = $data->pass;
         $this->conn = $conn;
-        
+
     }
 
     function createSpace(){
@@ -25,7 +25,7 @@ class Profesional {
 
         if($executionStatus === FALSE){
             return FALSE;
-        }  
+        }
 
         //Me conecto a la base de datos nueva y genero todas sus tablas
         $this->conn->select_db($correoTrim);
@@ -39,6 +39,14 @@ class Profesional {
         }
 
         return TRUE;
+
+    }
+
+    function newProfessional(){
+
+        $sql = "INSERT INTO profesional (email, password)
+                VALUES ('$this->correo', '$this->pass');";
+        return $this->conn->query($sql);
 
     }
 }

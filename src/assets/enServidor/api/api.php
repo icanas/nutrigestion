@@ -15,7 +15,7 @@ switch ($action) {
 
     $executionStatus = creaProfesional($conn, $data);
         break;
-        
+
     case 'validateCode':
 
     $executionStatus = validateCode($conn, $data);
@@ -36,7 +36,7 @@ function validateCode($conn, $data){
     $row = $result->fetch_assoc();
 
     if ($result->num_rows > 1 || $result->num_rows == 0) {
-        
+
         return False;
     } else {
         return $row["codigo"];
@@ -49,6 +49,8 @@ function validateCode($conn, $data){
 function creaProfesional($conn, $data){
 
     $profesional = new Profesional($conn, $data);
+    $succes = $profesional->newProfessional();
+    if (!$succes) return FALSE;
     return $profesional->createSpace();
 
 }
