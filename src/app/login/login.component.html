@@ -4,15 +4,17 @@
   </h1>
   <div>
     <label>Usuario:
-      <input placeholder="Correo Electronico">
+      <input [(ngModel)] = email placeholder="Correo Electronico">
     </label> <br>
     <label>Contraseña:
-      <input >
+      <input [(ngModel)] = password>
     </label> <br>
     <label>
+        <button (click)="logIn()">Log-In</button><br>
         <nav>
             <a routerLink="/codigoRegistro">Tengo un codigo</a>
         </nav>
+        <div *ngIf="Valido">No Valido</div>
     </label>
   </div>
 

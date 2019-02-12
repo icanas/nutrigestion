@@ -33,5 +33,17 @@ export class DaoService {
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
+    login(user: string, pass: string): Observable<Profesional> {
+      const Url = 'http://localhost/api/api.php';
+
+      const credentials = {
+        email: user,
+        password: pass
+
+     };
+      console.log(credentials);
+      return this.http.post<boolean>(Url, credentials);
+    }
+
 
   }
