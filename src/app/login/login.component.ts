@@ -22,13 +22,11 @@ export class LoginComponent implements OnInit {
     this.daoService.login(this.email, this.password).subscribe(
       R => {
         if (!R) {
-          console.log(R);
           this.valido = false;
 
         } else {
           this.route.navigate(['/nuevoProfesional']);
         }
-
       }
       );
 
