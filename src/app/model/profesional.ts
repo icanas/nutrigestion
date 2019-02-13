@@ -7,4 +7,5 @@ export class Profesional {
     apellido: string;
     email: string;
     pacientes: Paciente[];
+    dbName: string;
   }

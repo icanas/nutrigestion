@@ -34,14 +34,14 @@ export class DaoService {
     }
 
     login(user: string, pass: string): Observable<Profesional> {
-      const Url = 'http://localhost/api/api.php';
+      const Url = 'http://localhost/api/auth.php';
 
       const credentials = {
         email: user,
         password: pass
 
      };
-      console.log(credentials);
+      console.log(JSON.stringify(credentials));
       return this.http.post<Profesional>(Url, credentials);
     }
 

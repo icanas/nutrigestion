@@ -8,4 +8,5 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "nutriGestion";
+$pepper = "jje[)=836!43¿Ç0´Ç1";
 ?>

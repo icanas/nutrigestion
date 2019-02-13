@@ -1,13 +1,14 @@
 create table profesional(
 
-    id number(10,0) null,
+    id numeric(10,0) null,
     nombre varchar(20) null,
     apellido varchar(20) null,
     email varchar(60) primary key,
-    password varbinary,
+    password varchar(64),
+    db_name varchar(60),
     salt varchar(60) null,
     ultimaconexion date null
-)
+);
 
 create table codigoregistro(
 

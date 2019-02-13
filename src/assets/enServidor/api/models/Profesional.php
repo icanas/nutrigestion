@@ -4,22 +4,23 @@ class Profesional {
     private $correo;
     private $pass;
     private $conn;
-        ////////////////////// Añadir database name del profesional como campo de un profesional
-    ////////////////////// en la base de datos raiz de nutrigestion
+    private $dbName;
+
 
     function __construct($conn, $data) {
         $this->correo = $data->correo;
         $this->pass = $data->pass;
         $this->conn = $conn;
+        $correoTrim = str_replace("@","",$this->correo);
+        $correoTrim = str_replace(".","",$correoTrim);
+        $this->dbName = $correoTrim;
 
     }
 
     function createSpace(){
 
         //creo la base de datos con el nombre del correo
-        $correoTrim = str_replace("@","",$this->correo);
-        $correoTrim = str_replace(".","",$correoTrim);
-        $sql = "CREATE DATABASE $correoTrim;";
+        $sql = "CREATE DATABASE $this->dbName;";
 
         $executionStatus = $this->conn->query($sql);
 
@@ -28,7 +29,7 @@ class Profesional {
         }
 
         //Me conecto a la base de datos nueva y genero todas sus tablas
-        $this->conn->select_db($correoTrim);
+        $this->conn->select_db($this->dbName);
 
         $sqlFileToExecute = file_get_contents("../sql/createProfesionalDatabase.sql");
         $sqlFile = $sqlFileToExecute;
@@ -44,8 +45,8 @@ class Profesional {
 
     function newProfessional(){
 
-        $sql = "INSERT INTO profesional (email, password)
-                VALUES ('$this->correo', '$this->pass');";
+        $sql = "INSERT INTO profesional (email, password, db_name)
+                VALUES ('$this->correo', '$this->pass', '$this->dbName');";
         return $this->conn->query($sql);
 
     }

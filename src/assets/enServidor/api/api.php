@@ -5,9 +5,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $data = file_get_contents("php://input");
 $data = json_decode($data); // ,true
 
-$action =  $data->action;
-
 $executionStatus = TRUE;
+
+if (!array_key_exists('action', $data)) {
+    $executionStatus = FALSE;
+    $action = "fallo";
+}else{
+    $action =  $data->action;
+}
+
+
+
+
 
 switch ($action) {
 
@@ -22,7 +31,6 @@ switch ($action) {
         break;
 
 }
-
 
 echo $executionStatus;
 $conn->close();
@@ -54,9 +62,6 @@ function creaProfesional($conn, $data){
     return $profesional->createSpace();
 
 }
-
-
-
 
 
 

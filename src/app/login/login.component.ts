@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DaoService } from '../dao/dao.service';
 import {Router} from '@angular/router';
 
+import { Profesional } from '../model/profesional';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,11 +23,13 @@ export class LoginComponent implements OnInit {
 
     this.daoService.login(this.email, this.password).subscribe(
       R => {
+        let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
+        console.log(profesional);
         if (!R) {
           this.valido = false;
 
         } else {
-          this.route.navigate(['/nuevoProfesional']);
+          this.route.navigate(['.']); ////// CAmbiar a su ruta correcta, está aqui por debug
         }
       }
       );
