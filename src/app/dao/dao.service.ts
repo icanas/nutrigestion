@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Profesional } from '../actores/profesional';
+import { Profesional } from '../model/profesional';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +42,7 @@ export class DaoService {
 
      };
       console.log(credentials);
-      return this.http.post<boolean>(Url, credentials);
+      return this.http.post<Profesional>(Url, credentials);
     }
 
 

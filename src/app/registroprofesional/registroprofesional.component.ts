@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DaoService } from '../dao/dao.service';
-import { Profesional } from '../actores/profesional';
 import {Router} from '@angular/router';
+
+import { DaoService } from '../dao/dao.service';
+import { Profesional } from '../model/profesional';
 
 @Component({
   selector: 'app-registroprofesional',
