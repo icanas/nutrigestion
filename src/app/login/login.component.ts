@@ -23,12 +23,18 @@ export class LoginComponent implements OnInit {
 
     this.daoService.login(this.email, this.password).subscribe(
       R => {
-        let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
+        // let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
         console.log(profesional);
         if (!R) {
           this.valido = false;
 
-        } else {
+        } else {  // Login correcto, devuelve al profesional
+          let profesional = new Profesional();
+          profesional.nombre = R.nombre;
+          profesional.apellido = R.apellido;
+          profesional.email = R.email;
+          profesional.id = R.id;
+          profesional.dbName = R.dbName;
           this.route.navigate(['.']); ////// CAmbiar a su ruta correcta, está aqui por debug
         }
       }
