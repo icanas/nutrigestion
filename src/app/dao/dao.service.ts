@@ -4,6 +4,7 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Profesional } from '../model/profesional';
+import { Paciente } from '../model/paciente';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,8 @@ export class DaoService {
       const Url = 'http://localhost/api/api.php';
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
+      console.log(profesionalParse);
+      return;
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
@@ -41,6 +44,19 @@ export class DaoService {
 
      };
       return this.http.post<Profesional>(Url, credentials);
+    }
+
+    insertaPaciente(profesional: Profesional, paciente: Paciente): Observable<boolean> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'insertaPaciente',
+        Profesional: profesional,
+        Paciente: paciente
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
     }
 
 

@@ -3,4 +3,5 @@ export class Paciente {
     nombre: string;
     apellido: string;
     email: string;
+    password: string;
   }

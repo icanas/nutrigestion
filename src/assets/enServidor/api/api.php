@@ -28,6 +28,11 @@ switch ($action) {
     $executionStatus = validateCode($conn, $data);
         break;
 
+    case 'insertaPaciente':
+
+    $executionStatus = insertaPaciente($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -57,17 +62,18 @@ function creaProfesional($conn, $data){
     $profesional = new Profesional($conn, $data);
     $succes = $profesional->newProfessional();
     if (!$succes) return FALSE;
-    return $profesional->createSpace();
+    return $profesional->createSpace($conn);
 
 }
 
 
 function insertaPaciente($conn, $data){
-
-    $profesional = new Profesional($conn, $data);
-    $succes = $profesional->newProfessional();
+    $profesionalData = $data->Profesional;
+    $paciente = $data->Paciente;
+    $profesional = new Profesional($conn, $profesionalData);
+    $succes = $profesional->newPaciente($paciente);
     if (!$succes) return FALSE;
-    return $profesional->createSpace();
+    return TRUE;
 
 }
 

@@ -1,25 +1,34 @@
 <?php
 
 class Profesional {
-    private $correo;
+    private $email;
     private $pass;
     private $conn;
     private $dbName;
 
 
     function __construct($conn, $data) {
-        $this->correo = $data->correo;
-        $this->pass = $data->pass;
+        $this->email = $data->email;
         $this->conn = $conn;
-        $correoTrim = str_replace("@","",$this->correo);
-        $correoTrim = str_replace(".","",$correoTrim);
-        $this->dbName = $correoTrim;
+
+        if (array_key_exists('password', $data)) {
+            $this->pass = $data->pass;
+        }
+
+        if (array_key_exists('dbName', $data)) {
+            $this->dbName = $data->dbName;
+            $this->conn->select_db($this->dbName);
+        }
 
     }
 
-    function createSpace(){
+    function createSpace($conn){
 
-        //creo la base de datos con el nombre del correo
+        $this->conn = $conn;
+        $correoTrim = str_replace("@","",$this->email);
+        $correoTrim = str_replace(".","",$correoTrim);
+        $this->dbName = $correoTrim;
+
         $sql = "CREATE DATABASE $this->dbName;";
 
         $executionStatus = $this->conn->query($sql);
@@ -45,8 +54,13 @@ class Profesional {
 
     function newProfessional(){ // inserta un  nuevo profesional en db
 
-        $sql = "INSERT INTO profesional (email, password, db_name)
-                VALUES ('$this->correo', '$this->pass', '$this->dbName');";
+        $correoTrim = str_replace("@","",$this->email);
+        $correoTrim = str_replace(".","",$correoTrim);
+        $this->dbName = $correoTrim;
+
+        $sql = "INSERT INTO profesional (email, password, dbName)
+                VALUES ('$this->email', '$this->pass', '$this->dbName');";
+
         return $this->conn->query($sql);
 
     }
@@ -55,6 +69,7 @@ class Profesional {
 
         $sql = "INSERT INTO paciente (nombre, email, password)
                 VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password');";
+
         return $this->conn->query($sql);
 
     }

@@ -19,27 +19,20 @@ export class PrincipalComponent implements OnInit {
 
   private profesional: Profesional;
   nuevoPaciente: Paciente = new Paciente();
-  a: string;
+
 
 
 
   insertaPaciente() {
 
-    this.daoService.login(this.a, this.a).subscribe(
+    this.daoService.insertaPaciente(this.profesional, this.nuevoPaciente).subscribe(
       R => {
         // let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
         if (!R) {
 
 
         } else {  // Login correcto, devuelve al profesional
-          const profesional = new Profesional();
-          profesional.nombre = R.nombre;
-          profesional.apellido = R.apellido;
-          profesional.email = R.email;
-          profesional.id = R.id;
-          profesional.dbName = R.dbName;
-          this.messenger.sendProfesional(profesional);
-          // this.route.navigate(['principal']); ////// Cambiar a su ruta correcta, está aqui por debug
+
         }
       }
       );
