@@ -1,3 +1,20 @@
 <p>
   {{profesional.nombre}}
 </p>
+
+  <div style="text-align:center">
+    <h1>
+
+    </h1>
+    <div>
+      <label>Nombre:
+        <input [(ngModel)] = nuevoPaciente.nombre >
+      </label> <br>
+      <label>email:
+        <input [(ngModel)] = nuevoPaciente.email >
+      </label> <br>
+      <button (click)="insertaPaciente()">Crear</button><br>
+
+    </div>
+
+  </div>

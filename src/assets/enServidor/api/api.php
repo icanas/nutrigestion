@@ -16,8 +16,6 @@ if (!array_key_exists('action', $data)) {
 
 
 
-
-
 switch ($action) {
 
     case 'creaProfesional':
@@ -55,6 +53,16 @@ function validateCode($conn, $data){
 
 
 function creaProfesional($conn, $data){
+
+    $profesional = new Profesional($conn, $data);
+    $succes = $profesional->newProfessional();
+    if (!$succes) return FALSE;
+    return $profesional->createSpace();
+
+}
+
+
+function insertaPaciente($conn, $data){
 
     $profesional = new Profesional($conn, $data);
     $succes = $profesional->newProfessional();

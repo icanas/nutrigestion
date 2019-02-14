@@ -43,13 +43,22 @@ class Profesional {
 
     }
 
-    function newProfessional(){
+    function newProfessional(){ // inserta un  nuevo profesional en db
 
         $sql = "INSERT INTO profesional (email, password, db_name)
                 VALUES ('$this->correo', '$this->pass', '$this->dbName');";
         return $this->conn->query($sql);
 
     }
+
+    function newPaciente($paciente){
+
+        $sql = "INSERT INTO paciente (nombre, email, password)
+                VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password');";
+        return $this->conn->query($sql);
+
+    }
+
 }
 
 ?>
