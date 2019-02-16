@@ -24,13 +24,13 @@ export class PacientesListComponent implements OnInit {
   getPacientesList() {
     this.daoService.getPacientesList(this.profesional).subscribe(
       R => {
-
+        console.log(R);
       }
     );
   }
 
   ngOnInit() {
-    console.log(this.profesional.nombre);
+    this.getPacientesList();
   }
 
 }
