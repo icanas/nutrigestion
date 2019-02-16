@@ -1,7 +1,5 @@
-<p>
+<div *ngIf="autorizado">
   {{profesional.nombre}}
-</p>
-
   <div style="text-align:center">
     <h1>
 
@@ -21,3 +19,8 @@
     </div>
 
   </div>
+</div>
+
+<div *ngIf="!autorizado">
+  No Autorizado
+</div>

@@ -18,6 +18,7 @@ export class PrincipalComponent implements OnInit {
   ) { }
 
   private profesional: Profesional = new Profesional();
+  private autorizado = false;
   nuevoPaciente: Paciente = new Paciente();
 
 
@@ -27,7 +28,7 @@ export class PrincipalComponent implements OnInit {
 
     this.daoService.insertaPaciente(this.profesional, this.nuevoPaciente).subscribe(
       R => {
-        // let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
+
         if (!R) {
 
 
@@ -43,12 +44,12 @@ export class PrincipalComponent implements OnInit {
   getProfesional() {
     const token = sessionStorage.getItem('token');
     this.daoService.getProfesional(token).subscribe(R => {
-      console.log(R);
       if (!R) {  // Fracaso
-
+        this.autorizado = false;
       } else {  // Exito
-        console.log(R.nombre);
+        this.autorizado = true;
         this.profesional.nombre = R.nombre;
+        this.profesional.email = R.email;
       }
     });
   }

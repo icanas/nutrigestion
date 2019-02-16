@@ -4,4 +4,5 @@ export class Paciente {
     apellido: string;
     email: string;
     password: string;
+    emailProfesional: string;
   }

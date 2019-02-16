@@ -30,7 +30,7 @@ switch ($action) {
 
     case 'insertaPaciente':
 
-    $executionStatus = insertaPaciente($conn, $data);
+    $executionStatus = insertPaciente($conn, $data);
         break;
 
     case 'isLogin':
@@ -77,11 +77,13 @@ function creaProfesional($conn, $data){
 }
 
 
-function insertaPaciente($conn, $data){
-    $profesionalData = $data->Profesional;
+function insertPaciente($conn, $data){
     $paciente = $data->Paciente;
-    $profesional = new Profesional($conn, $profesionalData);
-    $succes = $profesional->newPaciente($paciente);
+    $profesional = $data->Profesional;
+    $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional)
+                VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password', '$profesional->email');";
+    $succes = $conn->query($sql);
+
     if (!$succes) return FALSE;
     return TRUE;
 

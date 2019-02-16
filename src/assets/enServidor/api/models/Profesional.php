@@ -34,13 +34,6 @@ class Profesional {
 
     }
 
-    function getProfesional($token){
-
-        $sql = "SELECT * FROM profesional WHERE token = $token;";
-
-        return $this->conn->query($sql);
-
-    }
 
 }
 

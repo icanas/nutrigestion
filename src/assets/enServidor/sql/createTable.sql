@@ -26,6 +26,7 @@ create table paciente(
     email varchar(60) primary key,
     password varchar(64),
     activo bit,
+    emailProfesional varchar(60),
     salt varchar(60) null,
     token varchar (60) null,
     ultimaconexion date null
