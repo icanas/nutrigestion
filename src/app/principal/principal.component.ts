@@ -31,9 +31,10 @@ export class PrincipalComponent implements OnInit {
 
         if (!R) {
 
+          alert('Error');
 
         } else {  // Login correcto, devuelve al profesional
-
+          window.location.reload();
         }
       }
       );

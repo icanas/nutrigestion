@@ -21,10 +21,12 @@ export class PacientesListComponent implements OnInit {
   listaPacientes: Paciente[];
 
 
+
   getPacientesList() {
     this.daoService.getPacientesList(this.profesional).subscribe(
       R => {
         console.log(R);
+        this.listaPacientes = R;
       }
     );
   }

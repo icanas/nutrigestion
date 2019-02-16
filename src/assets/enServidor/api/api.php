@@ -108,17 +108,15 @@ function getProfesional($conn, $data){
 
 function getPacientesList($conn, $data){
 
-    $paciente = $data->Paciente;
-    $sql = "SELECT * FROM profesional WHERE emailProfesional = '$paciente->emailProfesional';";
+    $profesional = $data->Profesional;
+    $sql = "SELECT * FROM paciente WHERE emailProfesional = '$profesional->email';";
     $result =  $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
+        $json[] = $row;
     }
 
-    var_dump($row);
-    die();
-
-    return json_encode($result);
+    return json_encode($json);
 
 
 }
