@@ -30,8 +30,6 @@ export class DaoService {
       const Url = 'http://localhost/api/api.php';
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
-      console.log(profesionalParse);
-      return;
       return this.http.post<boolean>(Url, profesionalParse);
     }
 

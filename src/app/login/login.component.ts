@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           profesional.apellido = R.apellido;
           profesional.email = R.email;
           profesional.id = R.id;
-          profesional.dbName = R.dbName;
+          sessionStorage.setItem('token', R.token);
           this.messenger.sendProfesional(profesional);
           this.route.navigate(['principal']); ////// Cambiar a su ruta correcta, está aqui por debug
         }
