@@ -33,6 +33,16 @@ switch ($action) {
     $executionStatus = insertaPaciente($conn, $data);
         break;
 
+    case 'isLogin':
+
+    $executionStatus = isLogin($conn, $data);
+        break;
+
+    case 'getProfesional':
+
+    $executionStatus = getProfesional($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -62,7 +72,7 @@ function creaProfesional($conn, $data){
     $profesional = new Profesional($conn, $data);
     $succes = $profesional->newProfessional();
     if (!$succes) return FALSE;
-    return $profesional->createSpace($conn);
+    return true;
 
 }
 
@@ -77,6 +87,16 @@ function insertaPaciente($conn, $data){
 
 }
 
+
+function getProfesional($conn, $data){
+    $token = $data->token;
+    $sql = "SELECT * FROM profesional WHERE token = $token;";
+    $result =  $conn->query($sql)->fetch_assoc();
+
+    return json_encode($result);
+
+
+}
 
 
 

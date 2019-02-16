@@ -17,7 +17,7 @@ export class PrincipalComponent implements OnInit {
     private daoService: DaoService,
   ) { }
 
-  private profesional: Profesional;
+  private profesional: Profesional = new Profesional();
   nuevoPaciente: Paciente = new Paciente();
 
 
@@ -40,8 +40,22 @@ export class PrincipalComponent implements OnInit {
   }
 
 
+  getProfesional() {
+    const token = sessionStorage.getItem('token');
+    this.daoService.getProfesional(token).subscribe(R => {
+      console.log(R);
+      if (!R) {  // Fracaso
+
+      } else {  // Exito
+        console.log(R.nombre);
+        this.profesional.nombre = R.nombre;
+      }
+    });
+  }
+
+
   ngOnInit() {
-    this.profesional = this.messenger.getProfesional();
+    this.getProfesional();
   }
 
 }

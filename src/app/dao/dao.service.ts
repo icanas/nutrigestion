@@ -44,6 +44,17 @@ export class DaoService {
       return this.http.post<Profesional>(Url, credentials);
     }
 
+    getProfesional(token2: string): Observable<Profesional>{
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'getProfesional',
+        token: token2
+
+     };
+      return this.http.post<Profesional>(Url, cadena);
+    }
+
     insertaPaciente(profesional: Profesional, paciente: Paciente): Observable<boolean> {
       const Url = 'http://localhost/api/api.php';
 
