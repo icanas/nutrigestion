@@ -1,8 +1,9 @@
 <p>
   pacientes-list
 
-  <li *ngFor="let listaPacientes of listaPacientes">
-    <span >{{listaPacientes.nombre}}</span>
+  <li *ngFor="let paciente of listaPacientes"
+      (click)="verDetalle(paciente)">
+    <span >{{paciente.nombre}}</span>
   </li><br>
 
 

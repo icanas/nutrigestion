@@ -10,6 +10,7 @@ import { InsertcodeComponent } from './insertcode/insertcode.component';
 import { RegistroprofesionalComponent } from './registroprofesional/registroprofesional.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { PacientesListComponent } from './pacientes-list/pacientes-list.component';
+import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PacientesListComponent } from './pacientes-list/pacientes-list.componen
     InsertcodeComponent,
     RegistroprofesionalComponent,
     PrincipalComponent,
-    PacientesListComponent
+    PacientesListComponent,
+    PacienteDetailComponent
   ],
   imports: [
     BrowserModule,

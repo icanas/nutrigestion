@@ -77,7 +77,6 @@ export class DaoService {
 
      };
 
-      console.log(JSON.stringify(cadena));
       return this.http.post<Paciente[]>(Url, cadena);
     }
 
