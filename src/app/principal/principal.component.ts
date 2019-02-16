@@ -17,7 +17,7 @@ export class PrincipalComponent implements OnInit {
     private daoService: DaoService,
   ) { }
 
-  private profesional: Profesional = new Profesional();
+  profesional: Profesional = new Profesional();
   private autorizado = false;
   nuevoPaciente: Paciente = new Paciente();
 

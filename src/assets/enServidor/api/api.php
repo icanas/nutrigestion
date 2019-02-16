@@ -43,6 +43,11 @@ switch ($action) {
     $executionStatus = getProfesional($conn, $data);
         break;
 
+    case 'getPacientesList':
+
+    $executionStatus = getPacientesList($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -94,6 +99,24 @@ function getProfesional($conn, $data){
     $token = $data->token;
     $sql = "SELECT * FROM profesional WHERE token = $token;";
     $result =  $conn->query($sql)->fetch_assoc();
+
+    return json_encode($result);
+
+
+}
+
+
+function getPacientesList($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM profesional WHERE emailProfesional = '$paciente->emailProfesional';";
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+    }
+
+    var_dump($row);
+    die();
 
     return json_encode($result);
 

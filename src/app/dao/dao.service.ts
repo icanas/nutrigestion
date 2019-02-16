@@ -68,4 +68,16 @@ export class DaoService {
     }
 
 
+    getPacientesList(profesional: Profesional): Observable<Paciente[]> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'getPacientesList',
+        Profesional: profesional,
+
+     };
+      return this.http.post<Paciente[]>(Url, cadena);
+    }
+
+
   }
