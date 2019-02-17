@@ -12,6 +12,9 @@ import { PrincipalComponent } from './principal/principal.component';
 import { PacientesListComponent } from './pacientes-list/pacientes-list.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { PacienteDetailComponent } from './paciente-detail/paciente-detail.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Aqui esta el modulo NgModel
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

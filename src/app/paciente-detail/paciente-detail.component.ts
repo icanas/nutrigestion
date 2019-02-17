@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 import { Paciente } from '../model/paciente';
 import { MessengerService } from '../services/messenger.service';
@@ -14,12 +15,15 @@ export class PacienteDetailComponent implements OnInit {
     private messenger: MessengerService,
   ) { }
 
+  
   paciente: Paciente;
+  fecha: Date;
 
 
 
   ngOnInit() {
     this.paciente = this.messenger.getPaciente();
+
   }
 
 }
