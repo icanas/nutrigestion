@@ -48,6 +48,11 @@ switch ($action) {
     $executionStatus = getPacientesList($conn, $data);
         break;
 
+    case 'addCita':
+
+    $executionStatus = addCita($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -117,6 +122,22 @@ function getPacientesList($conn, $data){
     }
 
     return json_encode($json);
+
+
+}
+
+
+function addCita($conn, $data){
+    $paciente = $data->Paciente;
+    $cita = $data->Cita;
+    $timezone = ",'+00:00','+01:00'";
+
+    $sql = "INSERT INTO cita (email, fecha_cita, activo)
+                VALUES ('$paciente->email', CONVERT_TZ('$cita->fecha'$timezone), 1);";
+
+    $result =  $conn->query($sql);
+    if (!$result) return FALSE;
+    return TRUE;
 
 
 }

@@ -21,12 +21,18 @@ export class PacienteDetailComponent implements OnInit {
   paciente: Paciente;
   cita: Cita = new Cita();
   fecha: Date;
+  hora: number;
+  minuto: number;
 
 
 
   addCita() {
 
+    this.fecha.setHours(this.hora);
+    this.fecha.setMinutes(this.minuto);
+    this.fecha.setSeconds(0);
     this.cita.fecha = this.fecha;
+
     this.daoService.addCita(this.paciente, this.cita).subscribe(
       R => {
 
@@ -43,6 +49,8 @@ export class PacienteDetailComponent implements OnInit {
 
 
   ngOnInit() {
+    this.hora = 12;
+    this.minuto = 0;
     this.paciente = this.messenger.getPaciente();
 
   }

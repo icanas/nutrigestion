@@ -4,10 +4,10 @@
 			"path": "src"
 		},
 		{
-			"path": "C:\\xampp\\htdocs\\api"
+			"path": "/Applications/XAMPP/xamppfiles/htdocs/api"
 		},
 		{
-			"path": "C:\\xampp\\htdocs\\sql"
+			"path": "/Applications/XAMPP/xamppfiles/htdocs/sql"
 		}
 	]
 }

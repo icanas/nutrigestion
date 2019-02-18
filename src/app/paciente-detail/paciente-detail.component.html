@@ -3,7 +3,11 @@
   <h2>{{paciente.nombre}}</h2>
 
 
-  <input type="text" placeholder="29/01/2020" class="form-control, center-div" bsDatepicker [(ngModel)] = fecha><br>
+  <input type="text" placeholder="Fecha" class="form-control, center-div" bsDatepicker [(ngModel)] = fecha><br>
+  <div>
+    <input type="number" id="hora" min="8" max="20" [(ngModel)] = hora /> :
+    <input type="number" id="min" min="0" max="60" [(ngModel)] = minuto>
+  </div>
   <button (click)="addCita()" type="button" class="btn btn-success">Nueva Cita</button>
 
 

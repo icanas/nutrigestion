@@ -47,11 +47,8 @@ create table anatomia(
 
 create table cita(
 
-    email varchar(60) primary key,
-    fecha_cita date,
-    activo bit,
-
-     FOREIGN KEY (email) REFERENCES paciente(email)
-            ON DELETE CASCADE
+    email varchar(60),
+    fecha_cita datetime,
+    activo bit
 
 )
