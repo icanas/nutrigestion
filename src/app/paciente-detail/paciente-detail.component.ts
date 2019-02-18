@@ -51,7 +51,7 @@ export class PacienteDetailComponent implements OnInit {
   ngOnInit() {
     this.hora = 12;
     this.minuto = 0;
-    this.paciente = this.messenger.getPaciente();
+    this.paciente = JSON.parse(localStorage.getItem('Paciente'));
 
   }
 

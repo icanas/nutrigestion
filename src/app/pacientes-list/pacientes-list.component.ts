@@ -26,6 +26,8 @@ export class PacientesListComponent implements OnInit {
 
 
   verDetalle(paciente: Paciente) {
+    localStorage.removeItem('Paciente');
+    localStorage.setItem('Paciente', JSON.stringify(paciente));
     this.messenger.sendPaciente(paciente);
     this.route.navigate(['detallePaciente']);
 
