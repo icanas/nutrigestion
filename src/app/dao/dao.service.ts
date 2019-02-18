@@ -93,6 +93,17 @@ export class DaoService {
       return this.http.post<Cita[]>(Url, cadena);
     }
 
+    cancelCita(cita: Cita): Observable<boolean> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'cancelCita',
+        Cita: cita
+     };
+      // console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
+    }
+
     getCitaPacienteAll(paciente: Paciente): Observable<Cita[]> {
       const Url = 'http://localhost/api/api.php';
 

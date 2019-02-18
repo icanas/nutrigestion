@@ -50,6 +50,21 @@ export class PacienteDetailComponent implements OnInit {
 
   }
 
+  cancelCita(cita: Cita) {
+
+    this.daoService.cancelCita(cita).subscribe(
+      R => {
+        if (!R) {
+          alert('Imposible eliminar la cita');
+        } else {
+          alert('Cita cancelada');
+          window.location.reload();
+        }
+      }
+    );
+
+  }
+
   getCitaPacienteAll() {
 
     this.daoService.getCitaPacienteAll(this.paciente).subscribe(
@@ -80,6 +95,7 @@ export class PacienteDetailComponent implements OnInit {
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
     this.getCitaPacienteActiva();
+    console.log(this.citas);
 
   }
 

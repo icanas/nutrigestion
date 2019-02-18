@@ -63,6 +63,11 @@ switch ($action) {
     $executionStatus = getCitaPacienteActiva($conn, $data);
         break;
 
+    case 'cancelCita':
+
+    $executionStatus = cancelCita($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -151,6 +156,22 @@ function addCita($conn, $data){
                 VALUES ('$paciente->email', CONVERT_TZ('$cita->fecha'$timezone), 1);";
 
     $result =  $conn->query($sql);
+    if (!$result) return FALSE;
+    return TRUE;
+
+
+}
+
+
+function cancelCita($conn, $data){
+
+    $cita = $data->Cita;
+
+    $sql = "UPDATE cita SET activo = 0
+            WHERE email = '$cita->email'
+            and fecha_cita = '$cita->fecha_cita';";
+    $result =  $conn->query($sql);
+
     if (!$result) return FALSE;
     return TRUE;
 
