@@ -2,11 +2,11 @@
 
   <h2>{{paciente.nombre}}</h2>
 
-  
-  <input type="text" placeholder="29/01/2020" class="form-control, center-div" bsDatepicker>
+
+  <input type="text" placeholder="29/01/2020" class="form-control, center-div" bsDatepicker [(ngModel)] = fecha><br>
+  <button (click)="addCita()" type="button" class="btn btn-success">Nueva Cita</button>
 
 
-  
 
 
 </div>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
+import { Cita } from '../model/cita';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +79,18 @@ export class DaoService {
      };
 
       return this.http.post<Paciente[]>(Url, cadena);
+    }
+
+    addCita(paciente: Paciente, cita: Cita): Observable<Cita[]> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'addCita',
+        Paciente: paciente,
+        Cita: cita
+     };
+
+      return this.http.post<Cita[]>(Url, cadena);
     }
 
 
