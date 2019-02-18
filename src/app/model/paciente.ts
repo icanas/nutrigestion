@@ -1,3 +1,5 @@
+import { Cita } from '../model/cita';
+
 export class Paciente {
     id: number;
     nombre: string;
@@ -5,4 +7,6 @@ export class Paciente {
     email: string;
     password: string;
     emailProfesional: string;
+    cita: Cita;
+
   }

@@ -9,6 +9,11 @@
     <input type="number" id="min" min="0" max="60" [(ngModel)] = minuto>
   </div>
   <button (click)="addCita()" type="button" class="btn btn-success">Nueva Cita</button>
+  <br>
+  <br>
+  <li *ngFor="let cita of citas">
+    <span >{{cita.fecha_cita}} </span>
+  </li><br>
 
 
 

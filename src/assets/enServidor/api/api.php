@@ -53,6 +53,11 @@ switch ($action) {
     $executionStatus = addCita($conn, $data);
         break;
 
+    case 'getCitaPacienteAll':
+
+    $executionStatus = getCitaPacienteAll($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -138,6 +143,25 @@ function addCita($conn, $data){
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;
+
+
+}
+
+function getCitaPacienteAll($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM cita WHERE email = '$paciente->email';";
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
 
 
 }
