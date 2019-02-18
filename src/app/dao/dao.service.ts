@@ -89,7 +89,7 @@ export class DaoService {
         Paciente: paciente,
         Cita: cita
      };
-
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Cita[]>(Url, cadena);
     }
 
@@ -103,6 +103,18 @@ export class DaoService {
      };
 
       return this.http.post<Cita[]>(Url, cadena);
+    }
+
+    getCitaPacienteActiva(paciente: Paciente): Observable<Cita> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'getCitaPacienteActiva',
+        Paciente: paciente
+
+     };
+      // console.log(JSON.stringify(cadena));
+      return this.http.post<Cita>(Url, cadena);
     }
 
 

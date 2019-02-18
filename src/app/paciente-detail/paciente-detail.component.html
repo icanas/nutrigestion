@@ -11,10 +11,16 @@
   <button (click)="addCita()" type="button" class="btn btn-success">Nueva Cita</button>
   <br>
   <br>
+  Todas
+  <br>
   <li *ngFor="let cita of citas">
     <span >{{cita.fecha_cita}} </span>
   </li><br>
-
+  Activas
+  <br>
+  <li>
+    <span >{{citaActiva.fecha_cita}} </span>
+  </li><br>
 
 
 

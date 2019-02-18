@@ -22,6 +22,7 @@ export class PacienteDetailComponent implements OnInit {
   paciente: Paciente;
   cita: Cita = new Cita();
   citas: Cita[];
+  citaActiva: Cita = new Cita();
   fecha: Date;
   hora: number;
   minuto: number;
@@ -60,6 +61,17 @@ export class PacienteDetailComponent implements OnInit {
   }
 
 
+  getCitaPacienteActiva() {
+
+    this.daoService.getCitaPacienteActiva(this.paciente).subscribe(
+      R => {
+        this.citaActiva = R;
+      }
+    );
+
+  }
+
+
 
   ngOnInit() {
     this.hora = 12;
@@ -67,6 +79,7 @@ export class PacienteDetailComponent implements OnInit {
     // El paciente esta en localStorage
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
+    this.getCitaPacienteActiva();
 
   }
 

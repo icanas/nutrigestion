@@ -58,6 +58,11 @@ switch ($action) {
     $executionStatus = getCitaPacienteAll($conn, $data);
         break;
 
+    case 'getCitaPacienteActiva':
+
+    $executionStatus = getCitaPacienteActiva($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -137,6 +142,11 @@ function addCita($conn, $data){
     $cita = $data->Cita;
     $timezone = ",'+00:00','+01:00'";
 
+    $sql = "UPDATE cita SET activo = 0
+            WHERE email = '$paciente->email';";
+
+    $result =  $conn->query($sql);
+
     $sql = "INSERT INTO cita (email, fecha_cita, activo)
                 VALUES ('$paciente->email', CONVERT_TZ('$cita->fecha'$timezone), 1);";
 
@@ -162,6 +172,23 @@ function getCitaPacienteAll($conn, $data){
     }
 
     return json_encode($json);
+
+
+}
+
+function getCitaPacienteActiva($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM cita WHERE email = '$paciente->email'
+                                and activo = 1;";
+    $result =  $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($row);
 
 
 }
