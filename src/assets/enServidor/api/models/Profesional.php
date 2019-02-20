@@ -17,9 +17,11 @@ class Profesional {
 
         $correoTrim = str_replace("@","",$this->email);
         $correoTrim = str_replace(".","",$correoTrim);
+        
+        $token = sha1($this->email. $this->pass. $correoTrim);
 
-        $sql = "INSERT INTO profesional (email, password)
-                VALUES ('$this->email', '$this->pass');";
+        $sql = "INSERT INTO profesional (email, password, activo, token)
+                VALUES ('$this->email', '$this->pass', 1, '$token');";
 
         return $this->conn->query($sql);
 

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           profesional.email = R.email;
           profesional.id = R.id;
           sessionStorage.setItem('token', R.token);
-          this.messenger.sendProfesional(profesional);
+          // this.messenger.sendProfesional(profesional);
           this.route.navigate(['principal']);
 
         } else if (R.rol === 'paciente') {  // Login correcto, devuelve al paciente

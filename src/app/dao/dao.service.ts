@@ -31,6 +31,7 @@ export class DaoService {
       const Url = 'http://localhost/api/api.php';
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
+
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
@@ -42,7 +43,6 @@ export class DaoService {
         password: pass
 
      };
-      // console.log(JSON.stringify(credentials));
       return this.http.post<any>(Url, credentials);
     }
 
@@ -54,6 +54,7 @@ export class DaoService {
         token: token2
 
      };
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Profesional>(Url, cadena);
     }
 
