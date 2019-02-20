@@ -95,7 +95,6 @@ export class PacienteDetailComponent implements OnInit {
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
     this.getCitaPacienteActiva();
-    console.log(this.citas);
 
   }
 
