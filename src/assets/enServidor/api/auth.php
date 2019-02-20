@@ -14,8 +14,34 @@ $sql = "SELECT * FROM profesional where email = '$email';";
 $result = $conn->query($sql);
 $fetch = $result->fetch_assoc(); //Tengo en fetch la respuesta de db
 
-if ($passUser == $fetch["password"]){ //loginCorrecto
-    echo json_encode($fetch);
-} else {
+if( $result->num_rows == 1){ //Es un email profesional
+
+    if ($passUser == $fetch["password"]){ //loginCorrecto
+        $fetch["rol"] = "profesional";      //Le paso el rol que tiene el login
+        echo json_encode($fetch);
+        return;
+    } else {
+        return false;
+    }
+
+}
+
+$sql = "SELECT * FROM paciente where email = '$email';";
+$result = $conn->query($sql);
+$fetch = $result->fetch_assoc();
+
+if( $result->num_rows == 1){ //Es un email paciente
+
+    if ($passUser == $fetch["password"]){
+        $fetch["rol"] = "paciente";
+        echo json_encode($fetch);
+        return;
+    } else {
+        return false;
+    }
+
+}else{
+
     return false;
+
 }

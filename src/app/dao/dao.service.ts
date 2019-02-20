@@ -34,7 +34,7 @@ export class DaoService {
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
-    login(user: string, pass: string): Observable<Profesional> {
+    login(user: string, pass: string): Observable<any> {
       const Url = 'http://localhost/api/auth.php';
 
       const credentials = {
@@ -42,7 +42,7 @@ export class DaoService {
         password: pass
 
      };
-      return this.http.post<Profesional>(Url, credentials);
+      return this.http.post<any>(Url, credentials);
     }
 
     getProfesional(token2: string): Observable<Profesional> {

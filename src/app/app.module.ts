@@ -11,8 +11,11 @@ import { RegistroprofesionalComponent } from './registroprofesional/registroprof
 import { PrincipalComponent } from './principal/principal.component';
 import { PacientesListComponent } from './pacientes-list/pacientes-list.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
+import { PrincipalPacienteComponent } from './principal-paciente/principal-paciente.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     RegistroprofesionalComponent,
     PrincipalComponent,
     PacientesListComponent,
-    PacienteDetailComponent
+    PacienteDetailComponent,
+    PrincipalPacienteComponent
   ],
   imports: [
     BrowserModule,
