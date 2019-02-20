@@ -111,8 +111,11 @@ function creaProfesional($conn, $data){
 function insertPaciente($conn, $data){
     $paciente = $data->Paciente;
     $profesional = $data->Profesional;
-    $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional)
-                VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password', '$profesional->email');";
+
+    $token = sha1($paciente->nombre. $profesional->email);
+
+    $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional, activo, token)
+                VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
     $succes = $conn->query($sql);
 
     if (!$succes) return FALSE;
@@ -133,7 +136,7 @@ function getProfesional($conn, $data){
 
 function getPaciente($conn, $data){
     $token = $data->token;
-    $sql = "SELECT * FROM paciente WHERE token = $token;";
+    $sql = "SELECT * FROM paciente WHERE token = '$token';";
     $result =  $conn->query($sql)->fetch_assoc();
 
     return json_encode($result);
@@ -148,6 +151,7 @@ function getPacientesList($conn, $data){
     $sql = "SELECT * FROM paciente WHERE emailProfesional = '$profesional->email';";
     $result =  $conn->query($sql);
 
+
     while($row = $result->fetch_assoc()){
         $json[] = $row;
     }
@@ -156,7 +160,8 @@ function getPacientesList($conn, $data){
         return false;
     }
 
-    return json_encode($json);
+    $salida = json_encode($json);
+    return $salida;
 
 
 }
