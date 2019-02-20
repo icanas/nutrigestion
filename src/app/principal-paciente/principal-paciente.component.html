@@ -1,3 +1,15 @@
-<p>
-  principal-paciente works!
-</p>
+<div *ngIf="autorizado">
+
+  <div style="text-align:center">
+
+  {{paciente.nombre}}<br>
+  {{paciente.email}}<br>
+  {{paciente.emailProfesional}}<br>
+
+
+  </div>
+</div>
+
+<div *ngIf="!autorizado">
+  No Autorizado
+</div>

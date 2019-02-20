@@ -43,7 +43,13 @@ switch ($action) {
     $executionStatus = getProfesional($conn, $data);
         break;
 
+    case 'getPaciente':
+
+    $executionStatus = getPaciente($conn, $data);
+        break;
+
     case 'getPacientesList':
+
 
     $executionStatus = getPacientesList($conn, $data);
         break;
@@ -118,6 +124,16 @@ function insertPaciente($conn, $data){
 function getProfesional($conn, $data){
     $token = $data->token;
     $sql = "SELECT * FROM profesional WHERE token = $token;";
+    $result =  $conn->query($sql)->fetch_assoc();
+
+    return json_encode($result);
+
+
+}
+
+function getPaciente($conn, $data){
+    $token = $data->token;
+    $sql = "SELECT * FROM paciente WHERE token = $token;";
     $result =  $conn->query($sql)->fetch_assoc();
 
     return json_encode($result);

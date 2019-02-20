@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
     this.daoService.login(this.email, this.password).subscribe(
       R => {
-        console.log(R);
         // let profesional = Object.assign(new Profesional(), R);  // aqui tengo a mi profesional de la base de datos
         if (!R) {
           this.valido = false;

@@ -44,7 +44,8 @@ export class PrincipalComponent implements OnInit {
 
   getProfesional() {
     const token = sessionStorage.getItem('token');
-    this.daoService.getProfesional(token).subscribe(R => {
+    this.daoService.getProfesional(token).subscribe(
+      R => {
       if (!R) {  // Fracaso
         this.autorizado = false;
       } else {  // Exito
