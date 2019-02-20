@@ -2,10 +2,13 @@
 
   <div style="text-align:center">
 
-  {{paciente.nombre}}<br>
-  {{paciente.email}}<br>
-  {{paciente.emailProfesional}}<br>
-
+  Nombre: {{paciente.nombre}}<br>
+  Email: {{paciente.email}}<br>
+  profesional: {{paciente.emailProfesional}}<br>
+  <br>
+  <div *ngIf="proximaCita">
+    Proxima Cita: {{cita.fecha_cita}}
+  </div>
 
   </div>
 </div>

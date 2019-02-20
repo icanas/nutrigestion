@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Paciente } from '../model/paciente';
+import { Cita } from '../model/cita';
 import { DaoService } from '../dao/dao.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class PrincipalPacienteComponent implements OnInit {
   ) { }
 
   paciente: Paciente = new Paciente();
+  cita: Cita = new Cita();
   private autorizado = false;
+  private proximaCita = false;
 
 
 
@@ -29,10 +32,26 @@ export class PrincipalPacienteComponent implements OnInit {
         this.paciente.nombre = R.nombre;
         this.paciente.email = R.email;
         this.paciente.emailProfesional = R.emailProfesional;
+        this.getCitaPacienteActiva();
       }
     });
   }
 
+  getCitaPacienteActiva() {
+
+    this.daoService.getCitaPacienteActiva(this.paciente).subscribe(
+      R => {
+        if (!R) {
+          this.proximaCita = false;
+        } else {
+          this.proximaCita = true;
+          this.cita = R;
+        }
+
+      }
+    );
+
+  }
 
 
   ngOnInit() {
