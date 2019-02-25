@@ -142,5 +142,17 @@ export class DaoService {
       return this.http.post<Cita>(Url, cadena);
     }
 
+    desactivaPaciente(paciente: Paciente): Observable<boolean> {
+      const Url = 'http://localhost/api/api.php';
+
+      const cadena = {
+        action: 'desactivaPaciente',
+        Paciente: paciente
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
+    }
+
 
   }

@@ -65,6 +65,28 @@ export class PacienteDetailComponent implements OnInit {
 
   }
 
+  desactivarPaciente() {
+
+    const respuesta = prompt('Escribe "si" para confirmar la desactivacion del paciente');
+
+    if (respuesta === 'si') {
+
+      this.daoService.desactivaPaciente(this.paciente).subscribe(
+        R => {
+          if (!R) {
+            alert('Imposible eliminar paciente');
+          } else {
+            alert('Paciente desactivado');
+            this.route.navigate(['principal']);
+          }
+        }
+      );
+    } else {
+      alert('El paciente no se desactivará');
+    }
+
+  }
+
   getCitaPacienteAll() {
 
     this.daoService.getCitaPacienteAll(this.paciente).subscribe(

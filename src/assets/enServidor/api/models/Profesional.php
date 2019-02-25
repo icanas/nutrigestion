@@ -3,12 +3,14 @@
 class Profesional {
     private $email;
     private $pass;
+    private $nombre;
     private $conn;
 
     function __construct($conn, $data) {
         $this->email = $data->email;
         $this->conn = $conn;
         $this->pass = $data->pass;
+        $this->nombre = $data->nombre;
 
     }
 
@@ -17,11 +19,11 @@ class Profesional {
 
         $correoTrim = str_replace("@","",$this->email);
         $correoTrim = str_replace(".","",$correoTrim);
-        
+
         $token = sha1($this->email. $this->pass. $correoTrim);
 
-        $sql = "INSERT INTO profesional (email, password, activo, token)
-                VALUES ('$this->email', '$this->pass', 1, '$token');";
+        $sql = "INSERT INTO profesional (nombre, email, password, activo, token)
+                VALUES ('$this->nombre','$this->email', '$this->pass', 1, '$token');";
 
         return $this->conn->query($sql);
 

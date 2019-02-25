@@ -74,6 +74,11 @@ switch ($action) {
     $executionStatus = cancelCita($conn, $data);
         break;
 
+    case 'desactivaPaciente':
+
+    $executionStatus = desactivaPaciente($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -236,6 +241,30 @@ function getCitaPacienteActiva($conn, $data){
 
     return json_encode($row);
 
+
+}
+
+
+function desactivaPaciente($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "UPDATE paciente
+            SET activo = 0
+            WHERE email = '$paciente->email';";
+
+    $result =  $conn->query($sql);
+
+    if(!$result){
+        return false;
+    }else{  // Desactivo sus citas tambien
+
+        $sql = "UPDATE cita
+                SET activo = 0
+                WHERE email = '$paciente->email';";
+        $result =  $conn->query($sql);
+    }
+
+    return true;
 
 }
 
