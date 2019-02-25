@@ -119,8 +119,24 @@ function insertPaciente($conn, $data){
 
     $token = sha1($paciente->nombre. $profesional->email);
 
-    $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional, activo, token)
+    // Comprobar si ya existe, poner su bit a 1
+    $sql = "SELECT * FROM paciente
+            WHERE email = '$paciente->email' AND
+            emailProfesional = '$profesional->email';";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows === 0){   // Si no existe, lo creo
+
+        $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional, activo, token)
                 VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
+    } else{ // Si ya existe le coloco el bit a 1
+
+        $sql = "UPDATE paciente
+        SET activo = 1
+        WHERE email = '$paciente->email';";
+
+    }
+
     $succes = $conn->query($sql);
 
     if (!$succes) return FALSE;
