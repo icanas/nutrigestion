@@ -23,6 +23,8 @@ export class PacientesListComponent implements OnInit {
   @Input() profesional: Profesional;
 
   listaPacientes: Paciente[];
+  listaPacientesActivo: Paciente[] = [];
+  listaPacientesBaja: Paciente[] = [];
 
 
   verDetalle(paciente: Paciente) {
@@ -36,8 +38,20 @@ export class PacientesListComponent implements OnInit {
   getPacientesList() {
     this.daoService.getPacientesList(this.profesional).subscribe(
       R => {
-        console.log(R);
+
         this.listaPacientes = R;
+
+        this.listaPacientes.forEach(  // Separo los pacientes de baja de los activos
+          F => {
+            const aux: Paciente = F;
+            if (F.activo === '1') {
+              this.listaPacientesActivo.push(F);
+            } else {
+              this.listaPacientesBaja.push(F);
+            }
+          }
+        );
+
       }
     );
   }
@@ -47,3 +61,14 @@ export class PacientesListComponent implements OnInit {
   }
 
 }
+
+/*
+this.listaPacientesBaja = R;
+        this.listaPacientes[0].activo = R[0].activo;
+        this.listaPacientes[0].apellido = R[0].apellido;
+        this.listaPacientes[0].cita = R[0].cita;
+        this.listaPacientes[0].email = R[0].email;
+        this.listaPacientes[0].emailProfesional = R[0].emailProfesional;
+        this.listaPacientes[0].id = R[0].id;
+        this.listaPacientes[0].nombre = R[0].nombre;
+        */

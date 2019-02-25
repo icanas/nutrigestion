@@ -6,6 +6,17 @@
     <span >{{paciente.nombre}}</span>
   </li><br>
 
+  Pacientes Activos <br>
+  <li *ngFor="let paciente of listaPacientesActivo"
+  (click)="verDetalle(paciente)">
+<span >{{paciente.nombre}}</span>
+</li><br>
+
+Pacientes Baja <br>
+<li *ngFor="let paciente of listaPacientesBaja">
+<span id="baja">{{paciente.nombre}}</span>
+</li><br>
+
 
 
 </p>

@@ -7,6 +7,7 @@ export class Paciente {
     email: string;
     password: string;
     emailProfesional: string;
+    activo: string;
     cita: Cita;
 
   }
