@@ -1,0 +1,65 @@
+.topnav {
+
+    padding-bottom: 5px;
+    color: white;
+
+}
+
+.principal {
+
+    margin-top: 65px;
+
+
+}
+
+
+.minitable{
+
+    border-style: solid;
+    border-radius: 5px;
+
+    height:550px;
+    overflow-y: scroll;
+}
+
+hr{
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:black;
+    margin-top: 1px;
+    margin-bottom:2px;
+
+
+}
+
+
+
+
+
+.nuevoPacienteContainer{
+    margin: 5%;
+}
+.form{
+    padding: 5%;
+}
+
+.form-control{
+    margin: 5px;
+}
+
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #02ad2d;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30%;
+}
+.btnSubmit:hover{
+    background-color: #03a02a;
+}

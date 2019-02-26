@@ -1,22 +1,16 @@
-<p>
-  pacientes-list
-
-  <li *ngFor="let paciente of listaPacientes"
-      (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}}</span>
-  </li><br>
+<div>
 
   Pacientes Activos <br>
-  <li *ngFor="let paciente of listaPacientesActivo"
-  (click)="verDetalle(paciente)">
-<span >{{paciente.nombre}}</span>
-</li><br>
+  <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesActivo"
+    (click)="verDetalle(paciente)">
+    <span >{{paciente.nombre}}</span>
+  </li>
 
-Pacientes Baja <br>
-<li *ngFor="let paciente of listaPacientesBaja">
-<span id="baja">{{paciente.nombre}}</span>
-</li><br>
+  Pacientes Baja <br>
+  <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja">
+    <span id="baja">{{paciente.nombre}}</span>
+  </li>
 
 
 
-</p>
+</div>
