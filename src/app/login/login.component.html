@@ -1,21 +1,23 @@
-<div style="text-align:center">
-  <h1>
-  Login
-  </h1>
-  <div>
-    <label>Usuario:
-      <input [(ngModel)] = email placeholder="Correo Electronico">
-    </label> <br>
-    <label>Contraseña:
-      <input [(ngModel)] = password>
-    </label> <br>
-    <label>
-        <button (click)="logIn()" type="button" class="btn btn-success">Log-In</button>
-        <nav>
-            <a routerLink="/codigoRegistro">Tengo un codigo</a>
-        </nav>
-        <div *ngIf="!valido">No Valido</div>
-    </label>
-  </div>
 
+<div class="login-container ">
+    <div class="row">
+        <div class="col-md-6 form">
+            <h3>NutriGestion</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" name="login" [(ngModel)] = email >
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="login" [(ngModel)] = password >
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btnSubmit" value="Log-In" (click)="logIn()" >
+                </div>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd">Tengo un Codigo</a>
+                </div>
+                <div *ngIf="!valido">No Valido</div>
+            </form>
+        </div>
+    </div>
 </div>
