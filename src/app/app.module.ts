@@ -14,6 +14,7 @@ import { PacienteDetailComponent } from './paciente-detail/paciente-detail.compo
 import { PrincipalPacienteComponent } from './principal-paciente/principal-paciente.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -34,7 +35,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     AppRoutingModule,
     FormsModule, // Aqui esta el modulo NgModel
     HttpClientModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

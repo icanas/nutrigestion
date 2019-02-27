@@ -46,7 +46,7 @@ export class PacientesListComponent implements OnInit {
         this.listaPacientes.forEach(  // Separo los pacientes de baja de los activos
           paciente => {
             const aux: Paciente = paciente;
-            this.daoService.getCitaPacienteAll(paciente).subscribe(
+            this.daoService.getCitaPacienteAll(paciente).subscribe( // Me traigo sus citas
               citas => {
                 paciente.citas = citas;
 
@@ -67,6 +67,8 @@ export class PacientesListComponent implements OnInit {
       }
     );
   }
+
+
 
 
 

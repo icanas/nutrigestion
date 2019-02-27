@@ -63,3 +63,23 @@ hr{
 .btnSubmit:hover{
     background-color: #03a02a;
 }
+
+#controles{
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+}
+
+.botonMenu {
+    padding:80px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+#botonSearch {
+    background-color: rgb(233, 105, 0);
+    color: white;
+}
+
+

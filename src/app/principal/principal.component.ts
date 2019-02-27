@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+
+import { ModalModule } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
@@ -15,7 +18,11 @@ export class PrincipalComponent implements OnInit {
   constructor(
     private messenger: MessengerService,
     private daoService: DaoService,
+    private modalService: BsModalService
   ) { }
+
+
+  modalRef: BsModalRef;
 
   profesional: Profesional = new Profesional();
   private autorizado = false;
@@ -54,6 +61,10 @@ export class PrincipalComponent implements OnInit {
         this.profesional.email = R.email;
       }
     });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
 

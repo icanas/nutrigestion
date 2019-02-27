@@ -17,14 +17,35 @@
     </div>
   </div>
 
-  <div class="col-sm-7">
-      <div class="minitable">
-        Nuevo Paciente
+  <div class="col-sm-7" >
+      <div class="minitable" >
+        Controles
         <hr>
 
-        <div class="nuevoPacienteContainer ">
+        <div class="row" id = "controles">
+          <button type="button" class="btn btn-info botonMenu col-sm-4" (click)="openModal(template)"><i class="fas fa-plus fa-5x"></i></button>
+          <button type="button" class="btn botonMenu col-sm-4" id = "botonSearch" (click)="openModal(template)"><i class="fas fa-search fa-5x"></i></button>
+        </div>
+
+
+      </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Nuevo Paciente</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="nuevoPacienteContainer ">
           <div class="row">
-            <div class="col-md-6 form">
+            <div class="col-md-12 form">
                 <div>
                     <input type="text" class="form-control" placeholder="Nombre" name="nombre" [(ngModel)] = nuevoPaciente.nombre >
                     <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)] = nuevoPaciente.email >
@@ -38,11 +59,10 @@
             </div>
           </div>
         </div>
+  </div>
+</ng-template>
 
 
-      </div>
-    </div>
-</div>
 
 <div class="principal" *ngIf="!autorizado">
   No Autorizado
