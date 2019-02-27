@@ -1,9 +1,16 @@
 <div>
 
-  Pacientes Activos <br>
-  <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesActivo"
+  Pacientes con Cita <br>
+  <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesCita"
     (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}}</span>
+    <span >{{paciente.nombre}} {{paciente.citas[0].fecha_cita}} </span>
+  </li>
+
+
+  Pacientes <br>
+  <li class="list-group-item list-group-item-warning py-1" *ngFor="let paciente of listaPacientesActivo"
+    (click)="verDetalle(paciente)">
+    <span >{{paciente.nombre}} Sin cita </span>
   </li>
 
   Pacientes Baja <br>

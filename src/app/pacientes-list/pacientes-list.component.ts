@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Paciente } from '../model/paciente';
 import { Profesional } from '../model/profesional';
@@ -24,6 +25,7 @@ export class PacientesListComponent implements OnInit {
 
   listaPacientes: Paciente[];
   listaPacientesActivo: Paciente[] = [];
+  listaPacientesCita: Paciente[] = [];
   listaPacientesBaja: Paciente[] = [];
 
 
@@ -37,19 +39,28 @@ export class PacientesListComponent implements OnInit {
 
   getPacientesList() {
     this.daoService.getPacientesList(this.profesional).subscribe(
-      R => {
+      ListaPacientes => {
 
-        this.listaPacientes = R;
-        this.getCitaPacienteAll();
+        this.listaPacientes = ListaPacientes;
 
         this.listaPacientes.forEach(  // Separo los pacientes de baja de los activos
-          F => {
-            const aux: Paciente = F;
-            if (F.activo === '1') {
-              this.listaPacientesActivo.push(F);
-            } else {
-              this.listaPacientesBaja.push(F);
-            }
+          paciente => {
+            const aux: Paciente = paciente;
+            this.daoService.getCitaPacienteAll(paciente).subscribe(
+              citas => {
+                paciente.citas = citas;
+
+                if (paciente.citas != null && paciente.activo === '1') {
+                  this.listaPacientesCita.push(paciente);
+                } else if (paciente.activo === '1') {
+                  this.listaPacientesActivo.push(paciente);
+                } else {
+                  this.listaPacientesBaja.push(paciente);
+                }
+
+              }
+            );
+
           }
         );
 
@@ -58,21 +69,6 @@ export class PacientesListComponent implements OnInit {
   }
 
 
-  getCitaPacienteAll() {  // Para cada paciente me traigo sus citas y las meto en su array
-
-    this.listaPacientes.forEach(
-      P => {
-        this.daoService.getCitaPacienteAll(P).subscribe(
-          R => {
-            P.citas = R;
-          }
-        );
-      }
-    );
-
-
-
-  }
 
   ngOnInit() {
     this.getPacientesList();

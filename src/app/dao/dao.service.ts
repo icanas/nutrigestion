@@ -46,7 +46,7 @@ export class DaoService {
       return this.http.post<any>(Url, credentials);
     }
 
-    getProfesional(token2: string): Observable<Profesional> {
+    getProfesional(token2: string)  {
       const Url = 'http://localhost/api/api.php';
 
       const cadena = {
@@ -92,7 +92,7 @@ export class DaoService {
         Profesional: profesional
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Paciente[]>(Url, cadena);
     }
 
