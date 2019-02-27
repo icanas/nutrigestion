@@ -8,6 +8,6 @@ export class Paciente {
     password: string;
     emailProfesional: string;
     activo: string;
-    cita: Cita;
+    citas: Cita[];
 
   }

@@ -40,6 +40,7 @@ export class PacientesListComponent implements OnInit {
       R => {
 
         this.listaPacientes = R;
+        this.getCitaPacienteAll();
 
         this.listaPacientes.forEach(  // Separo los pacientes de baja de los activos
           F => {
@@ -56,19 +57,26 @@ export class PacientesListComponent implements OnInit {
     );
   }
 
+
+  getCitaPacienteAll() {  // Para cada paciente me traigo sus citas y las meto en su array
+
+    this.listaPacientes.forEach(
+      P => {
+        this.daoService.getCitaPacienteAll(P).subscribe(
+          R => {
+            P.citas = R;
+          }
+        );
+      }
+    );
+
+
+
+  }
+
   ngOnInit() {
     this.getPacientesList();
   }
 
 }
 
-/*
-this.listaPacientesBaja = R;
-        this.listaPacientes[0].activo = R[0].activo;
-        this.listaPacientes[0].apellido = R[0].apellido;
-        this.listaPacientes[0].cita = R[0].cita;
-        this.listaPacientes[0].email = R[0].email;
-        this.listaPacientes[0].emailProfesional = R[0].emailProfesional;
-        this.listaPacientes[0].id = R[0].id;
-        this.listaPacientes[0].nombre = R[0].nombre;
-        */

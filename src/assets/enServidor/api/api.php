@@ -54,6 +54,7 @@ switch ($action) {
     $executionStatus = getPacientesList($conn, $data);
         break;
 
+
     case 'addCita':
 
     $executionStatus = addCita($conn, $data);
@@ -188,6 +189,7 @@ function getPacientesList($conn, $data){
 }
 
 
+
 function addCita($conn, $data){
     $paciente = $data->Paciente;
     $cita = $data->Cita;
@@ -283,7 +285,5 @@ function desactivaPaciente($conn, $data){
     return true;
 
 }
-
-
 
 ?>

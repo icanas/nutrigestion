@@ -96,6 +96,7 @@ export class DaoService {
       return this.http.post<Paciente[]>(Url, cadena);
     }
 
+
     addCita(paciente: Paciente, cita: Cita): Observable<Cita[]> {
       const Url = 'http://localhost/api/api.php';
 
