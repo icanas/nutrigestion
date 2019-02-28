@@ -1,12 +1,12 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
-import { ModalModule } from 'ngx-bootstrap';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
 import { MessengerService } from '../services/messenger.service';
 import { DaoService } from '../dao/dao.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -18,7 +18,8 @@ export class PrincipalComponent implements OnInit {
   constructor(
     private messenger: MessengerService,
     private daoService: DaoService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private route: Router
   ) { }
 
 
@@ -41,7 +42,11 @@ export class PrincipalComponent implements OnInit {
           alert('Error');
 
         } else {  // Login correcto, devuelve al profesional
-          window.location.reload();
+          // window.location.reload();
+          this.modalRef.hide();
+          localStorage.removeItem('Paciente');
+          localStorage.setItem('Paciente', JSON.stringify(this.nuevoPaciente));
+          this.route.navigate(['detallePaciente']);
         }
       }
       );
