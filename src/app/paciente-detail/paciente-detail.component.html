@@ -18,7 +18,7 @@
   </li><br>
   Activas
   <br>
-  <li *ngIf="citaActiva != undefined">
+  <li *ngIf="conCita">
     <span >{{citaActiva.fecha_cita}} </span><i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
   </li><br>
 

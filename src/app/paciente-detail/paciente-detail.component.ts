@@ -20,9 +20,10 @@ export class PacienteDetailComponent implements OnInit {
   ) { }
 
   paciente: Paciente;
-  cita: Cita = new Cita();
-  citas: Cita[];
+  cita: Cita = new Cita();  // Para nueva cita
+  citas: Cita[] = [];
   citaActiva: Cita = new Cita();
+  conCita = false;
   fecha: Date;
   hora: number;
   minuto: number;
@@ -92,21 +93,17 @@ export class PacienteDetailComponent implements OnInit {
     this.daoService.getCitaPacienteAll(this.paciente).subscribe(
       R => {
         this.citas = R;
+        this.paciente.citas = R;
+        if (R[0].activo === '1') {
+          this.citaActiva = R[0];
+          this.conCita = true;
+        }
+
       }
     );
 
   }
 
-
-  getCitaPacienteActiva() {
-
-    this.daoService.getCitaPacienteActiva(this.paciente).subscribe(
-      R => {
-        this.citaActiva = R;
-      }
-    );
-
-  }
 
 
 
@@ -116,7 +113,6 @@ export class PacienteDetailComponent implements OnInit {
     // El paciente esta en localStorage
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
-    this.getCitaPacienteActiva();
 
   }
 
