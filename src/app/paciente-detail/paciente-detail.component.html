@@ -33,25 +33,67 @@
                 Altura:
               </div>
               <div class="col-sm-3 medidaInput">
-                  <input type="text" class="form-control " >
+                  <input type="text" class="form-control medidaInput " >
               </div>
               <div class="col-sm-1 medidaInput">
                 cm
               </div>
             </div>
+          </div>
+          <div class="col-sm-3 medidaInput">
+              <div class="row ">
+                <div class="col-sm-3 medidaInput">
+                  Peso:
+                </div>
+                <div class="col-sm-3 medidaInput">
+                    <input type="text" class="form-control medidaInput " >
+                </div>
+                <div class="col-sm-1 medidaInput">
+                  Kg
+                </div>
 
+              </div>
+          </div>
+          <div class="col-sm-3 medidaInput">
+              <div class="row ">
+                <div class="col-sm-3 medidaInput">
+                  Cintura:
+                </div>
+                <div class="col-sm-3 medidaInput">
+                    <input type="text" class="form-control medidaInput " >
+                </div>
+                <div class="col-sm-1 medidaInput">
+                  cm
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 medidaInput">
+                <div class="row ">
+                  <div class="col-sm-3 medidaInput">
+                    Brazo:
+                  </div>
+                  <div class="col-sm-3 medidaInput">
+                      <input type="text" class="form-control medidaInput " >
+                  </div>
+                  <div class="col-sm-1 medidaInput">
+                    cm
+                  </div>
 
+                </div>
           </div>
 
-
-
+          <button (click)="addCita()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
 
         </div>
+
+
+
       </div>
 
   </div>
 
-
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div *ngIf="paciente" style="text-align:center">
 
   <h2>{{paciente.nombre}}</h2>
