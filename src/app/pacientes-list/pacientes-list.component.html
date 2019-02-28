@@ -3,19 +3,19 @@
   Pacientes con Cita <br>
   <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesCita"
     (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}} {{paciente.citas[0].fecha_cita}} </span>
+    <span >{{paciente.nombre}} {{paciente.apellido}} {{paciente.citas[0].fecha_cita}} </span>
   </li>
 
 
   Pacientes <br>
   <li class="list-group-item list-group-item-warning py-1" *ngFor="let paciente of listaPacientesActivo"
     (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}} Sin cita </span>
+    <span >{{paciente.nombre}} {{paciente.apellido}} Sin cita </span>
   </li>
 
   Pacientes Baja <br>
   <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja">
-    <span id="baja">{{paciente.nombre}}</span>
+    <span id="baja">{{paciente.nombre}} {{paciente.apellido}}</span>
   </li>
 
 

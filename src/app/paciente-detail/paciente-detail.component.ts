@@ -113,7 +113,6 @@ export class PacienteDetailComponent implements OnInit {
     // El paciente esta en localStorage
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
-
   }
 
 }

@@ -1,3 +1,38 @@
+
+<div class="cabeceraDatos">
+    <h3>{{paciente.nombre}} {{paciente.apellido}} {{paciente.email}}</h3>
+</div>
+
+<div class="panel col-sm-12 row ">
+
+    <div class="col-sm-3">
+      <div class="minitable">
+        Proxima Cita
+        <hr>
+        <li class="list-group-item list-group-item-success py-1" *ngIf="conCita">
+          {{citaActiva.fecha_cita}} <i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
+        </li>
+        <li class="list-group-item list-group-item-success py-1" *ngIf="!conCita">
+            Sin Cita Asignada
+          </li>
+        <hr>
+        Citas Anteriores
+        <hr>
+        <li class="list-group-item list-group-item-warning py-1" *ngFor="let cita of citas">
+            {{cita.fecha_cita}}
+          </li>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+        <div class="minitable">
+
+        </div>
+      </div>
+
+  </div>
+
+
 <div *ngIf="paciente" style="text-align:center">
 
   <h2>{{paciente.nombre}}</h2>

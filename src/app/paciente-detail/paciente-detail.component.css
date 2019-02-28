@@ -1,0 +1,51 @@
+
+.cabeceraDatos{
+    background-color: rgb(206, 206, 206);
+    padding: 1px;
+    padding-left: 50px;
+}
+
+.panel {
+
+    margin-top: 25px;
+
+
+}
+
+
+.minitable{
+
+    border-style: solid;
+    border-radius: 5px;
+
+    height:550px;
+    overflow-y: scroll;
+
+}
+
+hr{
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:black;
+    margin-top: 1px;
+    margin-bottom:2px;
+
+
+}
+
+.list-group-item{
+    color: black;
+}
+
+.col-sm-9{
+    padding-left: 1px;
+}
+.col-sm-3{
+    padding-left: 10px;
+}
+
+.fa-times-circle{
+    margin-left: 35%;
+    color: red;
+}
