@@ -5,7 +5,6 @@ import { Paciente } from '../model/paciente';
 import { MessengerService } from '../services/messenger.service';
 import { DaoService } from '../dao/dao.service';
 import { Cita } from '../model/cita';
-import { Anatomia } from '../model/anatomia';
 
 @Component({
   selector: 'app-paciente-detail',
@@ -26,8 +25,6 @@ export class PacienteDetailComponent implements OnInit {
   citas: Cita[] = [];
   citaActiva: Cita = new Cita();
   conCita = false;
-
-  anatomia = new Anatomia();
 
   fecha: Date;
   hora: number;

@@ -6,17 +6,21 @@ import { Observable } from 'rxjs';
 import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
+import { Anatomia } from '../model/anatomia';
+
+
+const Url = 'http://localhost/api/api.php';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DaoService {
 
   constructor(
     private http: HttpClient) { }
 
     validateCode(code: string): Observable<string> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
           action: 'validateCode',
@@ -28,7 +32,6 @@ export class DaoService {
     }
 
     registrarProfesional(profesional: Profesional): Observable<boolean> {
-      const Url = 'http://localhost/api/api.php';
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
       // console.log(profesionalParse);
@@ -36,19 +39,17 @@ export class DaoService {
     }
 
     login(user: string, pass: string): Observable<any> {
-      const Url = 'http://localhost/api/auth.php';
+      const UrlAuth = 'http://localhost/api/auth.php';
 
       const credentials = {
         email: user,
         password: pass
 
      };
-      return this.http.post<any>(Url, credentials);
+      return this.http.post<any>(UrlAuth, credentials);
     }
 
     getProfesional(token2: string)  {
-      const Url = 'http://localhost/api/api.php';
-
       const cadena = {
         action: 'getProfesional',
         token: token2
@@ -59,8 +60,6 @@ export class DaoService {
     }
 
     getPaciente(token2: string): Observable<Paciente> {
-      const Url = 'http://localhost/api/api.php';
-
       const cadena = {
         action: 'getPaciente',
         token: token2
@@ -71,7 +70,6 @@ export class DaoService {
     }
 
     insertaPaciente(profesional: Profesional, paciente: Paciente): Observable<boolean> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
         action: 'insertaPaciente',
@@ -85,8 +83,6 @@ export class DaoService {
 
 
     getPacientesList(profesional: Profesional): Observable<Paciente[]> {
-      const Url = 'http://localhost/api/api.php';
-
       const cadena = {
         action: 'getPacientesList',
         Profesional: profesional
@@ -98,8 +94,6 @@ export class DaoService {
 
 
     addCita(paciente: Paciente, cita: Cita): Observable<Cita[]> {
-      const Url = 'http://localhost/api/api.php';
-
       const cadena = {
         action: 'addCita',
         Paciente: paciente,
@@ -110,7 +104,6 @@ export class DaoService {
     }
 
     cancelCita(cita: Cita): Observable<boolean> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
         action: 'cancelCita',
@@ -121,7 +114,6 @@ export class DaoService {
     }
 
     getCitaPacienteAll(paciente: Paciente): Observable<Cita[]> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
         action: 'getCitaPacienteAll',
@@ -133,7 +125,6 @@ export class DaoService {
     }
 
     getCitaPacienteActiva(paciente: Paciente): Observable<Cita> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
         action: 'getCitaPacienteActiva',
@@ -145,7 +136,6 @@ export class DaoService {
     }
 
     desactivaPaciente(paciente: Paciente): Observable<boolean> {
-      const Url = 'http://localhost/api/api.php';
 
       const cadena = {
         action: 'desactivaPaciente',
@@ -154,6 +144,17 @@ export class DaoService {
      };
       console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
+    }
+
+    getAnatomia(paciente: Paciente): Observable<Anatomia> {
+
+      const cadena = {
+        action: 'getAnatomia',
+        Paciente: paciente
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<Anatomia>(Url, cadena);
     }
 
 

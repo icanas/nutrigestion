@@ -17,10 +17,26 @@
 
     border-style: solid;
     border-radius: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+
 
     height:550px;
     overflow-y: scroll;
 
+}
+
+.miniminitable{
+    padding-left: 0px;
+    padding-right: 0px;
+    border-right-style: solid;
+}
+
+.minitutulo{
+    background-color: aliceblue;
+    text-align: center;
+    border-bottom-style: solid;
+    margin-bottom: 2%;
 }
 
 hr{
@@ -50,14 +66,4 @@ hr{
     color: red;
 }
 
-.medidaInput{
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    text-align: center
 
-}
-
-.btnMedidas{
-    margin-top:450px;
-}

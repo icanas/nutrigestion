@@ -80,6 +80,11 @@ switch ($action) {
     $executionStatus = desactivaPaciente($conn, $data);
         break;
 
+    case 'getAnatomia':
+
+    $executionStatus = getAnatomia($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -128,8 +133,8 @@ function insertPaciente($conn, $data){
     $result = $conn->query($sql);
     if ($result->num_rows === 0){   // Si no existe, lo creo
 
-        $sql = "INSERT INTO paciente (nombre, email, password, emailProfesional, activo, token)
-                VALUES ('$paciente->nombre', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
+        $sql = "INSERT INTO paciente (nombre, apellido, email, password, emailProfesional, activo, token)
+                VALUES ('$paciente->nombre', '$paciente->apellido', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
     } else{ // Si ya existe le coloco el bit a 1
 
         $sql = "UPDATE paciente
@@ -229,7 +234,8 @@ function cancelCita($conn, $data){
 function getCitaPacienteAll($conn, $data){
 
     $paciente = $data->Paciente;
-    $sql = "SELECT * FROM cita WHERE email = '$paciente->email';";
+    $sql = "SELECT * FROM cita WHERE email = '$paciente->email'
+            order by activo desc;";
     $result =  $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
@@ -283,6 +289,24 @@ function desactivaPaciente($conn, $data){
     }
 
     return true;
+
+}
+
+function getAnatomia($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM
+            anatomia where email = '$paciente->email' AND
+            activo = 1";
+
+    $result =  $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    if($result->num_rows == 0){
+        return false;
+    }
+
+    return json_encode($row);
 
 }
 

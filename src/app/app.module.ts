@@ -15,6 +15,8 @@ import { PrincipalPacienteComponent } from './principal-paciente/principal-pacie
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MedidasComponent } from './medidas/medidas.component';
+import { MetricasComponent } from './metricas/metricas.component';
 
 
 
@@ -28,7 +30,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PrincipalComponent,
     PacientesListComponent,
     PacienteDetailComponent,
-    PrincipalPacienteComponent
+    PrincipalPacienteComponent,
+    MedidasComponent,
+    MetricasComponent
   ],
   imports: [
     BrowserModule,

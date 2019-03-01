@@ -1,0 +1,49 @@
+<div>
+<div class="row col-sm-12">
+
+  <div class="col-sm-2">
+    <label>Altura</label>
+  </div>
+  <div class="col-sm-2 medidaInput">
+    <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.altura>
+  </div>
+  <div class="col-sm-1 unidades">
+    <label >cm</label>
+  </div>
+  <div class="col-sm-2">
+      <label>Peso</label>
+    </div>
+    <div class="col-sm-2 medidaInput">
+      <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.peso>
+    </div>
+    <div class="col-sm-1 unidades">
+      <label >Kg</label>
+    </div>
+
+
+</div>
+<div class="row col-sm-12">
+
+    <div class="col-sm-2">
+      <label>Cintura</label>
+    </div>
+    <div class="col-sm-2 medidaInput">
+      <input type="numeric"   class="form-control medidaInput"  [(ngModel)] = anatomia.cintura>
+    </div>
+    <div class="col-sm-1 unidades">
+      <label >cm</label>
+    </div>
+    <div class="col-sm-2">
+        <label>Brazo</label>
+    </div>
+    <div class="col-sm-2 medidaInput">
+      <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.brazo>
+    </div>
+    <div class="col-sm-1 unidades">
+      <label >cm</label>
+    </div>
+
+</div>
+<button (click)="getAnatomia()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
+
+</div>

@@ -35,9 +35,10 @@ create table paciente(
 create table anatomia(
 
     email varchar(60) primary key,
-    peso numeric(4,2),
-    altura numeric(4,2) null,
-    fecha_activacion date null,
+    peso numeric(8,2) null,
+    altura numeric(8,2) null,
+    cintura numeric(8,2) null,
+    brazo numeric(8,2) null,
     fecha_modificacion date null,
     activo bit,
 
@@ -52,3 +53,4 @@ create table cita(
     activo bit
 
 )
+
