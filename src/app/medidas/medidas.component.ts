@@ -25,8 +25,22 @@ export class MedidasComponent implements OnInit {
 
     this.daoService.getAnatomia(this.paciente).subscribe(
       R => {
-        this.anatomia = R;
-        console.log(R.brazo);
+        if (!R) {
+          this.anatomia = new Anatomia();
+        } else {
+          this.anatomia = R;
+        }
+
+      }
+    );
+
+  }
+
+  actualizaMedidas() {
+
+    this.daoService.actualizaMedidas(this.paciente, this.anatomia).subscribe(
+      R => {
+        window.location.reload();
       }
     );
 

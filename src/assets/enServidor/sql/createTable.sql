@@ -34,16 +34,14 @@ create table paciente(
 
 create table anatomia(
 
-    email varchar(60) primary key,
+    email varchar(60),
     peso numeric(8,2) null,
     altura numeric(8,2) null,
     cintura numeric(8,2) null,
     brazo numeric(8,2) null,
     fecha_modificacion date null,
-    activo bit,
+    activo bit
 
-    FOREIGN KEY (email) REFERENCES paciente(email)
-            ON DELETE CASCADE
 );
 
 create table cita(

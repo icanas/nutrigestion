@@ -85,6 +85,11 @@ switch ($action) {
     $executionStatus = getAnatomia($conn, $data);
         break;
 
+    case 'actualizaMedidas':
+
+    $executionStatus = actualizaMedidas($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -307,6 +312,27 @@ function getAnatomia($conn, $data){
     }
 
     return json_encode($row);
+
+}
+
+
+function actualizaMedidas($conn, $data){
+    $paciente = $data->Paciente;
+    $anatomia = $data->Anatomia;
+
+    $sql = "UPDATE anatomia SET activo = 0
+            WHERE email = '$paciente->email';";
+
+    $result =  $conn->query($sql);
+
+    $sql = "INSERT INTO anatomia (email, peso, altura, cintura, brazo, fecha_modificacion, activo)
+                VALUES ('$paciente->email', '$anatomia->peso', '$anatomia->altura', '$anatomia->cintura', '$anatomia->brazo',
+                        NOW(), 1 );";
+
+    $result =  $conn->query($sql);
+    if (!$result) return FALSE;
+    return TRUE;
+
 
 }
 

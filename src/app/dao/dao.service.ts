@@ -153,8 +153,20 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Anatomia>(Url, cadena);
+    }
+
+    actualizaMedidas(paciente: Paciente, anatomia: Anatomia): Observable<boolean> {
+
+      const cadena = {
+        action: 'actualizaMedidas',
+        Paciente: paciente,
+        Anatomia: anatomia
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
     }
 
 
