@@ -32,6 +32,11 @@
     border-right-style: solid;
 }
 
+.buttonrow{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
 .minitutulo{
     background-color: aliceblue;
     text-align: center;
@@ -48,6 +53,18 @@ hr{
     margin-bottom:2px;
 
 
+}
+
+.form-control{
+    text-align: center;
+}
+.centeredItem{
+    text-align: center;
+}
+
+
+.btn{
+    width: 100%;
 }
 
 .list-group-item{
