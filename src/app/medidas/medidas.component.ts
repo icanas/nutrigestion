@@ -19,6 +19,7 @@ export class MedidasComponent implements OnInit {
 
   paciente: Paciente;
   anatomia: Anatomia = new Anatomia();
+  anatomiaList: Anatomia[] = [];
 
 
   getAnatomia() {
