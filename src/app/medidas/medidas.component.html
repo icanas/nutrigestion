@@ -45,11 +45,15 @@
 
 </div>
 <select class="selecthistory">
-    <option>Mustard</option>
-    <option>Ketchup</option>
-    <option>Relish</option>
+    <option *ngFor="let anatomia of anatomiaList">
+      <span *ngIf="anatomia.activo == 0; else showActual">{{anatomia.fecha_modificacion}}</span>
+    </option>
 </select>
 
 <button (click)="actualizaMedidas()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
 
 </div>
+
+<ng-template #showActual>
+    Actual
+</ng-template>

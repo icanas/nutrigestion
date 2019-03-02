@@ -5,7 +5,7 @@ export class Anatomia {
     altura: number;
     cintura: number;
     brazo: number;
-    fechaMmodificacion: Date;
+    fechaModificacion: Date;
     activo: string;
 
     constructor() {

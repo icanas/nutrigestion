@@ -8,14 +8,14 @@ create table profesional(
     salt varchar(60) null,
     activo bit null,
     token varchar (60) null,
-    ultimaconexion date null
+    ultimaconexion datetime null
 );
 
 create table codigoregistro(
 
     codigo varchar(10) primary key,
     email varchar(20) null,
-    fecha_activacion date null
+    fecha_activacion datetime null
 );
 
 create table paciente(
@@ -29,7 +29,7 @@ create table paciente(
     emailProfesional varchar(60),
     salt varchar(60) null,
     token varchar (60) null,
-    ultimaconexion date null
+    ultimaconexion datetime null
 );
 
 create table anatomia(
@@ -39,7 +39,7 @@ create table anatomia(
     altura numeric(8,2) null,
     cintura numeric(8,2) null,
     brazo numeric(8,2) null,
-    fecha_modificacion date null,
+    fecha_modificacion datetime null,
     activo bit
 
 );

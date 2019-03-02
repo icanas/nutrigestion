@@ -22,6 +22,7 @@ export class MedidasComponent implements OnInit {
   anatomiaList: Anatomia[] = [];
 
 
+
   getAnatomia() {
 
     this.daoService.getAnatomia(this.paciente).subscribe(
@@ -29,8 +30,9 @@ export class MedidasComponent implements OnInit {
         if (!R) {
           this.anatomia = new Anatomia();
         } else {
-          this.anatomia = R;
-          this.paciente.anatomia = R;
+          this.anatomiaList = R;
+          this.anatomia = R[0];
+          this.paciente.anatomia = this.anatomia;
           localStorage.setItem('Paciente', JSON.stringify(this.paciente));  // Lo guardo en local con sus medidas
         }
 

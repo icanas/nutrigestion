@@ -146,7 +146,7 @@ export class DaoService {
       return this.http.post<boolean>(Url, cadena);
     }
 
-    getAnatomia(paciente: Paciente): Observable<Anatomia> {
+    getAnatomia(paciente: Paciente): Observable<Anatomia[]> {
 
       const cadena = {
         action: 'getAnatomia',
@@ -154,7 +154,7 @@ export class DaoService {
 
      };
       // console.log(JSON.stringify(cadena));
-      return this.http.post<Anatomia>(Url, cadena);
+      return this.http.post<Anatomia[]>(Url, cadena);
     }
 
     actualizaMedidas(paciente: Paciente, anatomia: Anatomia): Observable<boolean> {

@@ -301,17 +301,20 @@ function getAnatomia($conn, $data){
 
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM
-            anatomia where email = '$paciente->email' AND
-            activo = 1";
+            anatomia where email = '$paciente->email'
+            ORDER BY activo DESC";
 
     $result =  $conn->query($sql);
-    $row = $result->fetch_assoc();
-
-    if($result->num_rows == 0){
-        return false;
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
     }
 
-    return json_encode($row);
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
+
 
 }
 
