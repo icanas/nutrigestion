@@ -22,7 +22,6 @@ export class MedidasComponent implements OnInit {
   anatomiaList: Anatomia[] = [];
 
 
-
   getAnatomia() {
 
     this.daoService.getAnatomia(this.paciente).subscribe(
@@ -50,6 +49,7 @@ export class MedidasComponent implements OnInit {
     );
 
   }
+
 
 
   ngOnInit() {
