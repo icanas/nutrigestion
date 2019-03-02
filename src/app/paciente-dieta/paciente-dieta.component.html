@@ -5,6 +5,7 @@
 <div class="ppal row">
   <div class="minitable col-sm-2">
     Historial de dietas, si pinchas cualquiera de la lista te lleva a otra pantalla donde te la muestra bien formateada
+
   </div>
   <div class="minitable col-sm-10">
     Añadir nueva dieta<br>
@@ -16,7 +17,7 @@
                     <label>Alimento</label>
                 </div>
                 <div class="col-sm-2">
-                    <input type="text"   class="form-control" >
+                    <input [(ngModel)]="d.nombre" type="text"   class="form-control" >
                 </div>
                 <div class="col-sm-2">
                   <label>Cantidad</label>
