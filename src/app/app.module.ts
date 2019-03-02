@@ -14,6 +14,7 @@ import { PacienteDetailComponent } from './paciente-detail/paciente-detail.compo
 import { PrincipalPacienteComponent } from './principal-paciente/principal-paciente.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MedidasComponent } from './medidas/medidas.component';
 import { MetricasComponent } from './metricas/metricas.component';
@@ -42,7 +43,8 @@ import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.componen
     FormsModule, // Aqui esta el modulo NgModel
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,3 +24,8 @@
     overflow-y: scroll;
 
 }
+
+accordion-group>.panel {
+    background: red;
+    color: white;
+}

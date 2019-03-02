@@ -4,9 +4,43 @@
 
 <div class="ppal row">
   <div class="minitable col-sm-2">
-a
+    Historial de dietas, si pinchas cualquiera de la lista te lleva a otra pantalla donde te la muestra bien formateada
   </div>
   <div class="minitable col-sm-10">
-b
+    Añadir nueva dieta<br>
+    <div>
+      <accordion >
+          <accordion-group heading="Desayuno">
+              <div *ngFor="let d of desayuno" class="row">
+                <div class="col-sm-2">
+                    <label>Alimento</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="text"   class="form-control" >
+                </div>
+                <div class="col-sm-2">
+                  <label>Cantidad</label>
+                </div>
+                <div class="col-sm-2">
+                  <input type="text"   class="form-control" >
+                </div>
+              </div>
+              <div class="col-sm-2">
+                  <button (click)="masDesayuno()" type="button" class="btn btn-success">+</button>
+              </div>
+          </accordion-group>
+          <accordion-group heading="Post Desayuno">
+            <p>Some content</p>
+          </accordion-group>
+          <accordion-group heading="Comida">
+            <p>Some content</p>
+          </accordion-group>
+          <accordion-group heading="Merienda">
+            <p>Some content</p>
+          </accordion-group>
+          <accordion-group heading="Cena">
+              <p>Some content</p>
+          </accordion-group>
+      </accordion>
   </div>
 </div>
