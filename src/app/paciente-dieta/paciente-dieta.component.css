@@ -1,0 +1,26 @@
+
+.cabeceraDatos{
+    background-color: rgb(206, 206, 206);
+    padding: 1px;
+    padding-left: 50px;
+}
+
+.ppal{
+
+    width: 100%;
+    padding-left: 30px;
+
+
+}
+
+.minitable{
+
+    border-style: solid;
+    border-radius: 5px;
+
+
+
+    height:550px;
+    overflow-y: scroll;
+
+}

@@ -117,6 +117,10 @@ export class PacienteDetailComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  dietas() {
+    this.route.navigate(['pacienteDieta']);
+  }
+
 
   ngOnInit() {
     this.hora = 12;
