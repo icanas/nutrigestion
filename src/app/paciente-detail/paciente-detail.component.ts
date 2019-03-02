@@ -44,6 +44,7 @@ export class PacienteDetailComponent implements OnInit {
     this.fecha.setSeconds(0);
     this.cita.fecha = this.fecha;
 
+
     this.daoService.addCita(this.paciente, this.cita).subscribe(
       R => {
 
@@ -76,6 +77,7 @@ export class PacienteDetailComponent implements OnInit {
   desactivarPaciente() {
 
     const respuesta = prompt('Escribe "si" para confirmar la desactivacion del paciente');
+    console.log(this.paciente);
 
     if (respuesta === 'si') {
 

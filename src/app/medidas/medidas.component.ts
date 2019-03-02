@@ -29,6 +29,8 @@ export class MedidasComponent implements OnInit {
           this.anatomia = new Anatomia();
         } else {
           this.anatomia = R;
+          this.paciente.anatomia = R;
+          localStorage.setItem('Paciente', JSON.stringify(this.paciente));  // Lo guardo en local con sus medidas
         }
 
       }
