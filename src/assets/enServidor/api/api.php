@@ -90,6 +90,11 @@ switch ($action) {
     $executionStatus = actualizaMedidas($conn, $data);
         break;
 
+    case 'guardarDieta':
+
+    $executionStatus = guardarDieta($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -335,6 +340,78 @@ function actualizaMedidas($conn, $data){
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;
+
+
+}
+
+
+function guardarDieta($conn, $data){
+    $paciente = $data->Paciente;
+    $dieta = $data->Dieta;
+
+    $sqlDieta = "SELECT MAX(id) as maxId from dieta;";
+    $sqlDia= "SELECT MAX(id) as maxId from dia;";
+    $sqlComida = "SELECT MAX(id) as maxId from comida;";
+    $sqlAlimento = "SELECT MAX(id) as maxId from alimento;";
+
+    $resultDieta =  $conn->query($sqlDieta);
+    $resultDia =  $conn->query($sqlDia);
+    $resultComida =  $conn->query($sqlComida);
+    $resultAlimento =  $conn->query($sqlAlimento);
+
+
+    $dietaId;
+    $diaId;
+    $comidaId;
+    $alimentoId;
+
+///////////////////////
+//Recupero los maxID
+/////////////////////
+    if ($resultDieta->num_rows == 0) {
+        $dietaId = 1;
+    }else{
+        $resultDieta = $resultDieta->fetch_assoc();
+        $dietaId = intval($resultDieta["maxId"]) + 1;    // Ya tengo mi proximo dietaId
+    }
+
+    if ($resultDia->num_rows == 0) {
+        $diaId = 1;
+    }else{
+        $resultDia = $resultDia->fetch_assoc();
+        $diaId = intval($resultDia["maxId"]) + 1;    // Ya tengo mi proximo diaId
+    }
+
+    if ($resultComida->num_rows == 0) {
+        $comidaId = 1;
+    }else{
+        $resultComida = $resultComida->fetch_assoc();
+        $comidaId = intval($resultComida["maxId"]) + 1;    // Ya tengo mi proximo diaId
+    }
+
+    if ($resultAlimento->num_rows == 0) {
+        $alimentoId = 1;
+    }else{
+        $resultAlimento = $resultAlimento->fetch_assoc();
+        $alimentoId = intval($resultAlimento["maxId"]) + 1;    // Ya tengo mi proximo diaId
+    }
+
+
+    /////////////Inserto Alimentos///////////////
+
+
+    foreach ($dieta as &$valor) {
+        foreach ($valor as &$valor2) {
+            var_dump($valor2->nombre);
+        }
+        unset($valor2);
+    }
+    unset($valor); // rompe la referencia con el último elemento
+
+    var_dump($dieta);
+    die();
+
+
 
 
 }
