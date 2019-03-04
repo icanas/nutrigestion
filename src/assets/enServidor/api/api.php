@@ -401,7 +401,7 @@ function guardarDieta($conn, $data){
     }
 
     if ($resultComida->num_rows == 0) {
-        $comidaId = 1;
+        $comidaId = 0;
     }else{
         $resultComida = $resultComida->fetch_assoc();
         $comidaId = intval($resultComida["maxId"]);    // Ya tengo mi proximo diaId
@@ -420,13 +420,14 @@ function guardarDieta($conn, $data){
     $franjaAnterior = "";
 
     foreach ($dieta as  $key=>$valor) {
-        var_dump($key);
+        //var_dump($key);
 
         foreach ($valor as $valor2) {
 
             $franja = $valor2->franja;
+
             if($franja != $franjaAnterior) $comidaId++;
-            $franja = $franjaAnterior;
+            $franjaAnterior = $franja;
 
             //Meto el alimento que toque
             $sqlAlimento = "INSERT INTO alimento (id, nombre)
@@ -434,12 +435,12 @@ function guardarDieta($conn, $data){
 
             $alimentoId = $alimentoId +1 ;
 
-            //$conn->query($sqlAlimento);    //Ejecuto sql alimentos
+            $conn->query($sqlAlimento);    //Ejecuto sql alimentos
 
             $sqlComida= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
 
-            //$conn->query($sqlComida);   //Ejecuto sql de comida pero no incremento su idComida
+            $conn->query($sqlComida);   //Ejecuto sql de comida pero no incremento su idComida
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
 
@@ -465,15 +466,17 @@ function guardarDieta($conn, $data){
                         VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                         $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
 
-            // $conn->query($sqlComida);   //Ejecuto sql de dia pero no incremento su idDia
+            $conn->query($sqlDia);   //Ejecuto sql de dia pero no incremento su idDia
 
             //Lo meto en comida
             //Con el id de la comida lo pongo en su franja en el dia
-            ($valor2->nombre);
+            //($valor2->nombre);
 
         }
 
         ////////////Meto el dia en su array de dieta////////////
+
+        if(empty($valor2)) $diaId = 0;
 
         switch($key){
             case "Lunes":
@@ -499,16 +502,19 @@ function guardarDieta($conn, $data){
             break;
         }
 
-        $sqlDia= "INSERT INTO dieta (id, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
-                        VALUES($diaId, $dietaArray[Lunes],$dietaArray[Martes],
-                        $dietaArray[Miercoles],$dietaArray[Jueves],$dietaArray[Viernes]),
-                        $dietaArray[Sabado]),$dietaArray[Domingo]);";
-        var_dump($dietaArray);
-        die();
-
         unset($valor2);
     }
     unset($valor); // rompe la referencia con el último elemento
+
+
+    $sqlDieta= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
+    VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
+    $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
+    $dietaArray[Sabado] ,$dietaArray[Domingo]);";
+    var_dump($sqlDieta);
+    //die();
+
+    $conn->query($sqlDieta);   //Ejecuto sql de Dieta
 
     die();
 

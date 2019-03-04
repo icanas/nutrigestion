@@ -20,10 +20,17 @@ export class PacienteDietaComponent implements OnInit {
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
 
+  desayunoLunes: Alimento[] = [];
+  postDesayunoLunes: Alimento[] = [];
+
 
   // El boton mas lo que va a hacer es hacer push al array de desayuno
   masDesayunoLunes() {
     this.dieta.Lunes.push(new Alimento('desayuno'));
+    console.log(this.dieta);
+  }
+  masPostDesayunoLunes() {
+    this.dieta.Lunes.push(new Alimento('postdesayuno'));
     console.log(this.dieta);
   }
 
