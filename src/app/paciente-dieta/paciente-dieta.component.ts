@@ -19,22 +19,24 @@ export class PacienteDietaComponent implements OnInit {
 
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
-  desayuno: Alimento[] = [];
+  desayuno: Alimento = new Alimento('desayuno');
+
 
   // El boton mas lo que va a hacer es hacer push al array de desayuno
   masDesayuno() {
-    this.desayuno.push(new Alimento('desayuno'));
-    console.log(this.desayuno);
+    this.dieta.Lunes.push(new Alimento('desayuno'));
+    console.log(this.dieta);
   }
 
   guardarDieta() {
-    console.log(this.desayuno);
+    console.log(this.dieta);
   }
 
   ngOnInit() {
 
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
-    this.desayuno[0] = new Alimento('desayuno');
+    this.dieta.Lunes.push(this.desayuno);
+    console.log(this.dieta);
   }
 
 }
