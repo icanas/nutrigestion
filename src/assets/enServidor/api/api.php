@@ -365,6 +365,24 @@ function guardarDieta($conn, $data){
     $comidaId;
     $alimentoId;
 
+    $diaArray = [
+        "desayuno" => 0,
+        "postdesayuno" => 0,
+        "comida" => 0,
+        "merienda" => 0,
+        "cena" => 0
+    ];
+
+    $dietaArray = [
+        "Lunes" => 0,
+        "Martes" => 0,
+        "Miercoles" => 0,
+        "Jueves" => 0,
+        "Viernes" => 0,
+        "Sabado" => 0,
+        "Domingo" => 0
+    ];
+
 ///////////////////////
 //Recupero los maxID
 /////////////////////
@@ -386,7 +404,7 @@ function guardarDieta($conn, $data){
         $comidaId = 1;
     }else{
         $resultComida = $resultComida->fetch_assoc();
-        $comidaId = intval($resultComida["maxId"]) + 1;    // Ya tengo mi proximo diaId
+        $comidaId = intval($resultComida["maxId"]);    // Ya tengo mi proximo diaId
     }
 
     if ($resultAlimento->num_rows == 0) {
@@ -399,16 +417,99 @@ function guardarDieta($conn, $data){
 
     /////////////Inserto Alimentos///////////////
 
+    $franjaAnterior = "";
 
-    foreach ($dieta as &$valor) {
-        foreach ($valor as &$valor2) {
-            var_dump($valor2->nombre);
+    foreach ($dieta as  $key=>$valor) {
+        var_dump($key);
+
+        foreach ($valor as $valor2) {
+
+            $franja = $valor2->franja;
+            if($franja != $franjaAnterior) $comidaId++;
+            $franja = $franjaAnterior;
+
+            //Meto el alimento que toque
+            $sqlAlimento = "INSERT INTO alimento (id, nombre)
+                            VALUES($alimentoId, '$valor2->nombre');";
+
+            $alimentoId = $alimentoId +1 ;
+
+            //$conn->query($sqlAlimento);    //Ejecuto sql alimentos
+
+            $sqlComida= "INSERT INTO comida (id, idAlimento, cantidad)
+                            VALUES($comidaId, $alimentoId, $valor2->cantidad);";
+
+            //$conn->query($sqlComida);   //Ejecuto sql de comida pero no incremento su idComida
+
+            //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
+
+            switch($valor2->franja){
+                case "desayuno":
+                $diaArray["desayuno"] = $comidaId;
+                break;
+                case "postdesayuno":
+                $diaArray["postdesayuno"] = $comidaId;
+                break;
+                case "comida":
+                $diaArray["comida"] = $comidaId;
+                break;
+                case "merienda":
+                $diaArray["merienda"] = $comidaId;
+                break;
+                case "cena":
+                $diaArray["cena"] = $comidaId;
+                break;
+            }
+            $diaArray['desayuno'];
+            $sqlDia= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
+                        VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
+                        $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
+
+            // $conn->query($sqlComida);   //Ejecuto sql de dia pero no incremento su idDia
+
+            //Lo meto en comida
+            //Con el id de la comida lo pongo en su franja en el dia
+            ($valor2->nombre);
+
         }
+
+        ////////////Meto el dia en su array de dieta////////////
+
+        switch($key){
+            case "Lunes":
+            $dietaArray["Lunes"] = $diaId;
+            break;
+            case "Martes":
+            $dietaArray["Martes"] = $diaId;
+            break;
+            case "Miercoles":
+            $dietaArray["Miercoles"] = $diaId;
+            break;
+            case "Jueves":
+            $dietaArray["Jueves"] = $diaId;
+            break;
+            case "Viernes":
+            $dietaArray["Viernes"] = $diaId;
+            break;
+            case "Sabado":
+            $dietaArray["Sabado"] = $diaId;
+            break;
+            case "Domingo":
+            $dietaArray["Domingo"] = $diaId;
+            break;
+        }
+
+        $sqlDia= "INSERT INTO dieta (id, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
+                        VALUES($diaId, $dietaArray[Lunes],$dietaArray[Martes],
+                        $dietaArray[Miercoles],$dietaArray[Jueves],$dietaArray[Viernes]),
+                        $dietaArray[Sabado]),$dietaArray[Domingo]);";
+        var_dump($dietaArray);
+        die();
+
         unset($valor2);
     }
     unset($valor); // rompe la referencia con el último elemento
 
-    var_dump($dieta);
     die();
 
 
