@@ -7,6 +7,8 @@ import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
 import { Anatomia } from '../model/anatomia';
+import { Dieta } from '../model/dieta';
+
 
 
 const Url = 'http://localhost/api/api.php';
@@ -163,6 +165,19 @@ export class DaoService {
         action: 'actualizaMedidas',
         Paciente: paciente,
         Anatomia: anatomia
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
+    }
+
+
+    guardarDieta(paciente: Paciente, dieta: Dieta): Observable<boolean>  {
+
+      const cadena = {
+        action: 'guardarDieta',
+        Paciente: paciente,
+        Dieta: dieta
 
      };
       console.log(JSON.stringify(cadena));

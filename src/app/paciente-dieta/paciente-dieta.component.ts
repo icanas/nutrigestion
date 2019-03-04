@@ -22,13 +22,18 @@ export class PacienteDietaComponent implements OnInit {
 
 
   // El boton mas lo que va a hacer es hacer push al array de desayuno
-  masDesayuno() {
+  masDesayunoLunes() {
     this.dieta.Lunes.push(new Alimento('desayuno'));
     console.log(this.dieta);
   }
 
   guardarDieta() {
     console.log(this.dieta);
+    this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
+      R => {
+        console.log(R);
+      }
+    );
   }
 
   ngOnInit() {
