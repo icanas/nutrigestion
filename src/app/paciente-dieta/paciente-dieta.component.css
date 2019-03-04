@@ -25,7 +25,10 @@
 
 }
 
-accordion-group>.panel {
-    background: red;
-    color: white;
+.botonera{
+
+    margin: 5px;
+    margin-top: 15px;
+
 }
+

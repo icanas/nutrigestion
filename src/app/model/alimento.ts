@@ -4,6 +4,7 @@ export class Alimento {
     nombre: string;
     calorias: number;
     franja: string;
+    cantidad: number;
 
     constructor(franja: string) {
       this.franja = franja;

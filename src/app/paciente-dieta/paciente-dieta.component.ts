@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Paciente } from '../model/paciente';
 import { Alimento } from '../model/alimento';
+import { Dieta } from '../model/dieta';
 
 import { DaoService } from '../dao/dao.service';
 
@@ -17,11 +18,16 @@ export class PacienteDietaComponent implements OnInit {
   ) { }
 
   paciente: Paciente = new Paciente();
+  dieta: Dieta = new Dieta();
   desayuno: Alimento[] = [];
 
   // El boton mas lo que va a hacer es hacer push al array de desayuno
   masDesayuno() {
     this.desayuno.push(new Alimento('desayuno'));
+    console.log(this.desayuno);
+  }
+
+  guardarDieta() {
     console.log(this.desayuno);
   }
 

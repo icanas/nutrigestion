@@ -8,40 +8,69 @@
 
   </div>
   <div class="minitable col-sm-10">
-    Añadir nueva dieta<br>
     <div>
-      <accordion >
-          <accordion-group heading="Desayuno">
-              <div *ngFor="let d of desayuno" class="row">
-                <div class="col-sm-2">
+      <tabset>
+        <tab heading="Lunes" id="tab1">
+          <div>
+            <accordion >
+              <accordion-group heading="Desayuno">
+                <div *ngFor="let d of desayuno" class="row">
+                  <div class="col-sm-2">
                     <label>Alimento</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                  </div>
+                  <div class="col-sm-2">
+                    <label>Cantidad</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="d.cantidad" type="text" class="form-control" >
+                  </div>
                 </div>
                 <div class="col-sm-2">
-                    <input [(ngModel)]="d.nombre" type="text"   class="form-control" >
+                    <button (click)="masDesayuno()" type="button" class="btn btn-success">+</button>
                 </div>
-                <div class="col-sm-2">
-                  <label>Cantidad</label>
-                </div>
-                <div class="col-sm-2">
-                  <input type="text"   class="form-control" >
-                </div>
-              </div>
-              <div class="col-sm-2">
-                  <button (click)="masDesayuno()" type="button" class="btn btn-success">+</button>
-              </div>
-          </accordion-group>
-          <accordion-group heading="Post Desayuno">
-            <p>Some content</p>
-          </accordion-group>
-          <accordion-group heading="Comida">
-            <p>Some content</p>
-          </accordion-group>
-          <accordion-group heading="Merienda">
-            <p>Some content</p>
-          </accordion-group>
-          <accordion-group heading="Cena">
-              <p>Some content</p>
-          </accordion-group>
-      </accordion>
-  </div>
+              </accordion-group>
+              <accordion-group heading="Post Desayuno">
+                <p>Some content</p>
+              </accordion-group>
+              <accordion-group heading="Comida">
+                <p>Some content</p>
+              </accordion-group>
+              <accordion-group heading="Merienda">
+                <p>Some content</p>
+              </accordion-group>
+              <accordion-group heading="Cena">
+                  <p>Some content</p>
+              </accordion-group>
+            </accordion>
+          </div>
+        </tab>
+        <tab heading="Martes">
+
+        </tab>
+        <tab heading="Miercoles">
+
+        </tab>
+        <tab heading="Jueves">
+
+        </tab>
+        <tab heading="Viernes">
+
+        </tab>
+        <tab heading="Sabado">
+
+        </tab>
+        <tab heading="Domingo">
+
+        </tab>
+      </tabset>
+    </div>
 </div>
+
+<div class="row col-sm-12 botonera">
+    <div class="col-sm-3">
+        <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
+    </div>
+ </div>
