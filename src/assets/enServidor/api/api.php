@@ -349,15 +349,10 @@ function guardarDieta($conn, $data){
     $paciente = $data->Paciente;
     $dieta = $data->Dieta;
 
-    $sqlDieta = "SELECT MAX(id) as maxId from dieta;";
-    $sqlDia= "SELECT MAX(id) as maxId from dia;";
-    $sqlComida = "SELECT MAX(id) as maxId from comida;";
-    $sqlAlimento = "SELECT MAX(id) as maxId from alimento;";
-
-    $resultDieta =  $conn->query($sqlDieta);
-    $resultDia =  $conn->query($sqlDia);
-    $resultComida =  $conn->query($sqlComida);
-    $resultAlimento =  $conn->query($sqlAlimento);
+    $sqlDietaID = "SELECT MAX(id) as maxId from dieta;";
+    $sqlDiaID= "SELECT MAX(id) as maxId from dia;";
+    $sqlComidaID = "SELECT MAX(id) as maxId from comida;";
+    $sqlAlimentoID = "SELECT MAX(id) as maxId from alimento;";
 
 
     $dietaId;
@@ -383,39 +378,7 @@ function guardarDieta($conn, $data){
         "Domingo" => 0
     ];
 
-///////////////////////
-//Recupero los maxID
-/////////////////////
-    if ($resultDieta->num_rows == 0) {
-        $dietaId = 1;
-    }else{
-        $resultDieta = $resultDieta->fetch_assoc();
-        $dietaId = intval($resultDieta["maxId"]) + 1;    // Ya tengo mi proximo dietaId
-    }
 
-    if ($resultDia->num_rows == 0) {
-        $diaId = 1;
-    }else{
-        $resultDia = $resultDia->fetch_assoc();
-        $diaId = intval($resultDia["maxId"]) + 1;    // Ya tengo mi proximo diaId
-    }
-
-    if ($resultComida->num_rows == 0) {
-        $comidaId = 0;
-    }else{
-        $resultComida = $resultComida->fetch_assoc();
-        $comidaId = intval($resultComida["maxId"]);    // Ya tengo mi proximo diaId
-    }
-
-    if ($resultAlimento->num_rows == 0) {
-        $alimentoId = 1;
-    }else{
-        $resultAlimento = $resultAlimento->fetch_assoc();
-        $alimentoId = intval($resultAlimento["maxId"]) + 1;    // Ya tengo mi proximo diaId
-    }
-
-
-    /////////////Inserto Alimentos///////////////
 
     $franjaAnterior = "";
 
@@ -424,23 +387,33 @@ function guardarDieta($conn, $data){
 
         foreach ($valor as $valor2) {
 
+            $comidaId = maxID("comida", $conn);
+
             $franja = $valor2->franja;
 
-            if($franja != $franjaAnterior) $comidaId++;
+            if($franja != $franjaAnterior){
+                $comidaId = $comidaId + 1;
+            }
             $franjaAnterior = $franja;
 
+            $alimentoId = getAlimentoId($valor2->nombre,$conn);
+            var_dump($alimentoId);
+
             //Meto el alimento que toque
-            $sqlAlimento = "INSERT INTO alimento (id, nombre)
+            $sql = "INSERT INTO alimento (id, nombre)
                             VALUES($alimentoId, '$valor2->nombre');";
 
-            $alimentoId = $alimentoId +1 ;
+            var_dump($sql);
 
-            $conn->query($sqlAlimento);    //Ejecuto sql alimentos
+            $conn->query($sql);    //Ejecuto sql alimentos
 
-            $sqlComida= "INSERT INTO comida (id, idAlimento, cantidad)
+
+            $sql= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
 
-            $conn->query($sqlComida);   //Ejecuto sql de comida pero no incremento su idComida
+            var_dump($sql);
+
+            $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
 
@@ -461,18 +434,18 @@ function guardarDieta($conn, $data){
                 $diaArray["cena"] = $comidaId;
                 break;
             }
-            $diaArray['desayuno'];
-            $sqlDia= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
-                        VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
-                        $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
 
-            $conn->query($sqlDia);   //Ejecuto sql de dia pero no incremento su idDia
-
-            //Lo meto en comida
-            //Con el id de la comida lo pongo en su franja en el dia
-            //($valor2->nombre);
 
         }
+
+        ///////////Lo introduzco en la tabla dia///////////////
+        $diaId = maxID("dia",$conn);
+        $sql= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
+                    VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
+                    $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
+
+        $conn->query($sql);   //Ejecuto sql de dia pero no incremento su idDia
+        var_dump($sql);
 
         ////////////Meto el dia en su array de dieta////////////
 
@@ -506,15 +479,16 @@ function guardarDieta($conn, $data){
     }
     unset($valor); // rompe la referencia con el último elemento
 
+    $dietaId = maxID("dieta",$conn);
 
-    $sqlDieta= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
+    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
     VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
     $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
     $dietaArray[Sabado] ,$dietaArray[Domingo]);";
-    var_dump($sqlDieta);
+    //var_dump($sql);
     //die();
 
-    $conn->query($sqlDieta);   //Ejecuto sql de Dieta
+    $conn->query($sql);   //Ejecuto sql de Dieta
 
     die();
 
@@ -522,5 +496,50 @@ function guardarDieta($conn, $data){
 
 
 }
+
+function maxID($table, $conn){
+    $sql = "SELECT MAX(id) as maxId from $table;";
+    $result =  $conn->query($sql);
+    $id = $result->fetch_assoc();
+
+    if ($id["maxId"] == null) {
+         return 1;
+     }else{
+        $valor = intval($id["maxId"]);
+        return $valor;
+    }
+}
+
+ function getAlimentoId($alimento, $conn){    // Devuelve su id si existe y el nuevo(max)+1 si no
+     $sql = "SELECT id  from alimento where nombre = '$alimento';";
+     $result =  $conn->query($sql);
+
+
+     if ($result->num_rows == 0) {  // Si no existe me quedo con el maxId
+
+        $sql = "SELECT MAX(id) as maxId from alimento;";
+        $result =  $conn->query($sql);
+        $max = $result->fetch_assoc();
+
+        if ($max["maxId"] == null) {
+            return 1;
+        }
+        $devolver = (int)$max["maxId"];
+
+        return $devolver + 1;
+
+      }else{    // Si existe lo devuelvo
+         $id = $result->fetch_assoc();
+         return (int)$id["id"];
+     }
+
+
+
+
+ }
+
+
+
+
 
 ?>

@@ -20,21 +20,33 @@ export class PacienteDietaComponent implements OnInit {
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
 
+  alimentos: Alimento[] = [];
+
   desayunoLunes: Alimento[] = [];
   postDesayunoLunes: Alimento[] = [];
 
 
   // El boton mas lo que va a hacer es hacer push al array de desayuno
   masDesayunoLunes() {
-    this.dieta.Lunes.push(new Alimento('desayuno'));
+    // this.dieta.Lunes.push(new Alimento('desayuno'));
+    this.desayunoLunes.push(new Alimento('desayuno'));
     console.log(this.dieta);
   }
   masPostDesayunoLunes() {
-    this.dieta.Lunes.push(new Alimento('postdesayuno'));
+    // this.dieta.Lunes.push(new Alimento('postdesayuno'));
+    this.postDesayunoLunes.push(new Alimento('postdesayuno'));
     console.log(this.dieta);
   }
 
   guardarDieta() {
+
+    this.desayunoLunes.forEach(element => {
+      this.dieta.Lunes.push(element);
+    });
+    this.postDesayunoLunes.forEach(element => {
+      this.dieta.Lunes.push(element);
+    });
+
     console.log(this.dieta);
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {

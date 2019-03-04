@@ -14,7 +14,7 @@
           <div>
             <accordion >
               <accordion-group heading="Desayuno">
-                <div *ngFor="let d of dieta.Lunes" class="row">
+                <div *ngFor="let d of desayunoLunes" class="row">
                   <div class="col-sm-2">
                     <label>Alimento</label>
                   </div>
@@ -33,18 +33,18 @@
                 </div>
               </accordion-group>
               <accordion-group heading="Post Desayuno">
-                  <div *ngFor="let d2 of dieta.Lunes" class="row">
+                  <div *ngFor="let d of postDesayunoLunes" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d2.nombre" type="text" class="form-control" >
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d2.cantidad"  type="text" class="form-control" >
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
                     <div class="col-sm-2">
