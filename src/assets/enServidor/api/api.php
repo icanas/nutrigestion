@@ -379,8 +379,7 @@ function guardarDieta($conn, $data){
     ];
 
 
-
-    $franjaAnterior = "";
+    $franjaAnterior = $dieta->Lunes[0]->franja;
 
     foreach ($dieta as  $key=>$valor) {
         //var_dump($key);
@@ -397,21 +396,15 @@ function guardarDieta($conn, $data){
             $franjaAnterior = $franja;
 
             $alimentoId = getAlimentoId($valor2->nombre,$conn);
-            var_dump($alimentoId);
 
             //Meto el alimento que toque
             $sql = "INSERT INTO alimento (id, nombre)
                             VALUES($alimentoId, '$valor2->nombre');";
 
-            var_dump($sql);
-
             $conn->query($sql);    //Ejecuto sql alimentos
-
 
             $sql= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
-
-            var_dump($sql);
 
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
@@ -445,7 +438,6 @@ function guardarDieta($conn, $data){
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
 
         $conn->query($sql);   //Ejecuto sql de dia pero no incremento su idDia
-        var_dump($sql);
 
         ////////////Meto el dia en su array de dieta////////////
 
