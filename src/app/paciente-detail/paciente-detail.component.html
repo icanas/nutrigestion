@@ -6,18 +6,16 @@
 <div class="panel col-sm-12 row ">
 
     <div class="col-sm-3">
-      <div class="minitable">
-        Proxima Cita
-        <hr>
+      <div class="minitable ">
+        <div class = "centeredItem minititulo">Proxima Cita</div>
         <li class="list-group-item list-group-item-success py-1" *ngIf="conCita">
           {{citaActiva.fecha_cita}} <i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
         </li>
         <li class="list-group-item list-group-item-success py-1" *ngIf="!conCita">
             Sin Cita Asignada
           </li>
-        <hr>
-        Citas Anteriores
-        <hr>
+          <hr>
+          <div class = "centeredItem minititulo">Citas Anteriores</div>
         <li class="list-group-item list-group-item-warning py-1" *ngFor="let cita of citas">
             {{cita.fecha_cita}}
           </li>
