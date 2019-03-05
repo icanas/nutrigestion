@@ -435,8 +435,6 @@ function guardarDieta($conn, $data){
         ///////////Lo introduzco en la tabla dia///////////////
         $diaId = maxID("dia",$conn);
         $diaId = $diaId + 1;
-        var_dump($diaId);
-        var_dump($diaArray);
 
         $sql= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
@@ -489,14 +487,12 @@ function guardarDieta($conn, $data){
     }
     unset($valor); // rompe la referencia con el último elemento
 
-    $dietaId = maxID("dieta",$conn);
+    $dietaId = maxID("dieta",$conn) + 1;
 
     $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
     VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
     $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
     $dietaArray[Sabado] ,$dietaArray[Domingo]);";
-    //var_dump($sql);
-    //die();
 
     $conn->query($sql);   //Ejecuto sql de Dieta
 
