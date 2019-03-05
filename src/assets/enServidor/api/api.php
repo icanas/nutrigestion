@@ -360,6 +360,13 @@ function guardarDieta($conn, $data){
     $comidaId;
     $alimentoId;
 
+    $diaArray = [
+        "desayuno" => 0,
+        "postdesayuno" => 0,
+        "comida" => 0,
+        "merienda" => 0,
+        "cena" => 0
+    ];
 
     $dietaArray = [
         "Lunes" => 0,
@@ -402,7 +409,7 @@ function guardarDieta($conn, $data){
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
-
+            if(empty($valor2->nombre)) $comidaId = 0;
 
             switch($valor2->franja){        //QUE NO SE ME OLVIDE PONERLO A 0 OTRA VEZ
                 case "desayuno":
@@ -435,7 +442,20 @@ function guardarDieta($conn, $data){
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
 
-        $conn->query($sql);   //Ejecuto sql de dia pero no incremento su idDia
+        if($diaArray["desayuno"] != 0 && $diaArray["desayuno"]  != 0 && $diaArray["desayuno"]  != 0 &&
+            $diaArray["desayuno"]  != 0 && $diaArray["desayuno"]  != 0){    // Si tiene comidas ejecuto
+                $conn->query($sql);   //Ejecuto sql de dia
+            }
+
+        //Reinicio el array
+        $diaArray = [
+            "desayuno" => 0,
+            "postdesayuno" => 0,
+            "comida" => 0,
+            "merienda" => 0,
+            "cena" => 0
+        ];
+
 
         ////////////Meto el dia en su array de dieta////////////
 
