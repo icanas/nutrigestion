@@ -88,7 +88,10 @@ create table dieta(
     jueves numeric(30,0) null,
     viernes numeric(30,0) null,
     sabado numeric(30,0) null,
-    domingo numeric(30,0) null
+    domingo numeric(30,0) null,
+
+    fecha datetime,
+    activo bit
 
 
 )

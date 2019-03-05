@@ -20,6 +20,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MedidasComponent } from './medidas/medidas.component';
 import { MetricasComponent } from './metricas/metricas.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
+import { DietasListComponent } from './dietas-list/dietas-list.component';
 
 
 
@@ -36,7 +37,8 @@ import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.componen
     PrincipalPacienteComponent,
     MedidasComponent,
     MetricasComponent,
-    PacienteDietaComponent
+    PacienteDietaComponent,
+    DietasListComponent
   ],
   imports: [
     BrowserModule,

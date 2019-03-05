@@ -20,8 +20,6 @@ export class PacienteDietaComponent implements OnInit {
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
 
-  alimentos: Alimento[] = [];
-
   desayunoLunes: Alimento[] = [];
   postDesayunoLunes: Alimento[] = [];
   comidaLunes: Alimento[] = [];

@@ -95,6 +95,11 @@ switch ($action) {
     $executionStatus = guardarDieta($conn, $data);
         break;
 
+    case 'getDietas':
+
+    $executionStatus = getDietas($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -354,6 +359,15 @@ function guardarDieta($conn, $data){
     $sqlComidaID = "SELECT MAX(id) as maxId from comida;";
     $sqlAlimentoID = "SELECT MAX(id) as maxId from alimento;";
 
+    /////////////////////////////////
+    //Doy de baja cualquiera anterior
+    /////////////////////////////////
+    $sql = "UPDATE dieta SET activo = 0
+            WHERE emailPaciente = '$paciente->email';";
+
+    $result =  $conn->query($sql);
+
+    //////////////////////////////////////////
 
     $dietaId;
     $diaId;
@@ -489,16 +503,38 @@ function guardarDieta($conn, $data){
 
     $dietaId = maxID("dieta",$conn) + 1;
 
-    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo)
+    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, fecha, activo)
     VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
     $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
-    $dietaArray[Sabado] ,$dietaArray[Domingo]);";
+    $dietaArray[Sabado] ,$dietaArray[Domingo], NOW(), 1);";
 
     $conn->query($sql);   //Ejecuto sql de Dieta
 
     die();
 
 
+
+
+}
+
+
+function getDietas($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM dieta WHERE emailPaciente = '$paciente->email'
+            ORDER BY activo desc, fecha desc;";
+
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
 
 
 }
