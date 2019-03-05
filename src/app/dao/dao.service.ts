@@ -204,7 +204,7 @@ export class DaoService {
         Id: id
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<any>(Url, cadena);
     }
 
@@ -216,7 +216,7 @@ export class DaoService {
         Id: id
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<any>(Url, cadena);
     }
 
