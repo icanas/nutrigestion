@@ -113,20 +113,620 @@
         </tab>
         <tab heading="Martes">
 
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoMartes" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('Martes','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoMartes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Martes','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaMartes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Martes','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaMartes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Martes','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaMartes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Martes','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+
         </tab>
         <tab heading="Miercoles">
+
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoMiercoles" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('LuMiercolesnes','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoMiercoles" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Miercoles','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaMiercoles" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Miercoles','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaMiercoles" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Miercoles','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaMiercoles" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Miercoles','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
 
         </tab>
         <tab heading="Jueves">
 
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoJueves" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('Jueves','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoJueves" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Jueves','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaJueves" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Jueves','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaJueves" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Jueves','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaJueves" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Jueves','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+
         </tab>
         <tab heading="Viernes">
+
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoViernes" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('Viernes','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoViernes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Viernes','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaViernes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Viernes','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaViernes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Viernes','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaViernes" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Viernes','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
 
         </tab>
         <tab heading="Sabado">
 
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoSabado" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('Sabado','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoSabado" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Sabado','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaSabado" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Sabado','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaSabado" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Sabado','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaSabado" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Sabado','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+
         </tab>
         <tab heading="Domingo">
+
+            <div>
+                <accordion >
+                  <accordion-group heading="Desayuno">
+                    <div *ngFor="let d of desayunoDomingo" class="row">
+                      <div class="col-sm-2">
+                        <label>Alimento</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                        <label>Cantidad</label>
+                      </div>
+                      <div class="col-sm-2">
+                        <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)="mas('Domingo','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Post Desayuno">
+                    <div *ngFor="let d of postDesayunoDomingo" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Domingo','postdesayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Comida">
+                    <div *ngFor="let d of comidaDomingo" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Domingo','comida')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Merienda">
+                    <div *ngFor="let d of meriendaDomingo" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Domingo','merienda')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                  <accordion-group heading="Cena">
+                    <div *ngFor="let d of cenaDomingo" class="row">
+                        <div class="col-sm-2">
+                          <label>Alimento</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                        </div>
+                        <div class="col-sm-2">
+                          <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                          <button (click)="mas('Domingo','cena')" type="button" class="btn btn-success">+</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
 
         </tab>
       </tabset>
