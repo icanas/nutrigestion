@@ -21,6 +21,7 @@ import { MedidasComponent } from './medidas/medidas.component';
 import { MetricasComponent } from './metricas/metricas.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
 import { DietasListComponent } from './dietas-list/dietas-list.component';
+import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
 
 
 
@@ -38,7 +39,8 @@ import { DietasListComponent } from './dietas-list/dietas-list.component';
     MedidasComponent,
     MetricasComponent,
     PacienteDietaComponent,
-    DietasListComponent
+    DietasListComponent,
+    DietaVisorComponent
   ],
   imports: [
     BrowserModule,

@@ -11,3 +11,14 @@ export class Dieta {
     Domingo: Alimento[] = [];
 
   }
+
+
+export class Dia {
+
+    desayuno: number;
+    postdesayuno: number;
+    comida: number;
+    merienda: number;
+    cena: number;
+
+  }

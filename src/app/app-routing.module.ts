@@ -8,6 +8,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
 import { PrincipalPacienteComponent } from './principal-paciente/principal-paciente.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
+import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent },
   { path: 'detallePaciente', component: PacienteDetailComponent },
   { path: 'principalPaciente', component: PrincipalPacienteComponent},
-  { path: 'pacienteDieta', component: PacienteDietaComponent }
+  { path: 'pacienteDieta', component: PacienteDietaComponent },
+  { path: 'dietaVisor', component: DietaVisorComponent }
 ];
 
 @NgModule({

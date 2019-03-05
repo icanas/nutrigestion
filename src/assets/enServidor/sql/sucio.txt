@@ -172,3 +172,24 @@
     this.cenaDomingo.forEach(element => {
       this.dieta.Domingo.push(element);
     });
+
+    SELECT d.emailPaciente,di.desayuno,di.postdesayuno,di.comida, di.merienda, di.cena, a.nombre
+FROM dieta d, dia di, comida co, alimento a
+where d.emailPaciente =  'nMigdalova@gmail.com'
+
+
+select c.*
+from comida as a
+	inner join comida as b
+	inner join alimento as c
+	where c.id = a.id
+	and c.id = b.id;
+
+  select c.*
+from dia as d
+	inner join dia as d1
+	inner join comida as c
+    inner join alimento as a
+	where c.id = a.id
+	and c.id = d1.id
+    and c.id = d.id;

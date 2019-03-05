@@ -100,6 +100,16 @@ switch ($action) {
     $executionStatus = getDietas($conn, $data);
         break;
 
+    case 'getDia':
+
+    $executionStatus = getDia($conn, $data);
+        break;
+
+    case 'getComida':
+
+    $executionStatus = getComida($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -523,6 +533,48 @@ function getDietas($conn, $data){
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM dieta WHERE emailPaciente = '$paciente->email'
             ORDER BY activo desc, fecha desc;";
+
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
+
+
+}
+
+function getDia($conn, $data){
+
+    $id = $data->Id;
+    $sql = "SELECT * FROM dia WHERE id = '$id'";
+
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
+
+
+}
+
+function getComida($conn, $data){
+
+    $id = $data->Id;
+    $sql = "SELECT c.cantidad, a.nombre
+    FROM comida c, alimento a
+    WHERE c.idAlimento = a.id and c.id = '$id'";
 
     $result =  $conn->query($sql);
 
