@@ -330,14 +330,14 @@ export class PacienteDietaComponent implements OnInit {
 
 
     console.log(this.dieta);
-    /*
+
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
         console.log(R);
       }
     );
 
-    */
+
   }
 
   ngOnInit() {

@@ -360,13 +360,6 @@ function guardarDieta($conn, $data){
     $comidaId;
     $alimentoId;
 
-    $diaArray = [
-        "desayuno" => 0,
-        "postdesayuno" => 0,
-        "comida" => 0,
-        "merienda" => 0,
-        "cena" => 0
-    ];
 
     $dietaArray = [
         "Lunes" => 0,
@@ -410,7 +403,8 @@ function guardarDieta($conn, $data){
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
 
-            switch($valor2->franja){
+
+            switch($valor2->franja){        //QUE NO SE ME OLVIDE PONERLO A 0 OTRA VEZ
                 case "desayuno":
                 $diaArray["desayuno"] = $comidaId;
                 break;
@@ -433,6 +427,10 @@ function guardarDieta($conn, $data){
 
         ///////////Lo introduzco en la tabla dia///////////////
         $diaId = maxID("dia",$conn);
+        $diaId = $diaId + 1;
+        var_dump($diaId);
+        var_dump($diaArray);
+
         $sql= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
