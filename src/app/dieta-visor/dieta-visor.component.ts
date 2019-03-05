@@ -185,7 +185,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Martes.push(alimento);
 
                 });
             }
@@ -204,7 +204,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Martes.push(alimento);
 
                 });
 
@@ -224,7 +224,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Martes.push(alimento);
 
                 });
 
@@ -244,7 +244,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Martes.push(alimento);
 
                 });
 
@@ -296,7 +296,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Miercoles.push(alimento);
 
                 });
             }
@@ -315,7 +315,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Miercoles.push(alimento);
 
                 });
 
@@ -335,7 +335,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Miercoles.push(alimento);
 
                 });
 
@@ -355,7 +355,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Miercoles.push(alimento);
 
                 });
 
@@ -407,7 +407,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Jueves.push(alimento);
 
                 });
             }
@@ -426,7 +426,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Jueves.push(alimento);
 
                 });
 
@@ -446,7 +446,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Jueves.push(alimento);
 
                 });
 
@@ -466,7 +466,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Jueves.push(alimento);
 
                 });
 
@@ -517,7 +517,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Viernes.push(alimento);
 
                 });
             }
@@ -536,7 +536,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Viernes.push(alimento);
 
                 });
 
@@ -556,7 +556,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Viernes.push(alimento);
 
                 });
 
@@ -576,7 +576,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Viernes.push(alimento);
 
                 });
 
@@ -627,7 +627,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Sabado.push(alimento);
 
                 });
             }
@@ -646,7 +646,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Sabado.push(alimento);
 
                 });
 
@@ -666,7 +666,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Sabado.push(alimento);
 
                 });
 
@@ -686,7 +686,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Sabado.push(alimento);
 
                 });
 
@@ -737,7 +737,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('postdesayuno');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Domingo.push(alimento);
 
                 });
             }
@@ -756,7 +756,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('comida');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Domingo.push(alimento);
 
                 });
 
@@ -776,7 +776,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('merienda');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Domingo.push(alimento);
 
                 });
 
@@ -796,7 +796,7 @@ export class DietaVisorComponent implements OnInit {
                     const alimento = new Alimento('cena');
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
-
+                    this.dieta.Domingo.push(alimento);
 
                 });
 
