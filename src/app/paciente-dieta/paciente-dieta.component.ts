@@ -331,7 +331,7 @@ export class PacienteDietaComponent implements OnInit {
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
-        window.location.reload();
+        // window.location.reload();
       }
     );
 

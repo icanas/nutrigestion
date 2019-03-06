@@ -60,7 +60,7 @@ export class DietaVisorComponent implements OnInit {
                     alimento.nombre = element.nombre;
                     alimento.cantidad = element.cantidad;
                     this.alimentoLunes.push(alimento); /////////////////////////
-
+                    console.log(this.alimentoLunes);
                 });
 
             }
@@ -141,6 +141,7 @@ export class DietaVisorComponent implements OnInit {
                     alimento.cantidad = element.cantidad;
                     this.alimentoLunes.push(alimento);
 
+
                 });
 
             }
@@ -151,7 +152,7 @@ export class DietaVisorComponent implements OnInit {
 
 
         }
-        console.log(this.dieta);
+
     }
     );
 
@@ -820,7 +821,7 @@ export class DietaVisorComponent implements OnInit {
 
     );
 
-    console.log(this.dieta);
+
 
   }
 

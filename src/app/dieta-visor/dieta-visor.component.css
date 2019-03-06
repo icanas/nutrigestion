@@ -17,4 +17,19 @@
 
 .table{
     border-style: solid;
+    resize:none;
+}
+
+table{
+    margin:0px;
+}
+
+.col-xs-2{
+    padding: 0px;
+
+}
+
+.visor{
+    margin: 2%;
+    margin-left: 3%;
 }

@@ -1,13 +1,13 @@
-<div>
+<div class="visor">
 
     <div class="row">
-        <div class="col-sm-2">
-                <div class= "dia">
-                    Lunes
-                </div>
-                <div class= "franja">
-                    Desayuno
-                </div>
+        <div class="col-xs-2">
+            <div class= "dia">
+                Lunes
+            </div>
+            <div class= "franja">
+                Desayuno
+            </div>
             <table class="table table-striped">
                     <thead>
                         <tr>
@@ -17,13 +17,648 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let lunes of alimentoLunes" >
-                            <td *ngIf="lunes[franja] == desayuno">{{lunes.nombre}}</td>
-                            <td *ngIf="lunes[franja] == desayuno">{{lunes.cantidad}}</td>
+                            <td *ngIf="lunes.franja === 'desayuno'"> {{lunes.nombre}}</td>
+                            <td *ngIf="lunes.franja === 'desayuno'">{{lunes.cantidad}}</td>
                         </tr>
                     </tbody>
             </table>
 
+            <div class= "franja">
+                Media Mañana
+            </div>
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>Alimento</th>
+                        <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let lunes of alimentoLunes" >
+                            <td *ngIf="lunes.franja === 'postdesayuno'">{{lunes.nombre}}</td>
+                            <td *ngIf="lunes.franja === 'postdesayuno'">{{lunes.cantidad}}</td>
+                        </tr>
+                    </tbody>
+            </table>
+            <div class= "franja">
+                    Comida
+                </div>
+                <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th>Alimento</th>
+                            <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let lunes of alimentoLunes" >
+                                <td *ngIf="lunes.franja === 'comida'">{{lunes.nombre}}</td>
+                                <td *ngIf="lunes.franja === 'comida'">{{lunes.cantidad}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+                <div class= "franja">
+                        Merienda
+                    </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>Alimento</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let lunes of alimentoLunes" >
+                                    <td *ngIf="lunes.franja === 'merienda'">{{lunes.nombre}}</td>
+                                    <td *ngIf="lunes.franja === 'merienda'">{{lunes.cantidad}}</td>
+                                </tr>
+                            </tbody>
+                </table>
+                <div class= "franja">
+                        Cena
+                    </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>Alimento</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let lunes of alimentoLunes" >
+                                    <td *ngIf="lunes.franja === 'cena'">{{lunes.nombre}}</td>
+                                    <td *ngIf="lunes.franja === 'cena'">{{lunes.cantidad}}</td>
+                                </tr>
+                            </tbody>
+                    </table>
+
         </div>
+        <div class="col-xs-2">
+            <div class= "dia">
+                    Martes
+            </div>
+                <div class= "franja">
+                    Desayuno
+                </div>
+                <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th>Alimento</th>
+                            <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let martes of alimentoMartes" >
+                                <td *ngIf="martes.franja === 'desayuno'">{{martes.nombre}}</td>
+                                <td *ngIf="martes.franja === 'desayuno'">{{martes.cantidad}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+
+                <div class= "franja">
+                    Media Mañana
+                </div>
+                <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th>Alimento</th>
+                            <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let martes of alimentoMartes" >
+                                <td *ngIf="martes.franja === 'postdesayuno'">{{martes.nombre}}</td>
+                                <td *ngIf="martes.franja === 'postdesayuno'">{{martes.cantidad}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+                <div class= "franja">
+                        Comida
+                    </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>Alimento</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let martes of alimentoMartes" >
+                                    <td *ngIf="martes.franja === 'comida'">{{martes.nombre}}</td>
+                                    <td *ngIf="martes.franja === 'comida'">{{martes.cantidad}}</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                    <div class= "franja">
+                            Merienda
+                        </div>
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th>Alimento</th>
+                                    <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let martes of alimentoMartes" >
+                                        <td *ngIf="martes.franja === 'merienda'">{{martes.nombre}}</td>
+                                        <td *ngIf="martes.franja === 'merienda'">{{martes.cantidad}}</td>
+                                    </tr>
+                                </tbody>
+                    </table>
+                    <div class= "franja">
+                            Cena
+                        </div>
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th>Alimento</th>
+                                    <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let martes of alimentoMartes" >
+                                        <td *ngIf="martes.franja === 'cena'">{{martes.nombre}}</td>
+                                        <td *ngIf="martes.franja === 'cena'">{{martes.cantidad}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+
+        </div>
+        <div class="col-xs-2">
+                    <div class= "dia">
+                        Miercoles
+                    </div>
+                    <div class= "franja">
+                        Desayuno
+                    </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>Alimento</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let miercoles of alimentoMiercoles" >
+                                    <td *ngIf="miercoles.franja === 'desayuno'">{{miercoles.nombre}}</td>
+                                    <td *ngIf="miercoles.franja === 'desayuno'">{{miercoles.cantidad}}</td>
+                                </tr>
+                            </tbody>
+                    </table>
+
+                    <div class= "franja">
+                        Media Mañana
+                    </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>Alimento</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let miercoles of alimentoMiercoles" >
+                                    <td *ngIf="miercoles.franja === 'postdesayuno'">{{miercoles.nombre}}</td>
+                                    <td *ngIf="miercoles.franja === 'postdesayuno'">{{miercoles.cantidad}}</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                    <div class= "franja">
+                            Comida
+                        </div>
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th>Alimento</th>
+                                    <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let miercoles of alimentoMiercoles" >
+                                        <td *ngIf="miercoles.franja === 'comida'">{{miercoles.nombre}}</td>
+                                        <td *ngIf="miercoles.franja === 'comida'">{{miercoles.cantidad}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                        <div class= "franja">
+                                Merienda
+                            </div>
+                            <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th>Alimento</th>
+                                        <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let miercoles of alimentoMiercoles" >
+                                            <td *ngIf="miercoles.franja === 'merienda'">{{miercoles.nombre}}</td>
+                                            <td *ngIf="miercoles.franja === 'merienda'">{{miercoles.cantidad}}</td>
+                                        </tr>
+                                    </tbody>
+                        </table>
+                        <div class= "franja">
+                                Cena
+                            </div>
+                            <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th>Alimento</th>
+                                        <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let miercoles of alimentoMiercoles" >
+                                            <td *ngIf="miercoles.franja === 'cena'">{{miercoles.nombre}}</td>
+                                            <td *ngIf="miercoles.franja === 'cena'">{{miercoles.cantidad}}</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+
+        </div>
+        <div class="col-xs-2">
+                        <div class= "dia">
+                            Jueves
+                        </div>
+                        <div class= "franja">
+                            Desayuno
+                        </div>
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th>Alimento</th>
+                                    <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let jueves of alimentoJueves" >
+                                        <td *ngIf="jueves.franja === 'desayuno'">{{jueves.nombre}}</td>
+                                        <td *ngIf="jueves.franja === 'desayuno'">{{jueves.cantidad}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+
+                        <div class= "franja">
+                            Media Mañana
+                        </div>
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th>Alimento</th>
+                                    <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let jueves of alimentoJueves" >
+                                        <td *ngIf="jueves.franja === 'postdesayuno'">{{jueves.nombre}}</td>
+                                        <td *ngIf="jueves.franja === 'postdesayuno'">{{jueves.cantidad}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                        <div class= "franja">
+                                Comida
+                            </div>
+                            <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th>Alimento</th>
+                                        <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let jueves of alimentoJueves" >
+                                            <td *ngIf="jueves.franja === 'comida'">{{jueves.nombre}}</td>
+                                            <td *ngIf="jueves.franja === 'comida'">{{jueves.cantidad}}</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                            <div class= "franja">
+                                    Merienda
+                                </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>Alimento</th>
+                                            <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let jueves of alimentoJueves" >
+                                                <td *ngIf="jueves.franja === 'merienda'">{{jueves.nombre}}</td>
+                                                <td *ngIf="jueves.franja === 'merienda'">{{jueves.cantidad}}</td>
+                                            </tr>
+                                        </tbody>
+                            </table>
+                            <div class= "franja">
+                                    Cena
+                                </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>Alimento</th>
+                                            <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let jueves of alimentoJueves" >
+                                                <td *ngIf="jueves.franja === 'cena'">{{jueves.nombre}}</td>
+                                                <td *ngIf="jueves.franja === 'cena'">{{jueves.cantidad}}</td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+
+        </div>
+        <div class="col-xs-2">
+                            <div class= "dia">
+                                Viernes
+                            </div>
+                            <div class= "franja">
+                                Desayuno
+                            </div>
+                            <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th>Alimento</th>
+                                        <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let viernes of alimentoViernes" >
+                                            <td *ngIf="viernes.franja === 'desayuno'">{{viernes.nombre}}</td>
+                                            <td *ngIf="viernes.franja === 'desayuno'">{{viernes.cantidad}}</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+
+                            <div class= "franja">
+                                Media Mañana
+                            </div>
+                            <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th>Alimento</th>
+                                        <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let viernes of alimentoViernes" >
+                                            <td *ngIf="viernes.franja === 'postdesayuno'">{{viernes.nombre}}</td>
+                                            <td *ngIf="viernes.franja === 'postdesayuno'">{{viernes.cantidad}}</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                            <div class= "franja">
+                                    Comida
+                                </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>Alimento</th>
+                                            <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let viernes of alimentoViernes" >
+                                                <td *ngIf="viernes.franja === 'comida'">{{viernes.nombre}}</td>
+                                                <td *ngIf="viernes.franja === 'comida'">{{viernes.cantidad}}</td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+                                <div class= "franja">
+                                        Merienda
+                                    </div>
+                                    <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                <th>Alimento</th>
+                                                <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let viernes of alimentoViernes" >
+                                                    <td *ngIf="viernes.franja === 'merienda'">{{viernes.nombre}}</td>
+                                                    <td *ngIf="viernes.franja === 'merienda'">{{viernes.cantidad}}</td>
+                                                </tr>
+                                            </tbody>
+                                </table>
+                                <div class= "franja">
+                                        Cena
+                                    </div>
+                                    <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                <th>Alimento</th>
+                                                <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let viernes of alimentoViernes" >
+                                                    <td *ngIf="viernes.franja === 'cena'">{{viernes.nombre}}</td>
+                                                    <td *ngIf="viernes.franja === 'cena'">{{viernes.cantidad}}</td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+
+        </div>
+        <div class="col-xs-2">
+                                <div class= "dia">
+                                    Sabado
+                                </div>
+                                <div class= "franja">
+                                    Desayuno
+                                </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>Alimento</th>
+                                            <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let sabado of alimentoSabado" >
+                                                <td *ngIf="sabado.franja === 'desayuno'">{{sabado.nombre}}</td>
+                                                <td *ngIf="sabado.franja === 'desayuno'">{{sabado.cantidad}}</td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+
+                                <div class= "franja">
+                                    Media Mañana
+                                </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>Alimento</th>
+                                            <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let sabado of alimentoSabado" >
+                                                <td *ngIf="sabado.franja === 'postdesayuno'">{{sabado.nombre}}</td>
+                                                <td *ngIf="sabado.franja === 'postdesayuno'">{{sabado.cantidad}}</td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+                                <div class= "franja">
+                                        Comida
+                                    </div>
+                                    <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                <th>Alimento</th>
+                                                <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let sabado of alimentoSabado" >
+                                                    <td *ngIf="sabado.franja === 'comida'">{{sabado.nombre}}</td>
+                                                    <td *ngIf="sabado.franja === 'comida'">{{sabado.cantidad}}</td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+                                    <div class= "franja">
+                                            Merienda
+                                        </div>
+                                        <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                    <th>Alimento</th>
+                                                    <th>Cantidad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let sabado of alimentoSabado" >
+                                                        <td *ngIf="sabado.franja === 'merienda'">{{sabado.nombre}}</td>
+                                                        <td *ngIf="sabado.franja === 'merienda'">{{sabado.cantidad}}</td>
+                                                    </tr>
+                                                </tbody>
+                                    </table>
+                                    <div class= "franja">
+                                            Cena
+                                        </div>
+                                        <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                    <th>Alimento</th>
+                                                    <th>Cantidad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let sabado of alimentoSabado" >
+                                                        <td *ngIf="sabado.franja === 'cena'">{{sabado.nombre}}</td>
+                                                        <td *ngIf="sabado.franja === 'cena'">{{sabado.cantidad}}</td>
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+
+        </div>
+        <div class="col-xs-2">
+                                    <div class= "dia">
+                                        Domingo
+                                    </div>
+                                    <div class= "franja">
+                                        Desayuno
+                                    </div>
+                                    <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                <th>Alimento</th>
+                                                <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let domingo of alimentoDomingo" >
+                                                    <td *ngIf="domingo.franja === 'desayuno'">{{domingo.nombre}}</td>
+                                                    <td *ngIf="domingo.franja === 'desayuno'">{{domingo.cantidad}}</td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+
+                                    <div class= "franja">
+                                        Media Mañana
+                                    </div>
+                                    <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                <th>Alimento</th>
+                                                <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let domingo of alimentoDomingo" >
+                                                    <td *ngIf="domingo.franja === 'postdesayuno'">{{domingo.nombre}}</td>
+                                                    <td *ngIf="domingo.franja === 'postdesayuno'">{{domingo.cantidad}}</td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+                                    <div class= "franja">
+                                            Comida
+                                        </div>
+                                        <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                    <th>Alimento</th>
+                                                    <th>Cantidad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let domingo of alimentoDomingo" >
+                                                        <td *ngIf="domingo.franja === 'comida'">{{domingo.nombre}}</td>
+                                                        <td *ngIf="domingo.franja === 'comida'">{{domingo.cantidad}}</td>
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+                                        <div class= "franja">
+                                                Merienda
+                                            </div>
+                                            <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                        <th>Alimento</th>
+                                                        <th>Cantidad</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let domingo of alimentoDomingo" >
+                                                            <td *ngIf="domingo.franja === 'merienda'">{{domingo.nombre}}</td>
+                                                            <td *ngIf="domingo.franja === 'merienda'">{{domingo.cantidad}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                        </table>
+                                        <div class= "franja">
+                                                Cena
+                                            </div>
+                                            <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                        <th>Alimento</th>
+                                                        <th>Cantidad</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let domingo of alimentoDomingo" >
+                                                            <td *ngIf="domingo.franja === 'cena'">{{domingo.nombre}}</td>
+                                                            <td *ngIf="domingo.franja === 'cena'">{{domingo.cantidad}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                            </table>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 
