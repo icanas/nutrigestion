@@ -404,13 +404,14 @@ function guardarDieta($conn, $data){
 
 
     $franjaAnterior = $dieta->Lunes[0]->franja;
+    $comidaId = maxID("comida", $conn) + 1;
 
     foreach ($dieta as  $key=>$valor) {
         //var_dump($key);
 
         foreach ($valor as $valor2) {
 
-            $comidaId = maxID("comida", $conn);
+
 
             $franja = $valor2->franja;
 
@@ -519,9 +520,6 @@ function guardarDieta($conn, $data){
     $dietaArray[Sabado] ,$dietaArray[Domingo], NOW(), 1);";
 
     $conn->query($sql);   //Ejecuto sql de Dieta
-
-    die();
-
 
 
 
