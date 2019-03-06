@@ -27,9 +27,15 @@
                     <input [(ngModel)]="d.cantidad" value = "0" type="text" class="form-control" >
                   </div>
                 </div>
-                <div class="col-sm-2">
-                    <button (click)="mas('Lunes','desayuno')" type="button" class="btn btn-success">+</button>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <button (click)="mas('Lunes','desayuno')" type="button" class="btn btn-success">+</button>
+                    </div>
+                    <div class="col-sm-1">
+                        <button (click)="menos('Lunes')" type="button" class="btn btn-danger">-</button>
+                    </div>
                 </div>
+
               </accordion-group>
               <accordion-group heading="Post Desayuno">
                 <div *ngFor="let d of postDesayunoLunes" class="row">

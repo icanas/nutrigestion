@@ -210,6 +210,34 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
+  menos(dia: string) {
+
+    switch (dia) {
+      case 'Lunes':
+        this.desayunoLunes.pop();
+        break;
+      case 'Martes':
+        this.desayunoMartes.pop();
+        break;
+      case 'Miercoles':
+        this.desayunoMiercoles.pop();
+        break;
+      case 'Jueves':
+        this.desayunoJueves.pop();
+        break;
+      case 'Viernes':
+        this.desayunoViernes.pop();
+        break;
+      case 'Sabado':
+        this.desayunoSabado.pop();
+        break;
+        this.desayunoDomingo.pop();
+        break;
+
+    }
+
+  }
+
 
   guardarDieta() {
 
