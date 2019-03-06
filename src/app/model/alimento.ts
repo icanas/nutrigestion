@@ -8,6 +8,7 @@ export class Alimento {
 
     constructor(franja: string) {
       this.franja = franja;
+      this.cantidad = 0;
     }
 
   }

@@ -44,7 +44,6 @@ export class DietaVisorComponent implements OnInit {
 
     this.dietaSelecionada = JSON.parse(localStorage.getItem('dieta'));
 
-
     this.daoService.getDia(this.dietaSelecionada.lunes).subscribe(
       R => {
 
