@@ -2,7 +2,12 @@
 
     <div class="row">
         <div class="col-sm-2">
-            Lunes<br>
+                <div class= "dia">
+                    Lunes
+                </div>
+                <div class= "franja">
+                    Desayuno
+                </div>
             <table class="table table-striped">
                     <thead>
                         <tr>
@@ -22,75 +27,4 @@
     </div>
 
 
-    <ng-container *ngFor="let lunes of alimentoLunes" >
-        <li *ngIf="lunes[franja] == desayuno">{{ lunes.nombre  }}</li>
-    </ng-container>
 
-
-
-</div>
-
-
-<div class="row">
-        <div class="col-sm-2">
-            Lunes<br>
-            <table class="table table-striped">
-                    <thead>
-                        <tr>
-                        <th>Alimento</th>
-                        <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let lunes of alimentoLunes"  >
-                        <td>{{lunes.nombre}}</td>
-                        <td>{{lunes.cantidad }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-        </div>
-       </div>
-
-
-<div >
-        <div class= "dia">
-            Lunes
-        </div>
-        <table class="table table-striped">
-                <thead>
-                    <tr>
-                    <th>Alimento</th>
-                    <th>Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let lunes of alimentoLunes">
-                    <td>{{lunes.nombre }}</td>
-                    <td>{{lunes.cantidad }}</td>
-                    </tr>
-                </tbody>
-            </table>
-    </div>
-
-Lunes<br>
-<li class="list-group-item list-group-item-success py-0" *ngFor="let lunes of alimentoLunes">
-{{lunes.nombre }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{lunes.cantidad }}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{lunes.franja }}
-</li>
-Martes<br>
-<li class="list-group-item list-group-item-success py-0" *ngFor="let martes of alimentoMartes">
-{{martes.nombre }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{martes.cantidad }}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{martes.franja }}
-</li>
-Miercoles<br>
-<li class="list-group-item list-group-item-success py-0" *ngFor="let miercoles of alimentoMiercoles">
-{{miercoles.nombre }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{miercoles.cantidad }}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{miercoles.franja }}
-</li>
