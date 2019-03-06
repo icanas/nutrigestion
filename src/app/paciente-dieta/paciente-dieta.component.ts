@@ -214,115 +214,150 @@ export class PacienteDietaComponent implements OnInit {
   guardarDieta() {
 
     this.desayunoLunes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Lunes.push(element);
     });
     this.postDesayunoLunes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Lunes.push(element);
     });
     this.comidaLunes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Lunes.push(element);
     });
     this.meriendaLunes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Lunes.push(element);
     });
     this.cenaLunes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Lunes.push(element);
     });
 
     this.desayunoMartes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Martes.push(element);
     });
     this.postDesayunoMartes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Martes.push(element);
     });
     this.comidaMartes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Martes.push(element);
     });
     this.meriendaMartes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Martes.push(element);
     });
     this.cenaMartes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Martes.push(element);
     });
 
     this.desayunoMiercoles.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Miercoles.push(element);
     });
     this.postDesayunoMiercoles.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Miercoles.push(element);
     });
     this.comidaMiercoles.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Miercoles.push(element);
     });
     this.meriendaMiercoles.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Miercoles.push(element);
     });
     this.cenaMiercoles.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Miercoles.push(element);
     });
 
     this.desayunoJueves.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Jueves.push(element);
     });
     this.postDesayunoJueves.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Jueves.push(element);
     });
     this.comidaJueves.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Jueves.push(element);
     });
     this.meriendaJueves.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Jueves.push(element);
     });
     this.cenaJueves.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Jueves.push(element);
     });
 
     this.desayunoViernes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Viernes.push(element);
     });
     this.postDesayunoViernes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Viernes.push(element);
     });
     this.comidaViernes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Viernes.push(element);
     });
     this.meriendaViernes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Viernes.push(element);
     });
     this.cenaViernes.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Viernes.push(element);
     });
 
     this.desayunoSabado.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Sabado.push(element);
     });
     this.postDesayunoSabado.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Sabado.push(element);
     });
     this.comidaSabado.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Sabado.push(element);
     });
     this.meriendaSabado.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Sabado.push(element);
     });
     this.cenaSabado.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Sabado.push(element);
     });
 
 
     this.desayunoDomingo.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Domingo.push(element);
     });
     this.postDesayunoDomingo.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Domingo.push(element);
     });
     this.comidaDomingo.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Domingo.push(element);
     });
     this.meriendaDomingo.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Domingo.push(element);
     });
     this.cenaDomingo.forEach(element => {
+      element.nombre = element.nombre.toLowerCase();
       this.dieta.Domingo.push(element);
     });
 
