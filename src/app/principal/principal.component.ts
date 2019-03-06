@@ -26,7 +26,7 @@ export class PrincipalComponent implements OnInit {
   modalRef: BsModalRef;
 
   profesional: Profesional = new Profesional();
-  private autorizado = false;
+  autorizado = false;
   nuevoPaciente: Paciente = new Paciente();
 
 

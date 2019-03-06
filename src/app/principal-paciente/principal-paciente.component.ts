@@ -16,8 +16,8 @@ export class PrincipalPacienteComponent implements OnInit {
 
   paciente: Paciente = new Paciente();
   cita: Cita = new Cita();
-  private autorizado = false;
-  private proximaCita = false;
+  autorizado = false;
+  proximaCita = false;
 
 
 

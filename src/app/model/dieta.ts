@@ -9,6 +9,7 @@ export class Dieta {
     Viernes: Alimento[] = [];
     Sabado: Alimento[] = [];
     Domingo: Alimento[] = [];
+    fecha: string;
 
   }
 
