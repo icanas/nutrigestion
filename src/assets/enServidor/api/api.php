@@ -403,15 +403,14 @@ function guardarDieta($conn, $data){
     ];
 
 
-    $franjaAnterior = 0;
-    $comidaId = maxID("comida", $conn) + 1;
+
+    $comidaId = maxID("comida", $conn);
 
     foreach ($dieta as  $key=>$valor) {
         //var_dump($key);
+        $franjaAnterior = "0";  //Nuevo dia de la semana, esto fuerza a comida nueva
 
         foreach ($valor as $valor2) {
-
-
 
             $franja = $valor2->franja;
 
