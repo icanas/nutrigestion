@@ -403,7 +403,7 @@ function guardarDieta($conn, $data){
     ];
 
 
-    $franjaAnterior = $dieta->Lunes[0]->franja;
+    $franjaAnterior = 0;
     $comidaId = maxID("comida", $conn) + 1;
 
     foreach ($dieta as  $key=>$valor) {
@@ -434,7 +434,7 @@ function guardarDieta($conn, $data){
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
-            if(empty($valor2->nombre)) $comidaId = 0;
+
 
             switch($valor2->franja){        //QUE NO SE ME OLVIDE PONERLO A 0 OTRA VEZ
                 case "desayuno":
@@ -465,8 +465,9 @@ function guardarDieta($conn, $data){
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
 
-        if($diaArray["desayuno"] != 0 && $diaArray["desayuno"]  != 0 && $diaArray["desayuno"]  != 0 &&
-            $diaArray["desayuno"]  != 0 && $diaArray["desayuno"]  != 0){    // Si tiene comidas ejecuto
+
+        if($diaArray["desayuno"] != 0 || $diaArray["postdesayuno"]  != 0 || $diaArray["comida"]  != 0 ||
+            $diaArray["merienda"]  != 0 || $diaArray["cena"]  != 0){    // Si tiene comidas ejecuto
                 $conn->query($sql);   //Ejecuto sql de dia
             }
 
