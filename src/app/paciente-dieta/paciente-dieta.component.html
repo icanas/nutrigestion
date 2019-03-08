@@ -912,8 +912,17 @@
   <div class="col-sm-2">
     <input [(ngModel)]="nombreDieta" placeholder="Nombre de la dieta" type="text" class="form-control" >
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-2">
       <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
+  </div>
+  <div id="textoToggle" class="col-sm-1">
+      Abrir Todos
+  </div>
+  <div class="col-sm-1 switch">
+      <label class="switch">
+        <input type="checkbox">
+        <span (click)="expandCollapse()" class="slider round"></span>
+       </label>
   </div>
  </div>
 

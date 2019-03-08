@@ -1156,6 +1156,16 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
+  expandCollapse() {
+    if (this.isOpenAccordion) {
+      this.isOpenAccordion = false;
+      this.isOpenLunes = false;
+    } else {
+      this.isOpenAccordion = true;
+      this.isOpenLunes = true;
+    }
+  }
+
   ngOnInit() {
 
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
