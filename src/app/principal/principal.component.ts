@@ -72,6 +72,9 @@ export class PrincipalComponent implements OnInit {
         this.autorizado = true;
         this.profesional.nombre = R.nombre;
         this.profesional.email = R.email;
+        localStorage.removeItem('profesionalData');
+        localStorage.setItem('profesionalData', JSON.stringify(this.profesional));
+
       }
     });
   }

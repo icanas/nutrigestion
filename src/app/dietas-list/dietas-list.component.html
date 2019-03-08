@@ -1,13 +1,20 @@
 <div>
 
     <li class="list-group-item list-group-item-success py-1" id="activa" (click) = verDieta(dietaActiva)>
-      <span >Dieta {{dietaActiva.fecha}}</span>
+      <span >Actual {{dietaActiva.fecha}}</span>
     </li>
 
 
-    <li class="list-group-item list-group-item-warning py-1" *ngFor="let dieta of dietas" id="anterior"
-    (click) = verDieta(dieta)>
-      <span > Dieta {{dieta.fecha}} </span>
+    <li class="list-group-item list-group-item-warning py-1" *ngFor="let dieta of dietas" id="anterior">
+      <div class="row" >
+        <div class="col-sm-9" (click) = verDieta(dieta)>
+            <span > {{dieta.nombre}} {{dieta.fecha}} </span>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" (click) = "log()" class="btn btn-outline-dark btn-xs">Editar</button>
+        </div>
+      </div>
+
     </li>
 
 

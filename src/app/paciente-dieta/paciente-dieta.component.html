@@ -4,7 +4,7 @@
 
 <div class="ppal row">
   <div class="minitable col-sm-3">
-      <app-dietas-list></app-dietas-list>
+      <app-dietas-list (editar)="log()"[dietaActiva]="dieta"></app-dietas-list>
   </div>
   <div class="minitable col-sm-9">
     <div>
@@ -916,3 +916,12 @@
       <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
   </div>
  </div>
+
+ <select [(ngModel)]="dieta" class="selecthistory">
+   <option>
+
+   </option>
+    <option *ngFor="let d of dietas" [ngValue]="dieta2">
+        <span >{{d.fecha}}</span>
+    </option>
+  </select>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Paciente } from '../model/paciente';
 import { Dieta } from '../model/dieta';
@@ -22,7 +22,9 @@ export class DietasListComponent implements OnInit {
 
   paciente: Paciente = new Paciente();
   dietas: Dieta[] = [];
-  dietaActiva = new Dieta();
+  @Input() dietaActiva: Dieta;
+  @Output() editar = new EventEmitter();
+  // dietaActiva = new Dieta();
 
 
 
@@ -39,8 +41,12 @@ export class DietasListComponent implements OnInit {
     );
   }
 
+  log() {
+    console.log('pinchao');
+    this.editar.emit();
+  }
+
   verDieta(d: Dieta) {
-    console.log(d);
     localStorage.removeItem('dieta');
     localStorage.setItem('dieta', JSON.stringify(d));
     this.route.navigate(['dietaVisor']);

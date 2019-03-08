@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Paciente } from '../model/paciente';
+import { Profesional } from '../model/profesional';
 import { Alimento } from '../model/alimento';
 import { Dieta } from '../model/dieta';
 
@@ -17,8 +18,10 @@ export class PacienteDietaComponent implements OnInit {
     private daoService: DaoService
   ) { }
 
+  profesional: Profesional = new Profesional();
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
+  dietas: Dieta[] = [];
   nombreDieta: string;
 
   desayunoLunes: Alimento[] = [];
@@ -507,8 +510,11 @@ export class PacienteDietaComponent implements OnInit {
       this.dieta.Domingo.push(element);
     });
 
-
-    this.dieta.nombre = this.nombreDieta;
+    if (this.dieta.nombre != null) {
+      this.dieta.nombre = this.nombreDieta;
+    } else {
+      this.dieta.nombre = ' ' ;
+    }
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
@@ -519,9 +525,26 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
+  getDietasProfesional() {
+    const p = new Paciente();
+    p.email = this.profesional.email;
+    this.daoService.getDietas(p).subscribe(
+      R => {
+        this.dietas = R;
+      }
+    );
+  }
+
+  log() {
+    console.log('pinchaoPadre');
+
+  }
+
   ngOnInit() {
 
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
+    this.profesional = JSON.parse(localStorage.getItem('profesionalData'));
+    this.getDietasProfesional();
 
   }
 
