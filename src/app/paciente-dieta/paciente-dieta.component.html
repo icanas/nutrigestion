@@ -9,10 +9,10 @@
   <div class="minitable col-sm-9">
     <div>
       <tabset>
-        <tab heading="Lunes" id="tab1">
+        <tab heading="Lunes" id="tab1" >
           <div>
             <accordion >
-              <accordion-group heading="Desayuno">
+              <accordion-group heading="Desayuno" [isOpen]="isOpenLunes">
                 <div *ngFor="let d of desayunoLunes" class="row">
                   <div class="col-sm-2">
                     <label>Alimento</label>
@@ -37,7 +37,7 @@
                 </div>
 
               </accordion-group>
-              <accordion-group heading="Post Desayuno">
+              <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                 <div *ngFor="let d of postDesayunoLunes" class="row">
                     <div class="col-sm-2">
                       <label>Alimento</label>
@@ -61,7 +61,7 @@
                       </div>
                   </div>
               </accordion-group>
-              <accordion-group heading="Comida">
+              <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                 <div *ngFor="let d of comidaLunes" class="row">
                     <div class="col-sm-2">
                       <label>Alimento</label>
@@ -85,7 +85,7 @@
                       </div>
                   </div>
               </accordion-group>
-              <accordion-group heading="Merienda">
+              <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                 <div *ngFor="let d of meriendaLunes" class="row">
                     <div class="col-sm-2">
                       <label>Alimento</label>
@@ -109,7 +109,7 @@
                       </div>
                   </div>
               </accordion-group>
-              <accordion-group heading="Cena">
+              <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                 <div *ngFor="let d of cenaLunes" class="row">
                     <div class="col-sm-2">
                       <label>Alimento</label>
@@ -140,7 +140,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoMartes" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -164,7 +164,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoMartes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -188,7 +188,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaMartes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -212,7 +212,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaMartes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -236,7 +236,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaMartes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -268,7 +268,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoMiercoles" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -292,7 +292,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoMiercoles" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -316,7 +316,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaMiercoles" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -340,7 +340,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaMiercoles" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -364,7 +364,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaMiercoles" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -396,7 +396,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoJueves" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -420,7 +420,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoJueves" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -444,7 +444,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaJueves" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -468,7 +468,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaJueves" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -492,7 +492,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaJueves" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -524,7 +524,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoViernes" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -548,7 +548,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoViernes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -572,7 +572,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaViernes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -596,7 +596,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaViernes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -620,7 +620,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaViernes" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -652,7 +652,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoSabado" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -676,7 +676,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoSabado" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -700,7 +700,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaSabado" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -724,7 +724,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaSabado" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -748,7 +748,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaSabado" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -780,7 +780,7 @@
 
             <div>
                 <accordion >
-                  <accordion-group heading="Desayuno">
+                  <accordion-group heading="Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of desayunoDomingo" class="row">
                       <div class="col-sm-2">
                         <label>Alimento</label>
@@ -804,7 +804,7 @@
                         </div>
                     </div>
                   </accordion-group>
-                  <accordion-group heading="Post Desayuno">
+                  <accordion-group heading="Post Desayuno" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of postDesayunoDomingo" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -828,7 +828,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Comida">
+                  <accordion-group heading="Comida" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of comidaDomingo" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -852,7 +852,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Merienda">
+                  <accordion-group heading="Merienda" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of meriendaDomingo" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>
@@ -876,7 +876,7 @@
                           </div>
                       </div>
                   </accordion-group>
-                  <accordion-group heading="Cena">
+                  <accordion-group heading="Cena" [isOpen]="isOpenAccordion">
                     <div *ngFor="let d of cenaDomingo" class="row">
                         <div class="col-sm-2">
                           <label>Alimento</label>

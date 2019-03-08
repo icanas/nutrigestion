@@ -18,6 +18,9 @@ export class PacienteDietaComponent implements OnInit {
     private daoService: DaoService
   ) { }
 
+  isOpenLunes = true;
+  isOpenAccordion = false;
+
   profesional: Profesional = new Profesional();
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
@@ -1146,6 +1149,9 @@ export class PacienteDietaComponent implements OnInit {
 
       }
     );
+
+
+    this.isOpenAccordion = true;  // Abro todos los acordeones para mostrar que se han llenado
 
 
   }
