@@ -180,7 +180,7 @@ export class DaoService {
         Dieta: dieta
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -191,7 +191,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Dieta[]>(Url, cadena);
     }
 

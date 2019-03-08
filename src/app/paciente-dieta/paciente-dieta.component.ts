@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Paciente } from '../model/paciente';
 import { Profesional } from '../model/profesional';
 import { Alimento } from '../model/alimento';
-import { Dieta } from '../model/dieta';
+import { Dieta, Dia } from '../model/dieta';
 
 import { DaoService } from '../dao/dao.service';
 
@@ -518,7 +518,7 @@ export class PacienteDietaComponent implements OnInit {
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
-        window.location.reload();
+        // window.location.reload();
       }
     );
 
@@ -535,8 +535,93 @@ export class PacienteDietaComponent implements OnInit {
     );
   }
 
-  editarDieta($dieta: Dieta) {
+  editarDieta($dieta: any) { // me viene la dieta desde diestas-list
 
+
+    this.daoService.getDia($dieta.lunes).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoLunes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    this.desayunoLunes.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    this.desayunoLunes.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    this.desayunoLunes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    this.desayunoLunes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+
+        }
+
+    }
+
+    );
 
 
   }

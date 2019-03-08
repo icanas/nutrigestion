@@ -1,7 +1,14 @@
 <div>
 
-    <li class="list-group-item list-group-item-success py-1" id="activa" (click) = verDieta(dietaActiva)>
-      <span >Actual {{dietaActiva.fecha}}</span>
+    <li class="list-group-item list-group-item-success py-1" id="activa" >
+        <div class="row" >
+            <div class="col-sm-9" (click) = verDieta(dietaActiva)>
+                <span >Actual {{dietaActiva.fecha}}</span>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" (click) = "editarDieta(dietaActiva)" class="btn btn-outline-dark btn-xs">Editar</button>
+            </div>
+          </div>
     </li>
 
 
