@@ -518,7 +518,7 @@ export class PacienteDietaComponent implements OnInit {
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
-        // window.location.reload();
+        window.location.reload();
       }
     );
 
@@ -565,7 +565,8 @@ export class PacienteDietaComponent implements OnInit {
               if (T) {
                 T.forEach(
                   element => {
-                    this.desayunoLunes.push(element);
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoLunes.push(element);
                 });
             }
 
@@ -579,7 +580,8 @@ export class PacienteDietaComponent implements OnInit {
               if (T) {
                 T.forEach(
                   element => {
-                    this.desayunoLunes.push(element);
+                    element.franja = 'comida';
+                    this.comidaLunes.push(element);
                 });
             }
 
@@ -592,7 +594,8 @@ export class PacienteDietaComponent implements OnInit {
               if (T) {
                 T.forEach(
                   element => {
-                    this.desayunoLunes.push(element);
+                    element.franja = 'merienda';
+                    this.meriendaLunes.push(element);
                 });
 
             }
@@ -607,9 +610,9 @@ export class PacienteDietaComponent implements OnInit {
               if (T) {
                 T.forEach(
                   element => {
-                    this.desayunoLunes.push(element);
+                    element.franja = 'cena';
+                    this.cenaLunes.push(element);
                 });
-
             }
 
 
@@ -619,8 +622,94 @@ export class PacienteDietaComponent implements OnInit {
 
         }
 
-    }
+      }
+    );
 
+    this.daoService.getDia($dieta.martes).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoMartes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoMartes.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaMartes.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaMartes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaMartes.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
     );
 
 
