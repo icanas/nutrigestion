@@ -712,6 +712,441 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
+    this.daoService.getDia($dieta.miercoles).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoMiercoles.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoMiercoles.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaMiercoles.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaMiercoles.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaMiercoles.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
+    );
+
+    this.daoService.getDia($dieta.jueves).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoJueves.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoJueves.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaJueves.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaJueves.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaJueves.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
+    );
+
+    this.daoService.getDia($dieta.viernes).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoViernes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoViernes.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaViernes.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaViernes.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaViernes.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
+    );
+
+    this.daoService.getDia($dieta.sabado).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoSabado.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoSabado.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaSabado.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaSabado.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaSabado.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
+    );
+
+    this.daoService.getDia($dieta.domingo).subscribe(
+      R => {
+
+        if (R != null) {
+
+          this.daoService.getComida(R[0].desayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'desayuno';
+                    this.desayunoDomingo.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].postdesayuno).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'postdesayuno';
+                    this.postDesayunoDomingo.push(element);
+                });
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].comida).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'comida';
+                    this.comidaDomingo.push(element);
+                });
+            }
+
+            }
+          );
+
+          this.daoService.getComida(R[0].merienda).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'merienda';
+                    this.meriendaDomingo.push(element);
+                });
+
+            }
+
+
+            }
+          );
+
+          this.daoService.getComida(R[0].cena).subscribe(
+            T => {
+
+              if (T) {
+                T.forEach(
+                  element => {
+                    element.franja = 'cena';
+                    this.cenaDomingo.push(element);
+                });
+            }
+
+
+            }
+          );
+
+
+        }
+
+      }
+    );
+
 
   }
 
