@@ -4,7 +4,7 @@
 
 <div class="ppal row">
   <div class="minitable col-sm-3">
-      <app-dietas-list (editar)="log()"[dietaActiva]="dieta"></app-dietas-list>
+      <app-dietas-list (editar)="editarDieta($event)"[dietaActiva]="dieta"></app-dietas-list>
   </div>
   <div class="minitable col-sm-9">
     <div>

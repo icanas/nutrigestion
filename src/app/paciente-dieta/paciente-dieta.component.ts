@@ -535,8 +535,8 @@ export class PacienteDietaComponent implements OnInit {
     );
   }
 
-  log() {
-    console.log('pinchaoPadre');
+  editarDieta(event: any) {
+    console.log(event);
 
   }
 
