@@ -33,6 +33,14 @@
 
 }
 
+.selecthistory{
+  position: absolute;
+  right:    0;
+  bottom:   0;
+  width:100%;
+  text-align: center
+}
+
 #textoToggle{
   font-weight: bold;
   margin-top: 4px;

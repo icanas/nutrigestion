@@ -25,7 +25,6 @@ export class PacienteDietaComponent implements OnInit {
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
   dietas: Dieta[] = [];
-  nombreDieta: string;
 
   desayunoLunes: Alimento[] = [];
   postDesayunoLunes: Alimento[] = [];
@@ -514,14 +513,14 @@ export class PacienteDietaComponent implements OnInit {
     });
 
     if (this.dieta.nombre != null) {
-      this.dieta.nombre = this.nombreDieta;
+      this.dieta.nombre = this.dieta.nombre;
     } else {
       this.dieta.nombre = ' ' ;
     }
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
-        window.location.reload();
+       window.location.reload();
       }
     );
 

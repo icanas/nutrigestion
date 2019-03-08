@@ -5,7 +5,16 @@
 <div class="ppal row">
   <div class="minitable col-sm-3">
       <app-dietas-list (editar)="editarDieta($event)"[dietaActiva]="dieta"></app-dietas-list>
+      <select [(ngModel)]="dieta" class="selecthistory">
+        <option>
+          Selecciona Dieta Predefinida
+        </option>
+          <option *ngFor="let d of dietas" [ngValue]="dieta2">
+              <span >{{d.nombre}}{{d.fecha}}</span>
+          </option>
+        </select>
   </div>
+
   <div class="minitable col-sm-9">
     <div>
       <tabset>
@@ -910,7 +919,7 @@
 
 <div class="row col-sm-12 botonera">
   <div class="col-sm-2">
-    <input [(ngModel)]="nombreDieta" placeholder="Nombre de la dieta" type="text" class="form-control" >
+    <input [(ngModel)]="dieta.nombre" placeholder="Nombre de la dieta" type="text" class="form-control" >
   </div>
   <div class="col-sm-2">
       <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
@@ -926,11 +935,4 @@
   </div>
  </div>
 
- <select [(ngModel)]="dieta" class="selecthistory">
-   <option>
 
-   </option>
-    <option *ngFor="let d of dietas" [ngValue]="dieta2">
-        <span >{{d.fecha}}</span>
-    </option>
-  </select>
