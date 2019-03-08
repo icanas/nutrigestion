@@ -41,9 +41,8 @@ export class DietasListComponent implements OnInit {
     );
   }
 
-  editarDieta(id: number) {
-    this.editar.emit(id);
-    console.log(id);
+  editarDieta(dieta: Dieta) {
+    this.editar.emit(dieta);
   }
 
   verDieta(d: Dieta) {
