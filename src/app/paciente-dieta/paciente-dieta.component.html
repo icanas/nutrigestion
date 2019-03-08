@@ -32,7 +32,7 @@
                         <button (click)="mas('Lunes','desayuno')" type="button" class="btn btn-success">+</button>
                     </div>
                     <div class="col-sm-1">
-                        <button (click)="menos('Lunes')" type="button" class="btn btn-danger">-</button>
+                        <button (click)="menos('Lunes','desayuno')" type="button" class="btn btn-danger">-</button>
                     </div>
                 </div>
 
@@ -52,9 +52,14 @@
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                     </div>
                   </div>
-                  <div class="col-sm-2">
-                      <button (click)="mas('Lunes','postdesayuno')" type="button" class="btn btn-success">+</button>
-                </div>
+                  <div class="row">
+                      <div class="col-sm-1">
+                          <button (click)="mas('Lunes','postdesayuno')" type="button" class="btn btn-success">+</button>
+                      </div>
+                      <div class="col-sm-1">
+                          <button (click)="menos('Lunes','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                      </div>
+                  </div>
               </accordion-group>
               <accordion-group heading="Comida">
                 <div *ngFor="let d of comidaLunes" class="row">
@@ -71,9 +76,14 @@
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                     </div>
                   </div>
-                  <div class="col-sm-2">
-                      <button (click)="mas('Lunes','comida')" type="button" class="btn btn-success">+</button>
-                </div>
+                  <div class="row">
+                      <div class="col-sm-1">
+                          <button (click)="mas('Lunes','comida')" type="button" class="btn btn-success">+</button>
+                      </div>
+                      <div class="col-sm-1">
+                          <button (click)="menos('Lunes','comida')" type="button" class="btn btn-danger">-</button>
+                      </div>
+                  </div>
               </accordion-group>
               <accordion-group heading="Merienda">
                 <div *ngFor="let d of meriendaLunes" class="row">
@@ -90,9 +100,14 @@
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                     </div>
                   </div>
-                  <div class="col-sm-2">
-                      <button (click)="mas('Lunes','merienda')" type="button" class="btn btn-success">+</button>
-                </div>
+                  <div class="row">
+                      <div class="col-sm-1">
+                          <button (click)="mas('Lunes','merienda')" type="button" class="btn btn-success">+</button>
+                      </div>
+                      <div class="col-sm-1">
+                          <button (click)="menos('Lunes','merienda')" type="button" class="btn btn-danger">-</button>
+                      </div>
+                  </div>
               </accordion-group>
               <accordion-group heading="Cena">
                 <div *ngFor="let d of cenaLunes" class="row">
@@ -109,9 +124,14 @@
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                     </div>
                   </div>
-                  <div class="col-sm-2">
-                      <button (click)="mas('Lunes','cena')" type="button" class="btn btn-success">+</button>
-                </div>
+                  <div class="row">
+                      <div class="col-sm-1">
+                          <button (click)="mas('Lunes','cena')" type="button" class="btn btn-success">+</button>
+                      </div>
+                      <div class="col-sm-1">
+                          <button (click)="menos('Lunes','cena')" type="button" class="btn btn-danger">-</button>
+                      </div>
+                  </div>
               </accordion-group>
             </accordion>
           </div>
@@ -135,8 +155,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Martes','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Martes','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Martes','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -154,9 +179,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Martes','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Martes','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Martes','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaMartes" class="row">
@@ -173,9 +203,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Martes','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Martes','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Martes','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaMartes" class="row">
@@ -192,9 +227,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Martes','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Martes','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Martes','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaMartes" class="row">
@@ -211,9 +251,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Martes','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Martes','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Martes','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>
@@ -238,8 +283,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Miercoles','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Miercoles','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Miercoles','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -257,9 +307,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Miercoles','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Miercoles','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Miercoles','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaMiercoles" class="row">
@@ -276,9 +331,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Miercoles','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Miercoles','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Miercoles','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaMiercoles" class="row">
@@ -295,9 +355,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Miercoles','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Miercoles','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Miercoles','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaMiercoles" class="row">
@@ -314,9 +379,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Miercoles','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Miercoles','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Miercoles','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>
@@ -341,8 +411,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Jueves','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Jueves','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Jueves','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -360,9 +435,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Jueves','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Jueves','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Jueves','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaJueves" class="row">
@@ -379,9 +459,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Jueves','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Jueves','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Jueves','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaJueves" class="row">
@@ -398,9 +483,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Jueves','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Jueves','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Jueves','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaJueves" class="row">
@@ -417,9 +507,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Jueves','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Jueves','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Jueves','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>
@@ -444,8 +539,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Viernes','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Viernes','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Viernes','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -463,9 +563,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Viernes','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Viernes','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Viernes','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaViernes" class="row">
@@ -482,9 +587,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Viernes','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Viernes','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Viernes','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaViernes" class="row">
@@ -501,9 +611,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Viernes','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Viernes','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Viernes','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaViernes" class="row">
@@ -520,9 +635,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Viernes','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Viernes','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Viernes','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>
@@ -547,8 +667,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Sabado','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Sabado','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Sabado','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -566,9 +691,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Sabado','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Sabado','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Sabado','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaSabado" class="row">
@@ -585,9 +715,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Sabado','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Sabado','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Sabado','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaSabado" class="row">
@@ -604,9 +739,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Sabado','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Sabado','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Sabado','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaSabado" class="row">
@@ -623,9 +763,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Sabado','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Sabado','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Sabado','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>
@@ -650,8 +795,13 @@
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button (click)="mas('Domingo','desayuno')" type="button" class="btn btn-success">+</button>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button (click)="mas('Domingo','desayuno')" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button (click)="menos('Domingo','desayuno')" type="button" class="btn btn-danger">-</button>
+                        </div>
                     </div>
                   </accordion-group>
                   <accordion-group heading="Post Desayuno">
@@ -669,9 +819,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Domingo','postdesayuno')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Domingo','postdesayuno')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Domingo','postdesayuno')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Comida">
                     <div *ngFor="let d of comidaDomingo" class="row">
@@ -688,9 +843,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Domingo','comida')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Domingo','comida')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Domingo','comida')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Merienda">
                     <div *ngFor="let d of meriendaDomingo" class="row">
@@ -707,9 +867,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Domingo','merienda')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Domingo','merienda')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Domingo','merienda')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                   <accordion-group heading="Cena">
                     <div *ngFor="let d of cenaDomingo" class="row">
@@ -726,9 +891,14 @@
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
                         </div>
                       </div>
-                      <div class="col-sm-2">
-                          <button (click)="mas('Domingo','cena')" type="button" class="btn btn-success">+</button>
-                    </div>
+                      <div class="row">
+                          <div class="col-sm-1">
+                              <button (click)="mas('Domingo','cena')" type="button" class="btn btn-success">+</button>
+                          </div>
+                          <div class="col-sm-1">
+                              <button (click)="menos('Domingo','cena')" type="button" class="btn btn-danger">-</button>
+                          </div>
+                      </div>
                   </accordion-group>
                 </accordion>
               </div>

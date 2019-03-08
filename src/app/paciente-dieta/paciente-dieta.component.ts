@@ -210,31 +210,148 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
-  menos(dia: string) {
+  menos(dia: string, franja: string) {
 
     switch (dia) {
       case 'Lunes':
-        this.desayunoLunes.pop();
+
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoLunes.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoLunes.pop();
+          break;
+          case 'comida':
+          this.comidaLunes.pop();
+          break;
+          case 'merienda':
+          this.meriendaLunes.pop();
+          break;
+          case 'cena':
+          this.cenaLunes.pop();
+          break;
+        }
+
         break;
       case 'Martes':
-        this.desayunoMartes.pop();
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoMartes.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoMartes.pop();
+          break;
+          case 'comida':
+          this.comidaMartes.pop();
+          break;
+          case 'merienda':
+          this.meriendaMartes.pop();
+          break;
+          case 'cena':
+          this.cenaMartes.pop();
+          break;
+      }
         break;
       case 'Miercoles':
-        this.desayunoMiercoles.pop();
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoMiercoles.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoMiercoles.pop();
+          break;
+          case 'comida':
+          this.comidaMiercoles.pop();
+          break;
+          case 'merienda':
+          this.meriendaMiercoles.pop();
+          break;
+          case 'cena':
+          this.cenaMiercoles.pop();
+          break;
+      }
         break;
       case 'Jueves':
-        this.desayunoJueves.pop();
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoJueves.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoJueves.pop();
+          break;
+          case 'comida':
+          this.comidaJueves.pop();
+          break;
+          case 'merienda':
+          this.meriendaJueves.pop();
+          break;
+          case 'cena':
+          this.cenaJueves.pop();
+          break;
+      }
         break;
       case 'Viernes':
-        this.desayunoViernes.pop();
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoViernes.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoViernes.pop();
+          break;
+          case 'comida':
+          this.comidaViernes.pop();
+          break;
+          case 'merienda':
+          this.meriendaViernes.pop();
+          break;
+          case 'cena':
+          this.cenaViernes.pop();
+          break;
+      }
         break;
       case 'Sabado':
-        this.desayunoSabado.pop();
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoSabado.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoSabado.pop();
+          break;
+          case 'comida':
+          this.comidaSabado.pop();
+          break;
+          case 'merienda':
+          this.meriendaSabado.pop();
+          break;
+          case 'cena':
+          this.cenaSabado.pop();
+          break;
+      }
         break;
-        this.desayunoDomingo.pop();
+      case 'Domingo':
+        switch (franja) {
+          case 'desayuno':
+          this.desayunoDomingo.pop();
+          break;
+          case 'postdesayuno':
+          this.postDesayunoDomingo.pop();
+          break;
+          case 'comida':
+          this.comidaDomingo.pop();
+          break;
+          case 'merienda':
+          this.meriendaDomingo.pop();
+          break;
+          case 'cena':
+          this.cenaDomingo.pop();
+          break;
+      }
         break;
 
     }
+
+
 
   }
 
