@@ -9,6 +9,8 @@ export class Dieta {
     Viernes: Alimento[] = [];
     Sabado: Alimento[] = [];
     Domingo: Alimento[] = [];
+    activo: boolean;
+    nombre: string;
     fecha: string;
 
   }

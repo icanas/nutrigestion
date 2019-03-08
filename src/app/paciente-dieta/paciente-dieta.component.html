@@ -909,7 +909,10 @@
 </div>
 
 <div class="row col-sm-12 botonera">
-    <div class="col-sm-3">
-        <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
-    </div>
+  <div class="col-sm-2">
+    <input [(ngModel)]="nombreDieta" placeholder="Nombre de la dieta" type="text" class="form-control" >
+  </div>
+  <div class="col-sm-3">
+      <button (click)="guardarDieta()" type="button" class="btn btn-success">Guardar Dieta</button>
+  </div>
  </div>

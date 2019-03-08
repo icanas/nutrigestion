@@ -29,6 +29,7 @@ export class DietasListComponent implements OnInit {
   getDietas() {
     this.daoService.getDietas(this.paciente).subscribe(
       R => {
+
         this.dietas = R;
         this.dietas.reverse();
         this.dietaActiva = this.dietas.pop();

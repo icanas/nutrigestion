@@ -53,6 +53,14 @@ export class PrincipalComponent implements OnInit {
 
   }
 
+  dietasPredeterminadas() {
+
+    localStorage.removeItem('Paciente');
+    localStorage.setItem('Paciente', JSON.stringify(this.profesional));
+    this.route.navigate(['pacienteDieta']);
+
+  }
+
 
   getProfesional() {
     const token = sessionStorage.getItem('token');

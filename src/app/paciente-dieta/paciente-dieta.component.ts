@@ -19,6 +19,7 @@ export class PacienteDietaComponent implements OnInit {
 
   paciente: Paciente = new Paciente();
   dieta: Dieta = new Dieta();
+  nombreDieta: string;
 
   desayunoLunes: Alimento[] = [];
   postDesayunoLunes: Alimento[] = [];
@@ -507,7 +508,7 @@ export class PacienteDietaComponent implements OnInit {
     });
 
 
-    console.log(this.dieta);
+    this.dieta.nombre = this.nombreDieta;
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {

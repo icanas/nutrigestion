@@ -364,6 +364,10 @@ function guardarDieta($conn, $data){
     $paciente = $data->Paciente;
     $dieta = $data->Dieta;
 
+    $nombreDieta = $dieta->nombre;
+    unset($dieta->nombre);
+
+
     $sqlDietaID = "SELECT MAX(id) as maxId from dieta;";
     $sqlDiaID= "SELECT MAX(id) as maxId from dia;";
     $sqlComidaID = "SELECT MAX(id) as maxId from comida;";
@@ -413,6 +417,7 @@ function guardarDieta($conn, $data){
         foreach ($valor as $valor2) {
 
             $franja = $valor2->franja;
+
 
             if($franja != $franjaAnterior){
                 $comidaId = $comidaId + 1;
@@ -514,10 +519,10 @@ function guardarDieta($conn, $data){
 
     $dietaId = maxID("dieta",$conn) + 1;
 
-    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, fecha, activo)
+    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, fecha, nombre, activo)
     VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
     $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
-    $dietaArray[Sabado] ,$dietaArray[Domingo], NOW(), 1);";
+    $dietaArray[Sabado] ,$dietaArray[Domingo], NOW(),'$nombreDieta', 1);";
 
     $conn->query($sql);   //Ejecuto sql de Dieta
 

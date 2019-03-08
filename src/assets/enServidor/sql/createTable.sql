@@ -90,6 +90,7 @@ create table dieta(
     sabado numeric(30,0) null,
     domingo numeric(30,0) null,
 
+    nombre varchar(35) null,
     fecha datetime,
     activo bit
 
