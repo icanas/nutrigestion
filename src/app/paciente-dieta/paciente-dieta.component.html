@@ -60,13 +60,20 @@
                       <label>Alimento</label>
                     </div>
                     <div class="col-sm-2">
-                      <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                     </div>
                     <div class="col-sm-2">
                       <label>Cantidad</label>
                     </div>
                     <div class="col-sm-2">
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                    </div>
+                    <div class="col-sm-2">
+                        <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                          <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                          </option>
+                        </select>
                     </div>
                   </div>
                   <div class="row">
@@ -84,13 +91,20 @@
                       <label>Alimento</label>
                     </div>
                     <div class="col-sm-2">
-                      <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                     </div>
                     <div class="col-sm-2">
                       <label>Cantidad</label>
                     </div>
                     <div class="col-sm-2">
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                    </div>
+                    <div class="col-sm-2">
+                        <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                          <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                          </option>
+                        </select>
                     </div>
                   </div>
                   <div class="row">
@@ -108,13 +122,20 @@
                       <label>Alimento</label>
                     </div>
                     <div class="col-sm-2">
-                      <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                     </div>
                     <div class="col-sm-2">
                       <label>Cantidad</label>
                     </div>
                     <div class="col-sm-2">
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                    </div>
+                    <div class="col-sm-2">
+                        <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                          <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                          </option>
+                        </select>
                     </div>
                   </div>
                   <div class="row">
@@ -132,13 +153,20 @@
                       <label>Alimento</label>
                     </div>
                     <div class="col-sm-2">
-                      <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                      <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                     </div>
                     <div class="col-sm-2">
                       <label>Cantidad</label>
                     </div>
                     <div class="col-sm-2">
                       <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                    </div>
+                    <div class="col-sm-2">
+                        <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                          <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                          </option>
+                        </select>
                     </div>
                   </div>
                   <div class="row">
@@ -163,13 +191,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -187,13 +222,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -211,13 +253,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -235,13 +284,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -259,13 +315,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -291,13 +354,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -315,13 +385,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -339,13 +416,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -363,13 +447,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -387,13 +478,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -419,13 +517,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -443,13 +548,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -467,13 +579,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -491,13 +610,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -515,13 +641,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -547,13 +680,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -571,13 +711,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -595,13 +742,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -619,13 +773,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -643,13 +804,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -675,13 +843,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -699,13 +874,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -723,13 +905,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -747,13 +936,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -771,13 +967,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -803,13 +1006,20 @@
                         <label>Alimento</label>
                       </div>
                       <div class="col-sm-2">
-                        <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                        <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                       </div>
                       <div class="col-sm-2">
                         <label>Cantidad</label>
                       </div>
                       <div class="col-sm-2">
                         <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                      </div>
+                      <div class="col-sm-2">
+                          <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                            <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                            </option>
+                          </select>
                       </div>
                     </div>
                     <div class="row">
@@ -827,13 +1037,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -851,13 +1068,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -875,13 +1099,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
@@ -899,13 +1130,20 @@
                           <label>Alimento</label>
                         </div>
                         <div class="col-sm-2">
-                          <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                          <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                         </div>
                         <div class="col-sm-2">
                           <label>Cantidad</label>
                         </div>
                         <div class="col-sm-2">
                           <input [(ngModel)]="d.cantidad"  type="text" class="form-control" >
+                        </div>
+                        <div class="col-sm-2">
+                            <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
+                              <option *ngTemplateOutlet="unidades" value="d.unidades">
+
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="row">
