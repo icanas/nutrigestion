@@ -34,6 +34,7 @@ export class PacienteDetailComponent implements OnInit {
   minuto: number;
 
   modalRef: BsModalRef;
+  modalRefPatologias: BsModalRef;
 
 
 
@@ -115,6 +116,10 @@ export class PacienteDetailComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  openModalPatologias(templatePatologias: TemplateRef<any>) {
+    this.modalRefPatologias = this.modalService.show(templatePatologias);
   }
 
   dietas() {

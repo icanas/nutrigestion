@@ -56,7 +56,8 @@ create table alimento(
 
     id numeric(30,0) primary key,
     nombre varchar(40),
-    calorias numeric(8,2) null
+    calorias numeric(8,2) null,
+    unidades varchar(30) null
 
 );
 
@@ -93,6 +94,14 @@ create table dieta(
     nombre varchar(35) null,
     fecha datetime,
     activo bit
+
+
+);
+
+create table patologias(
+
+    id numeric(30,0) primary key,
+    nombre varchar(50)
 
 
 )

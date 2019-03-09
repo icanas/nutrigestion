@@ -1171,8 +1171,6 @@ export class PacienteDietaComponent implements OnInit {
           alimento.id = undefined;
         }
 
-        console.log(alimento);
-
       }
     );
 

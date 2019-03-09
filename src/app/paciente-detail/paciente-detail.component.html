@@ -44,6 +44,9 @@
         <button (click)="dietas()" type="button" class="btn btn-primary">Dietas</button>
       </div>
       <div class="col-sm-2 ">
+          <button (click)="openModalPatologias(templatePatologias)" type="button" class="btn btn-warning">Patologias</button>
+      </div>
+      <div class="col-sm-2 ">
         <button (click)="desactivarPaciente()" type="button" class="btn btn-danger">Desactivar Paciente</button>
       </div>
 
@@ -76,6 +79,19 @@
               </div>
               <button (click)="addCita()" type="button" class="btn btn-success nuevaCitabtn">Nueva Cita</button>
             </div>
+
+      </div>
+    </ng-template>
+
+<!-- Modal Patologias-->
+  <ng-template #templatePatologias>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Patologias</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefPatologias.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
       </div>
     </ng-template>
