@@ -553,6 +553,7 @@ export class PacienteDietaComponent implements OnInit {
                   element => {
                     element.franja = 'desayuno';
                     this.desayunoLunes.push(element);
+                    console.log(element);
                 });
 
             }

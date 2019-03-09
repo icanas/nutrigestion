@@ -427,8 +427,8 @@ function guardarDieta($conn, $data){
             $alimentoId = getAlimentoId($valor2->nombre,$conn);
 
             //Meto el alimento que toque
-            $sql = "INSERT INTO alimento (id, nombre)
-                            VALUES($alimentoId, '$valor2->nombre');";
+            $sql = "INSERT INTO alimento (id, nombre, unidades)
+                            VALUES($alimentoId, '$valor2->nombre', '$valor2->unidades');";
 
             $conn->query($sql);    //Ejecuto sql alimentos
 
@@ -438,6 +438,7 @@ function guardarDieta($conn, $data){
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
             //Meto en un array con keys desayuno comida cena los ids de mis comidas segun sea
+
 
 
             switch($valor2->franja){        //QUE NO SE ME OLVIDE PONERLO A 0 OTRA VEZ
@@ -575,7 +576,7 @@ function getDia($conn, $data){
 function getComida($conn, $data){
 
     $id = $data->Id;
-    $sql = "SELECT c.cantidad, a.nombre
+    $sql = "SELECT c.cantidad, a.nombre, a.unidades
     FROM comida c, alimento a
     WHERE c.idAlimento = a.id and c.id = '$id'";
 
