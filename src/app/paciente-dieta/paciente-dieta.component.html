@@ -5,10 +5,11 @@
 <div class="ppal row">
   <div class="minitable col-sm-3">
       <app-dietas-list (editar)="editarDieta($event)"[dietaActiva]="dieta"></app-dietas-list>
+
+      <div class="minititulo">
+        Dietas predefinidas
+      </div>
       <select (change)="onChange(dieta)" [(ngModel)]="dieta" class="selecthistory">
-        <option>
-          Selecciona Dieta Predefinida
-        </option>
           <option *ngFor="let d of dietas" [ngValue]="d">
               <span >{{d.nombre}}{{d.fecha}}</span>
           </option>
