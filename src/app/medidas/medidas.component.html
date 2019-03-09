@@ -49,7 +49,7 @@
     <option *ngFor="let anatomia2 of anatomiaList" [ngValue]="anatomia2">
         <span  *ngIf="anatomia2.activo == 0; else showActual">{{anatomia2.fecha_modificacion}}</span>
     </option>
-  </select>
+</select>
 
 <button (click)="actualizaMedidas()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
 
