@@ -8,6 +8,7 @@ import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
 import { Anatomia } from '../model/anatomia';
 import { Dieta } from '../model/dieta';
+import { Alimento } from '../model/alimento';
 
 
 
@@ -218,6 +219,17 @@ export class DaoService {
      };
       // console.log(JSON.stringify(cadena));
       return this.http.post<any>(Url, cadena);
+    }
+
+    getAlimento(nombre: string): Observable<Alimento> {
+
+      const cadena = {
+        action: 'getAlimento',
+        Nombre: nombre
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<Alimento>(Url, cadena);
     }
 
 

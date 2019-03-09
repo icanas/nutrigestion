@@ -28,7 +28,7 @@
                     <label>Alimento</label>
                   </div>
                   <div class="col-sm-2">
-                    <input [(ngModel)]="d.nombre" type="text" class="form-control" >
+                    <input (keyup)="onKeyUp(d)" [(ngModel)]="d.nombre" type="text" class="form-control" >
                   </div>
                   <div class="col-sm-2">
                     <label>Cantidad</label>
@@ -948,7 +948,7 @@
     <option value="gramos">
         gramos
     </option>
-    <option value="l">
+    <option value="litros">
         litros
     </option>
     <option value="unidades">

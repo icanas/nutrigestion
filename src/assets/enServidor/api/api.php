@@ -110,6 +110,11 @@ switch ($action) {
     $executionStatus = getComida($conn, $data);
         break;
 
+    case 'getAlimento':
+
+    $executionStatus = getAlimento($conn, $data);
+        break;
+
 }
 
 echo $executionStatus;
@@ -591,6 +596,26 @@ function getComida($conn, $data){
     }
 
     return json_encode($json);
+
+
+}
+
+
+function getAlimento($conn, $data){
+
+    $nombre = $data->Nombre;
+    $sql = "SELECT *
+    FROM alimento
+    WHERE nombre = '$nombre';";
+
+    $result =  $conn->query($sql);
+
+    if(!$row = $result->fetch_assoc()){
+        return FALSE;
+    }
+
+
+    return json_encode($row);
 
 
 }

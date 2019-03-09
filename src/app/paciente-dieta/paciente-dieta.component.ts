@@ -553,7 +553,6 @@ export class PacienteDietaComponent implements OnInit {
                   element => {
                     element.franja = 'desayuno';
                     this.desayunoLunes.push(element);
-                    console.log(element);
                 });
 
             }
@@ -1158,6 +1157,19 @@ export class PacienteDietaComponent implements OnInit {
 
   onChange(dieta: any) {
     this.editarDieta(dieta);
+  }
+
+  onKeyUp(alimento: Alimento ) {
+
+    this.daoService.getAlimento(alimento.nombre).subscribe(
+      R => {
+        console.log(R);
+        alimento.unidades = R.unidades;
+        console.log(R.unidades);
+
+      }
+    );
+
   }
 
   expandCollapse() {

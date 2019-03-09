@@ -10,7 +10,7 @@ export class Alimento {
     constructor(franja: string) {
       this.franja = franja;
       this.cantidad = 0;
-      this.unidades = 'g';
+      this.unidades = 'gramos';
     }
 
   }
