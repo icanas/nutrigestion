@@ -53,6 +53,19 @@
   text-align: center
 }
 
+.greenBoxed{
+  border-style: solid;
+  border-color: green;
+  background-color: green;
+  border-width: 3px;
+  color: white;
+}
+
+#select{
+  padding: 0px;
+  margin: 0px;
+}
+
 #textoToggle{
   font-weight: bold;
   margin-top: 4px;

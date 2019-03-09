@@ -1163,9 +1163,15 @@ export class PacienteDietaComponent implements OnInit {
 
     this.daoService.getAlimento(alimento.nombre).subscribe(
       R => {
-        console.log(R);
-        alimento.unidades = R.unidades;
-        console.log(R.unidades);
+
+        if (R) {
+          alimento.unidades = R.unidades;
+          alimento.id = R.id;
+        } else {
+          alimento.id = undefined;
+        }
+
+        console.log(alimento);
 
       }
     );

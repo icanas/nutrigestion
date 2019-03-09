@@ -36,8 +36,8 @@
                   <div class="col-sm-2">
                     <input [(ngModel)]="d.cantidad" value = "0" type="text" class="form-control" >
                   </div>
-                  <div class="col-sm-1">
-                      <select [(ngModel)]="d.unidades">
+                  <div class="col-sm-2">
+                      <select [(ngModel)]="d.unidades" id="select" class="form-control" [class.greenBoxed]="d.id != undefined">
                         <option *ngTemplateOutlet="unidades" value="d.unidades">
 
                         </option>
