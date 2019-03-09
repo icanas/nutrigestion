@@ -37,8 +37,8 @@
                     <input [(ngModel)]="d.cantidad" value = "0" type="text" class="form-control" >
                   </div>
                   <div class="col-sm-1">
-                      <select>
-                        <option *ngTemplateOutlet="unidades" value="">
+                      <select [(ngModel)]="d.unidades">
+                        <option *ngTemplateOutlet="unidades" value="d.unidades">
 
                         </option>
                       </select>
@@ -945,10 +945,10 @@
 
 
  <ng-template #unidades>
-    <option selected>
+    <option value="g">
         g
     </option>
-    <option>
+    <option value="l">
         l
     </option>
 </ng-template>
