@@ -1155,6 +1155,10 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
+  onChange(dieta: any) {
+    this.editarDieta(dieta);
+  }
+
   expandCollapse() {
     if (this.isOpenAccordion) {
       this.isOpenAccordion = false;
