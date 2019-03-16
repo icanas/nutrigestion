@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
 import { DaoService } from '../dao/dao.service';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-principal-paciente',
@@ -12,6 +14,7 @@ export class PrincipalPacienteComponent implements OnInit {
 
   constructor(
     private daoService: DaoService,
+    private modalService: BsModalService
   ) { }
 
   paciente: Paciente = new Paciente();
@@ -19,6 +22,8 @@ export class PrincipalPacienteComponent implements OnInit {
   autorizado = false;
   proximaCita = false;
 
+
+  modalRef: BsModalRef;
 
 
   getPaciente() {
@@ -51,6 +56,10 @@ export class PrincipalPacienteComponent implements OnInit {
       }
     );
 
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
 

@@ -1,18 +1,47 @@
 <div *ngIf="autorizado">
 
-  <div style="text-align:center">
-
-  Nombre: {{paciente.nombre}}<br>
-  Email: {{paciente.email}}<br>
-  profesional: {{paciente.emailProfesional}}<br>
-  <br>
-  <div *ngIf="proximaCita">
-    Proxima Cita: {{cita.fecha_cita}}
+  <div class="cabeceraDatos">
+    <h3>Bienvenido {{paciente.nombre}}</h3>
   </div>
 
+  <div class="row panel">
+    <div class="col-sm-4 row botonera">
+      <button type="button" class="btn btn-primary col-sm-12">Mi Dieta</button>
+      <button type="button" class="btn btn-primary col-sm-12" (click)="openModal(template)" >Mi Proxima Cita</button>
+      <button type="button" class="btn btn-primary col-sm-12">Contactar Nutricionista</button>
+    </div>
+    <div class="col-sm-8 minitable">
+
+    </div>
   </div>
+
 </div>
+
+
+<!-- Modal Proxima Cita -->
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Proxima Cita</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div *ngIf="proximaCita" class="row col-sm-12" >
+        <div class="cita col-sm-12 cita">
+          {{cita.fecha_cita}}
+        </div>
+      </div>
+      <div *ngIf="!proximaCita" class="noCita">
+         No tienes Citas Programadas
+      </div>
+
+  </div>
+</ng-template>
 
 <div *ngIf="!autorizado">
   No Autorizado
 </div>
+
+
+

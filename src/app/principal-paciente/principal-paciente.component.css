@@ -1,0 +1,58 @@
+
+.cabeceraDatos{
+    background-color: rgb(206, 206, 206);
+    padding: 1px;
+    padding-left: 50px;
+    text-align: center;
+}
+
+.cita{
+    background-color: rgb(91, 199, 64);
+    color: black;
+    font-size: 25px;
+    padding: 1px;
+    padding-left: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .noCita{
+    background-color: rgb(228, 231, 22);
+    color: black;
+    font-size: 25px;
+    padding: 1px;
+    padding-left: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .btn{
+      margin: 25px;
+      padding: 3%;
+      font-size: 25px;
+  }
+
+  .botonera{
+    padding-right: 5%;
+}
+
+  .panel {
+
+    margin-top: 12px;
+    padding-right: 0px;
+
+
+}
+
+  .minitable{
+
+    border-style: solid;
+    border-radius: 5px;
+
+
+    height:550px;
+    overflow-y: scroll;
+
+}
