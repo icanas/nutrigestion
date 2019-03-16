@@ -151,11 +151,14 @@ export class PacienteDetailComponent implements OnInit {
         );
       this.patologiasPaciente.splice(posicion, 1);
     }
-    console.log(this.patologiasPaciente);
   }
 
   actualizaPatologias() {
+    this.daoService.actualizaPatologias(this.paciente, this.patologiasPaciente).subscribe(
+      R => {
 
+      }
+    );
   }
 
 

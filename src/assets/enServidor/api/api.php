@@ -120,6 +120,11 @@ switch ($action) {
     $executionStatus = getListaPatologias($conn, $data);
     break;
 
+    case 'actualizaPatologias':
+
+    $executionStatus = actualizaPatologias($conn, $data);
+    break;
+
 }
 
 echo $executionStatus;
@@ -685,6 +690,27 @@ function maxID($table, $conn){
     return json_encode($json);
 
 
+}
+
+
+function actualizaPatologias($conn, $data){
+
+    $paciente = $data->Paciente;
+    $patologias = $data->Patologias;
+
+    // Primero las elimino todas
+    $sql = "DELETE FROM patologia_paciente
+                WHERE email = '$paciente->email';";
+    $conn->query($sql);
+
+    // Meto en la base de datos la lista de patologias recibida
+    foreach ($patologias as $patologia) {
+        $sql = "INSERT INTO patologia_paciente (id, email)
+                VALUES ($patologia->id, '$paciente->email');";
+        $conn->query($sql);
+    }
+
+    return TRUE;
 }
 
 
