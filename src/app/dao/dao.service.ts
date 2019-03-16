@@ -244,6 +244,17 @@ export class DaoService {
       return this.http.post<Patologia[]>(Url, cadena);
     }
 
+    getListaPatologiasPaciente(paciente: Paciente): Observable<Patologia[]> {
+
+      const cadena = {
+        action: 'getListaPatologiasPaciente',
+        Paciente: paciente
+
+     };
+      // console.log(JSON.stringify(cadena));
+      return this.http.post<Patologia[]>(Url, cadena);
+    }
+
     actualizaPatologias(paciente: Paciente, patologias: Patologia[]): Observable<boolean> {
 
       const cadena = {

@@ -102,11 +102,11 @@
 
                 <ul class="list-group list-group-flush">
 
-                  <li *ngFor="let patologia of listaPatologias" class="list-group-item">
+                  <li *ngFor="let patologia of listaPatologias; let i = index" class="list-group-item">
                     {{patologia.nombre | uppercase}}
                     <label class="switch ">
                     <input type="checkbox" class="default" name="patologias" value={{patologia.id}}
-                     (change)="changePatologias($event, patologia)">
+                     (change)="changePatologias($event, patologia)" [checked]="patologia.checked ">
                     <span class="slider round"></span>
                     </label>
                   </li>

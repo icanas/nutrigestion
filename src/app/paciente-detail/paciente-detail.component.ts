@@ -135,6 +135,22 @@ export class PacienteDetailComponent implements OnInit {
     this.daoService.getListaPatologias().subscribe(
       R => {
         this.listaPatologias = R;
+
+        this.daoService.getListaPatologiasPaciente(this.paciente).subscribe(
+          P => {
+            if (P != null) {
+              this.patologiasPaciente = P;
+
+              this.patologiasPaciente.forEach(
+                F => {
+                  this.listaPatologias[F.id].checked = true;
+                }
+              );
+            }
+
+          }
+        );
+
       }
     );
 

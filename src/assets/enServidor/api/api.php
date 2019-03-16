@@ -120,6 +120,11 @@ switch ($action) {
     $executionStatus = getListaPatologias($conn, $data);
     break;
 
+    case 'getListaPatologiasPaciente':
+
+    $executionStatus = getListaPatologiasPaciente($conn, $data);
+    break;
+
     case 'actualizaPatologias':
 
     $executionStatus = actualizaPatologias($conn, $data);
@@ -676,6 +681,30 @@ function maxID($table, $conn){
 
     $sql = "SELECT * FROM patologia
             ORDER BY id asc;";
+
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
+
+
+}
+
+function getListaPatologiasPaciente($conn, $data){
+
+    $paciente = $data->Paciente;
+
+    $sql = "SELECT b.* FROM patologia_paciente a, patologia b
+            WHERE a.email = '$paciente->email'
+                AND a.id = b.id
+                ORDER BY id asc;";
 
     $result =  $conn->query($sql);
 
