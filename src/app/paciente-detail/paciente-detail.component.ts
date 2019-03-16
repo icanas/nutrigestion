@@ -172,7 +172,7 @@ export class PacienteDetailComponent implements OnInit {
   actualizaPatologias() {
     this.daoService.actualizaPatologias(this.paciente, this.patologiasPaciente).subscribe(
       R => {
-
+        window.location.reload();
       }
     );
   }

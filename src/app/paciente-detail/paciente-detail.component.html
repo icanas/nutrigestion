@@ -2,6 +2,11 @@
 <div class="cabeceraDatos">
     <h3>{{paciente.nombre}} {{paciente.apellido}} {{paciente.email}}</h3>
 </div>
+<div *ngIf="patologiasPaciente.length != 0" class="cabeceraPatologias row">
+  <div *ngFor="let patologia of patologiasPaciente" class="col-sm-2">
+    {{patologia.nombre | uppercase}}
+  </div>
+</div>
 
 <div class="panel col-sm-12 row ">
 
@@ -102,7 +107,7 @@
 
                 <ul class="list-group list-group-flush">
 
-                  <li *ngFor="let patologia of listaPatologias; let i = index" class="list-group-item">
+                  <li *ngFor="let patologia of listaPatologias" class="list-group-item">
                     {{patologia.nombre | uppercase}}
                     <label class="switch ">
                     <input type="checkbox" class="default" name="patologias" value={{patologia.id}}
