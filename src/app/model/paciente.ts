@@ -1,5 +1,6 @@
 import { Cita } from '../model/cita';
 import { Anatomia } from '../model/anatomia';
+import { Patologia } from '../model/patologia';
 
 export class Paciente {
     id: number;
@@ -11,5 +12,6 @@ export class Paciente {
     activo: string;
     citas: Cita[];
     anatomia: Anatomia;
+    patologias: Patologia[];
 
   }

@@ -101,10 +101,12 @@
               <div class="card-header">Patologias</div>
 
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    Diabetes
+
+                  <li *ngFor="let patologia of listaPatologias" class="list-group-item">
+                    {{patologia.nombre | uppercase}}
                     <label class="switch ">
-                    <input type="checkbox" class="default">
+                    <input type="checkbox" class="default" name="patologias" value={{patologia.id}}
+                     (change)="changePatologias($event, patologia)">
                     <span class="slider round"></span>
                     </label>
                   </li>
@@ -113,10 +115,8 @@
               </div>
               </div>
             </div>
+            <button (click)="actualizaPatologias()" type="button" class="btn btn-success">Guardar</button>
         </div>
 
       </div>
     </ng-template>
-
-
-

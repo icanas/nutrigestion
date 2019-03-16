@@ -98,10 +98,18 @@ create table dieta(
 
 );
 
-create table patologias(
+create table patologia(
 
-    id numeric(30,0) primary key,
+    id numeric(10,0) primary key,
     nombre varchar(50)
+
+
+);
+
+create table patologia_paciente(
+
+    id numeric(10,0),
+    email varchar(60)
 
 
 )

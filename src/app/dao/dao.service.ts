@@ -9,6 +9,7 @@ import { Cita } from '../model/cita';
 import { Anatomia } from '../model/anatomia';
 import { Dieta } from '../model/dieta';
 import { Alimento } from '../model/alimento';
+import { Patologia } from '../model/patologia';
 
 
 
@@ -232,6 +233,16 @@ export class DaoService {
       return this.http.post<Alimento>(Url, cadena);
     }
 
+
+    getListaPatologias(): Observable<Patologia[]> {
+
+      const cadena = {
+        action: 'getListaPatologias',
+
+     };
+      // console.log(JSON.stringify(cadena));
+      return this.http.post<Patologia[]>(Url, cadena);
+    }
 
 
   }

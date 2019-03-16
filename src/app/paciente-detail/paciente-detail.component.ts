@@ -7,6 +7,7 @@ import { Paciente } from '../model/paciente';
 import { MessengerService } from '../services/messenger.service';
 import { DaoService } from '../dao/dao.service';
 import { Cita } from '../model/cita';
+import { Patologia } from '../model/patologia';
 
 @Component({
   selector: 'app-paciente-detail',
@@ -32,6 +33,9 @@ export class PacienteDetailComponent implements OnInit {
   fecha: Date;
   hora: number;
   minuto: number;
+
+  patologiasPaciente: Patologia[] = [];
+  listaPatologias: Patologia[] = [];
 
   modalRef: BsModalRef;
   modalRefPatologias: BsModalRef;
@@ -126,6 +130,34 @@ export class PacienteDetailComponent implements OnInit {
     this.route.navigate(['pacienteDieta']);
   }
 
+  getListaPatologias() {
+
+    this.daoService.getListaPatologias().subscribe(
+      R => {
+        this.listaPatologias = R;
+      }
+    );
+
+  }
+
+
+  changePatologias(event, patologia: Patologia) {
+
+    if ( event.target.checked ) { // Añado el elemento
+      this.patologiasPaciente.push(patologia);
+    } else {  // Quito el elemento
+      const posicion = this.patologiasPaciente.findIndex(
+        F => F === patologia
+        );
+      this.patologiasPaciente.splice(posicion, 1);
+    }
+    console.log(this.patologiasPaciente);
+  }
+
+  actualizaPatologias() {
+
+  }
+
 
   ngOnInit() {
     this.hora = 12;
@@ -133,6 +165,8 @@ export class PacienteDetailComponent implements OnInit {
     // El paciente esta en localStorage
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
     this.getCitaPacienteAll();
+
+    this.getListaPatologias();
   }
 
 }

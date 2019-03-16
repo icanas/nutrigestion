@@ -115,6 +115,11 @@ switch ($action) {
     $executionStatus = getAlimento($conn, $data);
         break;
 
+    case 'getListaPatologias':
+
+    $executionStatus = getListaPatologias($conn, $data);
+    break;
+
 }
 
 echo $executionStatus;
@@ -662,6 +667,25 @@ function maxID($table, $conn){
  }
 
 
+ function getListaPatologias($conn, $data){
+
+    $sql = "SELECT * FROM patologia
+            ORDER BY id asc;";
+
+    $result =  $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+    return json_encode($json);
+
+
+}
 
 
 
