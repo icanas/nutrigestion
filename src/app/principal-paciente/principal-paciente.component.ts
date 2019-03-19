@@ -3,6 +3,8 @@ import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
 import { DaoService } from '../dao/dao.service';
 
+import {Router} from '@angular/router';
+
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -14,7 +16,8 @@ export class PrincipalPacienteComponent implements OnInit {
 
   constructor(
     private daoService: DaoService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private route: Router
   ) { }
 
   paciente: Paciente = new Paciente();
@@ -60,6 +63,11 @@ export class PrincipalPacienteComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  verDieta() {
+    localStorage.setItem('Paciente', JSON.stringify(this.paciente));
+    this.route.navigate(['dietaVisorPaciente']);
   }
 
 
