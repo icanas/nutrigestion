@@ -66,8 +66,27 @@ export class PrincipalPacienteComponent implements OnInit {
   }
 
   verDieta() {
-    localStorage.setItem('Paciente', JSON.stringify(this.paciente));
-    this.route.navigate(['dietaVisorPaciente']);
+
+    localStorage.removeItem('dieta');
+
+    this.daoService.getDietas(this.paciente).subscribe(
+      R => {
+        if (R.length !== 0) {
+          if (Number(R[0].activo) !== 0) {
+
+            localStorage.setItem('dieta', JSON.stringify(R[0]));
+            this.route.navigate(['dietaVisor']);
+
+          } else {
+            window.alert('No tienes dietas asignadas');
+          }
+        } else {
+          window.alert('No tienes dietas asignadas');
+        }
+      }
+    );
+
+
   }
 
 
