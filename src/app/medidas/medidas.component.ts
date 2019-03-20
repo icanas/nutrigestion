@@ -44,7 +44,7 @@ export class MedidasComponent implements OnInit {
 
     this.daoService.actualizaMedidas(this.paciente, this.anatomia).subscribe(
       R => {
-        window.location.reload();
+        // window.location.reload();
       }
     );
 

@@ -139,7 +139,7 @@ $conn->close();
 
 function validateCode($conn, $data){
 
-    $sql = "SELECT codigo FROM codigoRegistro where codigo = '$data->codigo';";
+    $sql = "SELECT codigo FROM codigoregistro where codigo = '$data->codigo';";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
@@ -363,15 +363,28 @@ function actualizaMedidas($conn, $data){
     $paciente = $data->Paciente;
     $anatomia = $data->Anatomia;
 
+
     $sql = "UPDATE anatomia SET activo = 0
             WHERE email = '$paciente->email';";
 
     $result =  $conn->query($sql);
 
-    $sql = "INSERT INTO anatomia (email, peso, altura, cintura, brazo, fecha_modificacion, activo)
-                VALUES ('$paciente->email', '$anatomia->peso', '$anatomia->altura', '$anatomia->cintura', '$anatomia->brazo',
+    $sql = "INSERT INTO anatomia (
+                            email, peso, altura, PLtriceps,
+                            PLsubescapular, PLbiceps, PLcrestaIliaca,
+                            PLsupraespinal, PLabdominal, PLmuslo, PLpierna,
+                            PRbrazoRelajado, PRbrazoFlexionado, PRcintura,
+                            PRcadera, PRpierna, PRmuneca, PRtobillo, PRantebrazo,
+                            Dhumero, Dfemur, fecha_modificacion, activo
+                        )
+                VALUES ('$paciente->email', $anatomia->peso, $anatomia->altura, $anatomia->PLtriceps,
+                        $anatomia->PLsubescapular, $anatomia->PLbiceps, $anatomia->PLcrestaIliaca,
+                        $anatomia->PLsupraespinal, $anatomia->PLabdominal, $anatomia->PLmuslo,
+                        $anatomia->PLpierna, $anatomia->PRbrazoRelajado, $anatomia->PRbrazoFlexionado,
+                        $anatomia->PRcintura, $anatomia->PRcadera, $anatomia->PRpierna, $anatomia->PRmuneca,
+                        $anatomia->PRtobillo, $anatomia->PRantebrazo, $anatomia->Dhumero, $anatomia->Dfemur,
                         NOW(), 1 );";
-
+    // var_dump($sql );
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;

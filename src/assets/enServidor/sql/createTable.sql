@@ -35,10 +35,28 @@ create table paciente(
 create table anatomia(
 
     email varchar(60),
+
     peso numeric(8,2) null,
     altura numeric(8,2) null,
-    cintura numeric(8,2) null,
-    brazo numeric(8,2) null,
+    PLtriceps numeric(8,2) null,
+    PLsubescapular numeric(8,2) null,
+    PLbiceps numeric(8,2) null,
+    PLcrestaIliaca numeric(8,2) null,
+    PLsupraespinal numeric(8,2) null,
+    PLabdominal numeric(8,2) null,
+    PLmuslo numeric(8,2) null,
+    PLpierna numeric(8,2) null,
+    PRbrazoRelajado numeric(8,2) null,
+    PRbrazoFlexionado numeric(8,2) null,
+    PRcintura numeric(8,2) null,
+    PRcadera numeric(8,2) null,
+    PRpierna numeric(8,2) null,
+    PRmuneca numeric(8,2) null,
+    PRtobillo numeric(8,2) null,
+    PRantebrazo numeric(8,2) null,
+    Dhumero numeric(8,2) null,
+    Dfemur numeric(8,2) null,
+
     fecha_modificacion datetime null,
     activo bit
 
@@ -112,6 +130,21 @@ create table patologia_paciente(
     email varchar(60)
 
 
-)
+);
 
+
+create table alimento_ingerido(
+
+    years numeric(10,0),
+    semana numeric(12,0),
+    dia varchar(10,0),
+    franja varchar(20,0),
+    alimento numeric(30,0),
+    cantidad numeric(8,2),
+    unidades varchar(30),
+    paciente varchar(60),
+    fecha datetime
+
+
+)
 
