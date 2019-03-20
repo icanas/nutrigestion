@@ -169,7 +169,7 @@ export class DaoService {
         Anatomia: anatomia
 
      };
-      console.log(JSON.stringify(cadena));
+     // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -182,7 +182,7 @@ export class DaoService {
         Dieta: dieta
 
      };
-      console.log(JSON.stringify(cadena));
+     // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
