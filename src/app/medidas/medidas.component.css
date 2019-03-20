@@ -29,16 +29,17 @@ td{
     padding: 0px;
 }
 
-.btnMedidas{
-    position: relative;
+.historico{
+    position: sticky;
     right:    0;
     bottom:   0;
 }
 
+.btnMedidas{
+    width:100%;
+}
+
 .selecthistory{
-    position: relative;
-    right:    0;
-    bottom:   0;
     width:100%;
     text-align: center
 }

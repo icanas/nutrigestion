@@ -12,7 +12,7 @@ export class Anatomia {
     PLmuslo: number;
     PLpierna: number;
     PRbrazoRelajado: number;
-    PRbrazoFlexionalo: number;
+    PRbrazoFlexionado: number;
     PRcintura: number;
     PRcadera: number;
     PRpierna: number;
@@ -37,7 +37,7 @@ export class Anatomia {
       this.PLmuslo = 0;
       this.PLpierna = 0;
       this.PRbrazoRelajado = 0;
-      this.PRbrazoFlexionalo = 0;
+      this.PRbrazoFlexionado = 0;
       this.PRcintura = 0;
       this.PRcadera = 0;
       this.PRpierna = 0;
