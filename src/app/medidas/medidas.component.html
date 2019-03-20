@@ -1,57 +1,61 @@
 <div>
-<div class="row col-sm-12">
+  <div class="row col-sm-12 medidas">
 
-  <div class="col-sm-2">
-    <label>Altura</label>
+    <div class="col-sm-6 row casilla">
+        <div class="col-sm-6 row">
+            <label>Altura</label>
+          </div>
+          <div class="col-sm-4 medidaInput">
+            <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.altura>
+          </div>
+          <div class="col-sm-1 unidades">
+            <label >cm</label>
+          </div>
+    </div>
+    <div class="col-sm-6 row casilla">
+        <div class="col-sm-6 row">
+          <label>Peso</label>
+        </div>
+        <div class="col-sm-4 medidaInput">
+          <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.peso>
+        </div>
+        <div class="col-sm-1 unidades">
+          <label >Kg</label>
+        </div>
+    </div>
+    <div class="col-sm-6 row casilla">
+        <div class="col-sm-6 row">
+          <label>Cintura</label>
+        </div>
+        <div class="col-sm-4 medidaInput">
+          <input type="numeric"   class="form-control medidaInput"  [(ngModel)] = anatomia.cintura>
+        </div>
+        <div class="col-sm-1 unidades">
+          <label >cm</label>
+        </div>
+    </div>
+    <div class="col-sm-6 row casilla">
+        <div class="col-sm-6 row">
+          <label>Brazo</label>
+        </div>
+        <div class="col-sm-4 medidaInput">
+          <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.brazo>
+        </div>
+        <div class="col-sm-1 unidades">
+          <label >cm</label>
+        </div>
+    </div>
+
+
   </div>
-  <div class="col-sm-2 medidaInput">
-    <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.altura>
-  </div>
-  <div class="col-sm-1 unidades">
-    <label >cm</label>
-  </div>
-  <div class="col-sm-2">
-      <label>Peso</label>
-    </div>
-    <div class="col-sm-2 medidaInput">
-      <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.peso>
-    </div>
-    <div class="col-sm-1 unidades">
-      <label >Kg</label>
-    </div>
 
+  <select [(ngModel)]="anatomia" class="selecthistory">
+      <option *ngFor="let anatomia2 of anatomiaList" [ngValue]="anatomia2">
+          <span  *ngIf="anatomia2.activo == 0; else showActual">{{anatomia2.fecha_modificacion}}</span>
+      </option>
+  </select>
 
-</div>
-<div class="row col-sm-12">
-
-    <div class="col-sm-2">
-      <label>Cintura</label>
-    </div>
-    <div class="col-sm-2 medidaInput">
-      <input type="numeric"   class="form-control medidaInput"  [(ngModel)] = anatomia.cintura>
-    </div>
-    <div class="col-sm-1 unidades">
-      <label >cm</label>
-    </div>
-    <div class="col-sm-2">
-        <label>Brazo</label>
-    </div>
-    <div class="col-sm-2 medidaInput">
-      <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.brazo>
-    </div>
-    <div class="col-sm-1 unidades">
-      <label >cm</label>
-    </div>
-
-</div>
-
-<select [(ngModel)]="anatomia" class="selecthistory">
-    <option *ngFor="let anatomia2 of anatomiaList" [ngValue]="anatomia2">
-        <span  *ngIf="anatomia2.activo == 0; else showActual">{{anatomia2.fecha_modificacion}}</span>
-    </option>
-</select>
-
-<button (click)="actualizaMedidas()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
+  <button (click)="actualizaMedidas()" type="button" class="btn btn-success col-sm-12 btnMedidas">Actualiza Medidas</button>
 
 </div>
 

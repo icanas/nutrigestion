@@ -1,11 +1,19 @@
 .medidaInput{
     padding: 0px;
     margin: 0px;
-    margin-right: 5px;
+    margin-right: 2px;
     width: 100%;
-    height: 80%;
+    height: 90%;
     text-align: center
 
+}
+
+.medidas{
+    margin-left: 10px;
+}
+
+.casilla{
+    padding-right: 0px;
 }
 
 .btnMedidas{
