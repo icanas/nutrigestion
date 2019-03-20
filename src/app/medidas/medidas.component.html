@@ -1,53 +1,109 @@
 <div>
-  <div class="row col-sm-12 medidas">
 
-    <div class="col-sm-6 row casilla">
-        <div class="col-sm-6 row">
-            <label>Altura</label>
-          </div>
-          <div class="col-sm-4 medidaInput">
-            <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.altura>
-          </div>
-          <div class="col-sm-1 unidades">
-            <label >cm</label>
-          </div>
-    </div>
-    <div class="col-sm-6 row casilla">
-        <div class="col-sm-6 row">
-          <label>Transverso Torax anterior</label>
-        </div>
-        <div class="col-sm-4 medidaInput">
-          <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.peso>
-        </div>
-        <div class="col-sm-1 unidades">
-          <label >Kg</label>
-        </div>
-    </div>
-    <div class="col-sm-6 row casilla">
-        <div class="col-sm-6 row">
-          <label>Cintura</label>
-        </div>
-        <div class="col-sm-4 medidaInput">
-          <input type="numeric"   class="form-control medidaInput"  [(ngModel)] = anatomia.cintura>
-        </div>
-        <div class="col-sm-1 unidades">
-          <label >cm</label>
-        </div>
-    </div>
-    <div class="col-sm-6 row casilla">
-        <div class="col-sm-6 row">
-          <label>Brazo</label>
-        </div>
-        <div class="col-sm-4 medidaInput">
-          <input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.brazo>
-        </div>
-        <div class="col-sm-1 unidades">
-          <label >cm</label>
-        </div>
-    </div>
+    <div class="container">
+        <table class="table table-striped">
+          <thead>
+          </thead>
+          <tbody>
+            <tr class="col-sm-12">
+              <td class="col-sm-6 medida-nombre">Peso</td>
+              <td class="col-sm-5 medida-dato"> <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.peso></td>
+              <td class="col-sm-1 medida-unidades">Kg</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">Altura</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.altura></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL Triceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLtriceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL Subescapular</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLsubescapular></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
 
-
-  </div>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="col-sm-6 medida-nombre">PL biceps</td>
+                <td class="col-sm-5 medida-dato"><input type="numeric"   class="form-control medidaInput" [(ngModel)] = anatomia.PLbiceps></td>
+                <td class="col-sm-1 medida-unidades">cm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
   <select [(ngModel)]="anatomia" class="selecthistory">
       <option *ngFor="let anatomia2 of anatomiaList" [ngValue]="anatomia2">
