@@ -6,6 +6,9 @@ export class Paciente {
     id: number;
     nombre: string;
     apellido: string;
+    apellido2: string;
+    edad: number;
+    sexo: string;
     email: string;
     password: string;
     emailProfesional: string;

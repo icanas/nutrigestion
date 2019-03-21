@@ -178,8 +178,9 @@ function insertPaciente($conn, $data){
     $result = $conn->query($sql);
     if ($result->num_rows === 0){   // Si no existe, lo creo
 
-        $sql = "INSERT INTO paciente (nombre, apellido, email, password, emailProfesional, activo, token)
-                VALUES ('$paciente->nombre', '$paciente->apellido', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
+        $sql = "INSERT INTO paciente (nombre, apellido, apellido2, edad, sexo, email, password, emailProfesional, activo, token)
+                VALUES ('$paciente->nombre', '$paciente->apellido', '$paciente->apellido2',
+                $paciente->edad, '$paciente->sexo', '$paciente->email', '$paciente->password', '$profesional->email', 1, '$token');";
     } else{ // Si ya existe le coloco el bit a 1
 
         $sql = "UPDATE paciente
@@ -187,6 +188,7 @@ function insertPaciente($conn, $data){
         WHERE email = '$paciente->email';";
 
     }
+    // var_dump($sql);
 
     $succes = $conn->query($sql);
 

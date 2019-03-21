@@ -48,7 +48,14 @@
             <div class="col-md-12 form">
                 <div>
                     <input type="text" class="form-control" placeholder="Nombre" name="nombre" [(ngModel)] = nuevoPaciente.nombre >
-                    <input type="text" class="form-control" placeholder="Apellido" name="apellido" [(ngModel)] = nuevoPaciente.apellido >
+                    <input type="text" class="form-control" placeholder="Apellido 1" name="apellido" [(ngModel)] = nuevoPaciente.apellido >
+                    <input type="text" class="form-control" placeholder="Apellido 2" name="apellido2" [(ngModel)] = nuevoPaciente.apellido2 >
+                    <input type="numeric" class="form-control" placeholder="Edad" name="edad" [(ngModel)] = nuevoPaciente.edad >
+                    <select class="form-control" [(ngModel)] = nuevoPaciente.sexo>
+                        <option value="" disabled selected>Sexo</option>
+                        <option value="h">Hombre</option>
+                        <option value="m">Mujer</option>
+                      </select>
                     <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)] = nuevoPaciente.email >
                     <input type="password" class="form-control" placeholder="Password" name="pass" [(ngModel)] = nuevoPaciente.password >
                 </div>
