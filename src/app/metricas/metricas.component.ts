@@ -23,7 +23,7 @@ export class MetricasComponent implements OnInit {
 
 
   recalcula() {
-    this.IMC = this.anatomia.peso + 1;
+    console.log('recalculando');
   }
 
 

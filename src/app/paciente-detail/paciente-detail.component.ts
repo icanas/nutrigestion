@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,6 +9,7 @@ import { DaoService } from '../dao/dao.service';
 import { Cita } from '../model/cita';
 import { Patologia } from '../model/patologia';
 import { Anatomia } from '../model/anatomia';
+import { MetricasComponent } from '../metricas/metricas.component';
 
 @Component({
   selector: 'app-paciente-detail',
@@ -24,6 +25,7 @@ export class PacienteDetailComponent implements OnInit {
     private modalService: BsModalService,
   ) { }
 
+  @ViewChild(MetricasComponent) metricasComponent: MetricasComponent;
   paciente: Paciente;
 
   cita: Cita = new Cita();  // Para nueva cita
@@ -201,6 +203,7 @@ export class PacienteDetailComponent implements OnInit {
 
   recalculaMetricas() {
     console.log('UP');
+    this.metricasComponent.recalcula();
   }
 
   ngOnInit() {
