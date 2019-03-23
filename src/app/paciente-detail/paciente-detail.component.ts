@@ -44,7 +44,7 @@ export class PacienteDetailComponent implements OnInit {
   anatomia: Anatomia = new Anatomia();
   anatomiaList: Anatomia[] = [];
 
-  metricas: Metricas;
+  metricas: Metricas = new Metricas(this.paciente, this.anatomia);
 
   modalRef: BsModalRef;
   modalRefPatologias: BsModalRef;
