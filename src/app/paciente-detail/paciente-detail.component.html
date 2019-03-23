@@ -34,13 +34,13 @@
               <div class="minititulo ">
                 Medidas<label></label>
               </div>
-            <app-medidas></app-medidas>
+            <app-medidas [anatomia] = "anatomia" (recalculaEvent)="recalculaMetricas()"></app-medidas>
           </div>
           <div class=" miniminitable col-sm-6">
               <div class="minititulo ">
                 Metricas<label></label>
               </div>
-            <app-metricas></app-metricas>
+            <app-metricas [anatomia] = "anatomia"></app-metricas>
           </div>
         </div>
 

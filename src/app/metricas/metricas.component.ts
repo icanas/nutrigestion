@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { DaoService } from '../dao/dao.service';
 
@@ -17,35 +17,20 @@ export class MetricasComponent implements OnInit {
   ) { }
 
   paciente: Paciente;
-  anatomia: Anatomia = new Anatomia();
-  anatomiaList: Anatomia[] = [];
+  @Input() anatomia: Anatomia;
 
   IMC: number;
 
-  getAnatomia() {
 
-    this.daoService.getAnatomia(this.paciente).subscribe(
-      R => {
-        if (!R) {
-          this.anatomia = new Anatomia();
-        } else {
-          this.anatomiaList = R;
-          this.anatomia = R[0];
-
-          this.IMC = this.anatomia.peso;
-
-        }
-
-      }
-    );
-
+  recalcula() {
+    this.IMC = this.anatomia.peso + 1;
   }
-
 
 
   ngOnInit() {
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
-    this.getAnatomia();
+    this.IMC = this.anatomia.peso + 1;
+
   }
 
 

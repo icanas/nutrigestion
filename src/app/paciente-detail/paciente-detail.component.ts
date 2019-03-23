@@ -8,6 +8,7 @@ import { MessengerService } from '../services/messenger.service';
 import { DaoService } from '../dao/dao.service';
 import { Cita } from '../model/cita';
 import { Patologia } from '../model/patologia';
+import { Anatomia } from '../model/anatomia';
 
 @Component({
   selector: 'app-paciente-detail',
@@ -36,6 +37,9 @@ export class PacienteDetailComponent implements OnInit {
 
   patologiasPaciente: Patologia[] = [];
   listaPatologias: Patologia[] = [];
+
+  anatomia: Anatomia = new Anatomia();
+  anatomiaList: Anatomia[] = [];
 
   modalRef: BsModalRef;
   modalRefPatologias: BsModalRef;
@@ -177,6 +181,27 @@ export class PacienteDetailComponent implements OnInit {
     );
   }
 
+  getAnatomia() {
+
+    this.daoService.getAnatomia(this.paciente).subscribe(
+      R => {
+        if (!R) {
+          this.anatomia = new Anatomia();
+        } else {
+          this.anatomiaList = R;
+          this.anatomia = R[0];
+          this.paciente.anatomia = this.anatomia;
+          localStorage.setItem('Paciente', JSON.stringify(this.paciente));  // Lo guardo en local con sus medidas
+        }
+
+      }
+    );
+
+  }
+
+  recalculaMetricas() {
+    console.log('UP');
+  }
 
   ngOnInit() {
     this.hora = 12;
@@ -186,6 +211,8 @@ export class PacienteDetailComponent implements OnInit {
     this.getCitaPacienteAll();
 
     this.getListaPatologias();
+
+    this.getAnatomia();
   }
 
 }

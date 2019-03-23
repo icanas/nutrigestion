@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { DaoService } from '../dao/dao.service';
 
@@ -18,27 +18,9 @@ export class MedidasComponent implements OnInit {
   ) { }
 
   paciente: Paciente;
-  anatomia: Anatomia = new Anatomia();
-  anatomiaList: Anatomia[] = [];
+  @Input() anatomia: Anatomia;
+  @Output() recalculaEvent = new EventEmitter();
 
-
-  getAnatomia() {
-
-    this.daoService.getAnatomia(this.paciente).subscribe(
-      R => {
-        if (!R) {
-          this.anatomia = new Anatomia();
-        } else {
-          this.anatomiaList = R;
-          this.anatomia = R[0];
-          this.paciente.anatomia = this.anatomia;
-          localStorage.setItem('Paciente', JSON.stringify(this.paciente));  // Lo guardo en local con sus medidas
-        }
-
-      }
-    );
-
-  }
 
   actualizaMedidas() {
 
@@ -50,11 +32,13 @@ export class MedidasComponent implements OnInit {
 
   }
 
+  recalculaMetricas() {
+    this.recalculaEvent.emit();
+  }
 
 
   ngOnInit() {
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
-    this.getAnatomia();
   }
 
 }

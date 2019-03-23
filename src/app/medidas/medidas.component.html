@@ -7,7 +7,7 @@
           <tbody>
             <tr class="col-sm-12">
               <td class="col-sm-6 medida-nombre">Peso</td>
-              <td class="col-sm-5 medida-dato"> <input type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.peso></td>
+              <td class="col-sm-5 medida-dato"> <input (keyup)="recalculaMetricas()" type="numeric"  class="form-control medidaInput" [(ngModel)] = anatomia.peso></td>
               <td class="col-sm-1 medida-unidades">Kg</td>
             </tr>
             <tr class="col-sm-12">
