@@ -23,6 +23,7 @@ export class MedidasComponent implements OnInit {
 
 
   actualizaMedidas() {
+    // QUE NO SE ME OLVIDE ALMACENAR TAMBIEN LAS METRICAS //
 
     this.daoService.actualizaMedidas(this.paciente, this.anatomia).subscribe(
       R => {

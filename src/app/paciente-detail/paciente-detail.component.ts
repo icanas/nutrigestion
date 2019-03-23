@@ -9,6 +9,7 @@ import { DaoService } from '../dao/dao.service';
 import { Cita } from '../model/cita';
 import { Patologia } from '../model/patologia';
 import { Anatomia } from '../model/anatomia';
+import { Metricas } from '../model/metricas';
 import { MetricasComponent } from '../metricas/metricas.component';
 
 @Component({
@@ -42,6 +43,8 @@ export class PacienteDetailComponent implements OnInit {
 
   anatomia: Anatomia = new Anatomia();
   anatomiaList: Anatomia[] = [];
+
+  metricas: Metricas;
 
   modalRef: BsModalRef;
   modalRefPatologias: BsModalRef;
@@ -193,6 +196,7 @@ export class PacienteDetailComponent implements OnInit {
           this.anatomiaList = R;
           this.anatomia = R[0];
           this.paciente.anatomia = this.anatomia;
+          this.metricas = new Metricas(this.paciente, this.anatomia);
           localStorage.setItem('Paciente', JSON.stringify(this.paciente));  // Lo guardo en local con sus medidas
         }
 
@@ -202,7 +206,7 @@ export class PacienteDetailComponent implements OnInit {
   }
 
   recalculaMetricas() {
-    console.log('UP');
+    this.metricas = new Metricas(this.paciente, this.anatomia);
     this.metricasComponent.recalcula();
   }
 

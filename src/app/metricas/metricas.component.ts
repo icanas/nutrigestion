@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { DaoService } from '../dao/dao.service';
 
-import { Anatomia } from '../model/anatomia';
+import { Metricas } from '../model/metricas';
 import { Paciente } from '../model/paciente';
 
 @Component({
@@ -17,9 +17,9 @@ export class MetricasComponent implements OnInit {
   ) { }
 
   paciente: Paciente;
-  @Input() anatomia: Anatomia;
+  @Input() metricas: Metricas;
 
-  IMC: number;
+
 
 
   recalcula() {
@@ -29,7 +29,6 @@ export class MetricasComponent implements OnInit {
 
   ngOnInit() {
     this.paciente = JSON.parse(localStorage.getItem('Paciente'));
-    this.IMC = this.anatomia.peso + 1;
 
   }
 
