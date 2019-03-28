@@ -24,9 +24,16 @@ import { DietasListComponent } from './dietas-list/dietas-list.component';
 import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
 
 
+import { LOCALE_ID } from '@angular/core';
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(es);
 
 @NgModule({
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-ES' }
+  ],
   declarations: [
     AppComponent,
     LoginComponent,
@@ -52,7 +59,6 @@ import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
     AccordionModule.forRoot(),
     TabsModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
