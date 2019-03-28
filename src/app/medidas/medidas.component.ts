@@ -19,6 +19,7 @@ export class MedidasComponent implements OnInit {
 
   paciente: Paciente;
   @Input() anatomia: Anatomia;
+  @Input() anatomiaList: Anatomia[] = [];
   @Output() recalculaEvent = new EventEmitter();
 
 
