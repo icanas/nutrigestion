@@ -1,7 +1,11 @@
 
 
 <ul class="list-group">
-    <li class="list-group-item ">
+    <li class="list-group-item " [ngClass]="{
+        'verde' : metricas.Imc < 23 ,
+        'amarillo' : metricas.Imc > 23 && metricas.Imc < 24 ,
+        'rojo' : metricas.Imc > 24
+        }">
         <div class="row">
             <div class="col-sm-6 metrica-nombre">
                 IMC
