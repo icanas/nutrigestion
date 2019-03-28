@@ -1,0 +1,14 @@
+
+.list-group-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.metrica-nombre{
+    border-right: solid;
+}
+
+.metrica-valor{
+    text-align: center;
+    font-weight: bold;
+}

@@ -43,10 +43,9 @@ export class Metricas {
         } else {
             this.MasaResidual = Number(medidas.peso) * 0.241;
         }
+        this.MasaGrasa = 1 ;        //////// Cambiar
 
         this.MasaMuscular = Number(medidas.peso) - (this.MasaGrasa + this.MasaOsea + this.MasaResidual);
-
-
     }
 
   }
