@@ -45,7 +45,7 @@ export class ProgesoComponent implements OnInit {
 
       // Configuration options go here
       options: {
-        responsive: false
+        responsive: true
       }
   });
 
