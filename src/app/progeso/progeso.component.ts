@@ -27,7 +27,7 @@ export class ProgesoComponent implements OnInit {
 
     this.canvas = document.getElementById('myChart');
     this.ctx = this.canvas.getContext('2d');
-    console.log(this.ctx);
+
     const chart = new Chart(this.ctx, {
       // The type of chart we want to create
       type: 'line',
@@ -45,8 +45,7 @@ export class ProgesoComponent implements OnInit {
 
       // Configuration options go here
       options: {
-        responsive: false,
-        display:true
+        responsive: false
       }
   });
 
