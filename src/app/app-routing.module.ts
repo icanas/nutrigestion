@@ -9,6 +9,7 @@ import { PacienteDetailComponent } from './paciente-detail/paciente-detail.compo
 import { PrincipalPacienteComponent } from './principal-paciente/principal-paciente.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
 import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
+import { ProgesoComponent } from './progeso/progeso.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'detallePaciente', component: PacienteDetailComponent },
   { path: 'principalPaciente', component: PrincipalPacienteComponent},
   { path: 'pacienteDieta', component: PacienteDietaComponent },
-  { path: 'dietaVisor', component: DietaVisorComponent }
+  { path: 'dietaVisor', component: DietaVisorComponent },
+  { path: 'progreso', component: ProgesoComponent }
 ];
 
 @NgModule({

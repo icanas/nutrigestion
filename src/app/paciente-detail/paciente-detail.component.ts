@@ -210,6 +210,13 @@ export class PacienteDetailComponent implements OnInit {
     this.metricasComponent.recalcula();
   }
 
+  progreso() {
+    localStorage.removeItem('Paciente');
+    localStorage.setItem('Paciente', JSON.stringify(this.paciente));
+    localStorage.setItem('anatomiaList', JSON.stringify(this.anatomiaList)); ////////// Borrar es de pruebas
+    this.route.navigate(['progreso']);
+  }
+
   ngOnInit() {
     this.hora = 12;
     this.minuto = 0;

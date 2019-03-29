@@ -22,11 +22,13 @@ import { MetricasComponent } from './metricas/metricas.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
 import { DietasListComponent } from './dietas-list/dietas-list.component';
 import { DietaVisorComponent } from './dieta-visor/dieta-visor.component';
+import { ProgesoComponent } from './progeso/progeso.component';
 
 
 import { LOCALE_ID } from '@angular/core';
 import es from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+
 
 registerLocaleData(es);
 
@@ -47,7 +49,8 @@ registerLocaleData(es);
     MetricasComponent,
     PacienteDietaComponent,
     DietasListComponent,
-    DietaVisorComponent
+    DietaVisorComponent,
+    ProgesoComponent
   ],
   imports: [
     BrowserModule,
