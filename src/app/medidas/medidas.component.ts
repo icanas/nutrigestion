@@ -20,7 +20,7 @@ export class MedidasComponent implements OnInit {
   paciente: Paciente;
   @Input() anatomia: Anatomia;
   @Input() anatomiaList: Anatomia[] = [];
-  @Output() recalculaEvent = new EventEmitter();
+  @Output() recalculaEvent = new EventEmitter<Anatomia>();
 
 
   actualizaMedidas() {
@@ -34,8 +34,9 @@ export class MedidasComponent implements OnInit {
 
   }
 
-  recalculaMetricas() {
-    this.recalculaEvent.emit();
+  recalculaMetricas(anatomia: Anatomia) {
+    this.recalculaEvent.emit(anatomia);
+
   }
 
 

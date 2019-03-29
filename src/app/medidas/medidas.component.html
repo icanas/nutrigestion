@@ -112,7 +112,7 @@
 
       <div class="historico row">
         <div class="col-sm-12 ">
-            <select [(ngModel)]="anatomia" class="selecthistory">
+            <select [(ngModel)]="anatomia" class="selecthistory" (change)="recalculaMetricas(anatomia)">
                 <option *ngFor="let anatomia2 of anatomiaList" [ngValue]="anatomia2">
                     <span  *ngIf="anatomia2.activo == 0; else showActual">{{anatomia2.fechaModificacion}}</span>
                 </option>

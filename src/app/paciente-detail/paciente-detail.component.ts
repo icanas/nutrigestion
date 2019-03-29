@@ -205,8 +205,10 @@ export class PacienteDetailComponent implements OnInit {
 
   }
 
-  recalculaMetricas() {
+  recalculaMetricas(anatomia: Anatomia) {
+    this.anatomia = anatomia;
     this.metricas = new Metricas(this.paciente, this.anatomia);
+    console.log(anatomia);
     this.metricasComponent.recalcula();
   }
 
