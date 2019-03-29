@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Chart} from 'Chart.js';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { Paciente } from '../model/paciente';
 import { Metricas } from '../model/metricas';
@@ -29,6 +30,7 @@ export class ProgesoComponent implements OnInit {
 
     const labels: string[] = [];
     const dataset: number[] = [];
+
     this.anatomiaList.forEach(
       R => {
         labels.push(R.fechaModificacion.toString().substring(0, 10));
