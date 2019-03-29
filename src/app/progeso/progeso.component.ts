@@ -18,20 +18,33 @@ export class ProgesoComponent implements OnInit {
 
   anatomiaList: Anatomia[] = [];
 
+
+
   chartPeso() {
 
     let canvas: any;
-    canvas = document.getElementById('myChart');
+    canvas = document.getElementById('peso');
     let ctx: any;
     ctx = canvas.getContext('2d');
 
+    const labels: string[] = [];
+    const dataset: number[] = [];
+    this.anatomiaList.forEach(
+      R => {
+        labels.push(R.fechaModificacion.toString().substring(0, 10));
+        dataset.push(Number(R.peso));
+      }
+    );
+
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels,
       datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45]
+          label: 'Peso(kg) ',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(0, 204, 102)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  dataset
       }]
     };
 
@@ -48,7 +61,7 @@ export class ProgesoComponent implements OnInit {
 
       // Configuracion
       options
-  });
+    });
 
   }
 
