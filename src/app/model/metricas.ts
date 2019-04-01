@@ -96,7 +96,7 @@ export class Metricas {
 
         // Endomorfia
         const sumaPliegues = Number(medidas.PLtriceps) + Number(medidas.PLsubescapular) + Number(medidas.PLsupraespinal);
-        const ratio = (170.18) / (Number(medidas.altura) / 100);    // Revisar si metros o cm la altura
+        const ratio = (170.18) / (Number(medidas.altura));    // Revisar si metros o cm la altura
         this.Endomorfo = (-0.7182 + (0.1451 * (sumaPliegues * ratio))
                         - 0.00068 * (sumaPliegues * ratio) ** 2)
                         + 0.000004 * ((sumaPliegues * ratio) ** 3);
@@ -139,14 +139,17 @@ export class Metricas {
             }
           }
 
+        console.log(somatotipoArray);
+        console.log(indexMax);
+
         switch (indexMax) {
             case 0:
                 this.Somatotipo = 'Endomorfo';
                 break;
-            case 0:
+            case 1:
                 this.Somatotipo = 'Mesomorfo';
                 break;
-            case 0:
+            case 2:
                 this.Somatotipo = 'Ectomorfo';
                 break;
         }

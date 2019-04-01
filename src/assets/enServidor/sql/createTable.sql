@@ -54,7 +54,7 @@ create table anatomia(
     PRcintura numeric(8,3) null,
     PRcadera numeric(8,3) null,
     PRpierna numeric(8,3) null,
-    PRmuneca numeric(8,3) null,
+    Dmuneca numeric(8,3) null,
     Dhumero numeric(8,3) null,
     DbiepicondilarFemur numeric(8,3) null,
 
