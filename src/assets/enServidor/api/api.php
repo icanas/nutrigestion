@@ -376,7 +376,7 @@ function actualizaMedidas($conn, $data){
                             PLsubescapular, PLbiceps, PLcrestaIliaca,
                             PLsupraespinal, PLabdominal, PLmuslo, PLpierna,
                             PRbrazoRelajado, PRbrazoFlexionado, PRcintura,
-                            PRcadera, PRpierna, PRmuneca, PRtobillo, PRantebrazo,
+                            PRcadera, PRpierna, PRmuneca,
                             Dhumero, DbiepicondilarFemur, fechaModificacion, activo
                         )
                 VALUES ('$paciente->email', $anatomia->peso, $anatomia->altura, $anatomia->PLtriceps,
@@ -384,7 +384,7 @@ function actualizaMedidas($conn, $data){
                         $anatomia->PLsupraespinal, $anatomia->PLabdominal, $anatomia->PLmuslo,
                         $anatomia->PLpierna, $anatomia->PRbrazoRelajado, $anatomia->PRbrazoFlexionado,
                         $anatomia->PRcintura, $anatomia->PRcadera, $anatomia->PRpierna, $anatomia->PRmuneca,
-                        $anatomia->PRtobillo, $anatomia->PRantebrazo, $anatomia->Dhumero, $anatomia->DbiepicondilarFemur,
+                        $anatomia->Dhumero, $anatomia->DbiepicondilarFemur,
                         NOW(), 1 );";
     // var_dump($sql );
     // die();

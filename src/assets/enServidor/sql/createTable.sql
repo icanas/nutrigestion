@@ -58,7 +58,7 @@ create table anatomia(
     Dhumero numeric(8,3) null,
     DbiepicondilarFemur numeric(8,3) null,
 
-    fecha_modificacion datetime null,
+    fechaModificacion datetime null,
     activo bit
 
 );
