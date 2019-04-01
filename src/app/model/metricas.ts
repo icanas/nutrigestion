@@ -6,11 +6,14 @@ export class Metricas {
     email: string;
 
     Imc: number;
-    IndiceCinturaCadera: number;
-    IndicePonderal: number;
-    RatioMunecaAltura: number;
-    RatioMunecaCadera: number;
+    RatioCinturaCadera: number;
+    Suma6Pliegues: number;
+    Suma8Pliegues: number;
     Somatotipo: string;
+    PorcentGrasa: number;
+    PorcentOsea: number;
+    PorcentMuscular: number;
+    PorcentResidual: number;
     MasaGrasa: number;
     MasaOsea: number;
     MasaMuscular: number;
@@ -25,17 +28,46 @@ export class Metricas {
 
         this.Imc = Number(medidas.peso) / ((Number(medidas.altura) / 100) ** 2);
 
-        this.IndiceCinturaCadera = (Number(medidas.PRcintura) / Number(medidas.PRcadera)) / 100;
+        this.RatioCinturaCadera = (Number(medidas.PRcintura) / Number(medidas.PRcadera));
 
-        this.IndicePonderal = Number(medidas.peso) / ((Number(medidas.altura) / 100) ** 3);
+        this.Suma6Pliegues = (Number(medidas.PLabdominal) +
+                            Number(medidas.PLmuslo) +
+                            Number(medidas.PLpierna) +
+                            Number(medidas.PLsubescapular) +
+                            Number(medidas.PLsupraespinal) +
+                            Number(medidas.PLtriceps));
 
-        this.RatioMunecaAltura = Number(medidas.PRmuneca / Number(medidas.altura));
+        this.Suma8Pliegues = (Number(medidas.PLabdominal) +
+                            Number(medidas.PLmuslo) +
+                            Number(medidas.PLpierna) +
+                            Number(medidas.PLsubescapular) +
+                            Number(medidas.PLsupraespinal) +
+                            Number(medidas.PLtriceps) +
+                            Number(medidas.PLbiceps) +
+                            Number(medidas.PLcrestaIliaca));
 
-        this.RatioMunecaCadera = Number(medidas.PRmuneca / Number(medidas.PRcadera));
 
-        // tslint:disable-next-line:max-line-length
-        this.MasaOsea = 3.02 * ( (Number(medidas.altura)) ** 2 * ((Number(medidas.PRmuneca)) / 0.031415926) * (Number(medidas.Dfemur) / 100 ) * 400) ** 0.712;
+        // % Grasa
+        if (paciente === undefined) {
+            this.PorcentGrasa = 0;
+        } else if (paciente.sexo === 'm') {
+            this.PorcentGrasa = 0.1548 * (this.Suma6Pliegues) + 3.58;
+        } else {
+            this.PorcentGrasa = 0.1051 * (this.Suma6Pliegues) + 2.585;
+        }
 
+        // Masa Grasa
+        this.MasaGrasa = (Number(medidas.peso) * this.PorcentGrasa) / 100;
+
+        // Masa osea Kg
+        this.MasaOsea = 3.02 *  ((Number(medidas.altura) / 100 ) ** 2) *
+                                (Number(medidas.Dmuneca) / 100) *
+                                (((Number(medidas.DbiepicondilarFemur) / 100) * 400 ) ** 0.712);
+
+        // % Oseo
+        this.PorcentOsea = (this.MasaOsea * 100) / Number(medidas.peso);
+
+        // Masa Residual
         if (paciente === undefined) {
             this.MasaResidual = 0;
         } else if (paciente.sexo === 'm') {
@@ -43,9 +75,15 @@ export class Metricas {
         } else {
             this.MasaResidual = Number(medidas.peso) * 0.241;
         }
-        this.MasaGrasa = 1 ;        //////// Cambiar
 
+        // % Residual
+        this.PorcentResidual = (this.MasaResidual * 100) / Number(medidas.peso);
+
+        // Masa Muscular
         this.MasaMuscular = Number(medidas.peso) - (this.MasaGrasa + this.MasaOsea + this.MasaResidual);
+
+        // % Muscular
+        this.PorcentMuscular = (this.MasaMuscular * 100) / Number(medidas.peso);
     }
 
   }

@@ -169,7 +169,7 @@ export class DaoService {
         Anatomia: anatomia
 
      };
-     // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 

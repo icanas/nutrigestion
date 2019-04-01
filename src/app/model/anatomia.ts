@@ -4,9 +4,9 @@ export class Anatomia {
     peso: number;
     altura: number;
     PLtriceps: number;
+    PLcrestaIliaca: number;
     PLsubescapular: number;
     PLbiceps: number;
-    PLcrestaIliaca: number;
     PLsupraespinal: number;
     PLabdominal: number;
     PLmuslo: number;
@@ -17,10 +17,9 @@ export class Anatomia {
     PRcadera: number;
     PRpierna: number;
     PRmuneca: number;
-    PRtobillo: number;
-    PRantebrazo: number;
+    Dmuneca: number;
     Dhumero: number;
-    Dfemur: number;
+    DbiepicondilarFemur: number;
     fechaModificacion: Date;
     activo: string;
 
@@ -42,10 +41,9 @@ export class Anatomia {
       this.PRcadera = 0;
       this.PRpierna = 0;
       this.PRmuneca = 0;
-      this.PRtobillo = 0;
-      this.PRantebrazo = 0;
+      this.Dmuneca = 0;
       this.Dhumero = 0;
-      this.Dfemur = 0;
+      this.DbiepicondilarFemur = 0;
 
 
     }
