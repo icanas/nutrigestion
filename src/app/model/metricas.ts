@@ -9,7 +9,6 @@ export class Metricas {
     RatioCinturaCadera: number;
     Suma6Pliegues: number;
     Suma8Pliegues: number;
-    Somatotipo: string;
     PorcentGrasa: number;
     PorcentOsea: number;
     PorcentMuscular: number;
@@ -18,6 +17,11 @@ export class Metricas {
     MasaOsea: number;
     MasaMuscular: number;
     MasaResidual: number;
+
+    Somatotipo: string;
+    Endomorfo: number;
+    Mesomorfo: number;
+    Ectomorfo: number;
 
     fechaModificacion: Date;
     activo: string;
@@ -84,6 +88,39 @@ export class Metricas {
 
         // % Muscular
         this.PorcentMuscular = (this.MasaMuscular * 100) / Number(medidas.peso);
+
+
+        ///////////////// Somatotipo /////////////////
+
+        // Endomorfia
+        const sumaPliegues = Number(medidas.PLtriceps) + Number(medidas.PLsubescapular) + Number(medidas.PLsupraespinal);
+        const ratio = (170.18) / (Number(medidas.altura) / 100);    // Revisar si metros o cm la altura
+        this.Endomorfo = (-0.7182 + (0.1451 * (sumaPliegues * ratio))
+                        - 0.00068 * (sumaPliegues * ratio) ** 2)
+                        + 0.000004 * ((sumaPliegues * ratio) ** 3);
+
+        // Mesomorfia
+        this.Mesomorfo = (
+                        (0.858 *  Number(medidas.Dhumero))
+                        + (0.601 *  Number(medidas.DbiepicondilarFemur))
+                        + (0.188 * ( Number(medidas.PRbrazoFlexionado - ( Number(medidas.PLtriceps) / 10 ))))
+                        + (0.161 * ( Number(medidas.PRpierna) - ( Number(medidas.PLpierna) / 10)))
+                        - (0.131 *  Number(medidas.altura))
+                        + 4.5);
+
+        // Ectomorfia
+        const IP = Number(medidas.altura) / (Number(medidas.peso) ** (1 / 3));
+
+        if (IP >= 40.75) {
+            this.Ectomorfo = 0.732 * IP - 28.58;
+        } else if (IP >= 38.25 && IP < 40.75) {
+            this.Ectomorfo = 0.463 * IP - 17.63;
+        } else if (IP < 38.25) {
+            this.Ectomorfo = 0.1;
+        } else {
+            this.Ectomorfo = 0;
+        }
+
     }
 
   }
