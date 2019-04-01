@@ -90,6 +90,11 @@ switch ($action) {
     $executionStatus = actualizaMedidas($conn, $data);
         break;
 
+    case 'actualizaMetricas':
+
+    $executionStatus = actualizaMetricas($conn, $data);
+        break;
+
     case 'guardarDieta':
 
     $executionStatus = guardarDieta($conn, $data);
@@ -365,7 +370,6 @@ function actualizaMedidas($conn, $data){
     $paciente = $data->Paciente;
     $anatomia = $data->Anatomia;
 
-
     $sql = "UPDATE anatomia SET activo = 0
             WHERE email = '$paciente->email';";
 
@@ -376,14 +380,14 @@ function actualizaMedidas($conn, $data){
                             PLsubescapular, PLbiceps, PLcrestaIliaca,
                             PLsupraespinal, PLabdominal, PLmuslo, PLpierna,
                             PRbrazoRelajado, PRbrazoFlexionado, PRcintura,
-                            PRcadera, PRpierna, PRmuneca,
+                            PRcadera, PRpierna, Dmuneca,
                             Dhumero, DbiepicondilarFemur, fechaModificacion, activo
                         )
                 VALUES ('$paciente->email', $anatomia->peso, $anatomia->altura, $anatomia->PLtriceps,
                         $anatomia->PLsubescapular, $anatomia->PLbiceps, $anatomia->PLcrestaIliaca,
                         $anatomia->PLsupraespinal, $anatomia->PLabdominal, $anatomia->PLmuslo,
                         $anatomia->PLpierna, $anatomia->PRbrazoRelajado, $anatomia->PRbrazoFlexionado,
-                        $anatomia->PRcintura, $anatomia->PRcadera, $anatomia->PRpierna, $anatomia->PRmuneca,
+                        $anatomia->PRcintura, $anatomia->PRcadera, $anatomia->PRpierna, $anatomia->Dmuneca,
                         $anatomia->Dhumero, $anatomia->DbiepicondilarFemur,
                         NOW(), 1 );";
     // var_dump($sql );
@@ -394,6 +398,37 @@ function actualizaMedidas($conn, $data){
 
 
 }
+
+
+function actualizaMetricas($conn, $data){
+    $paciente = $data->Paciente;
+    $metricas = $data->Metricas;
+
+
+    $sql = "UPDATE metrica SET activo = 0
+            WHERE email = '$paciente->email';";
+
+    $result =  $conn->query($sql);
+
+    $sql = "INSERT INTO metrica (
+                            email,Imc,RatioCinturaCadera,Suma6Pliegues,Suma8Pliegues,PorcentGrasa,
+                            PorcentOsea,PorcentMuscular,PorcentResidual,MasaGrasa,MasaOsea,MasaMuscular,
+                            MasaResidual,Somatotipo,Endomorfo,Mesomorfo,Ectomorfo,fechaModificacion,activo
+                        )
+                VALUES ('$paciente->email',$metricas->Imc,$metricas->RatioCinturaCadera,$metricas->Suma6Pliegues,
+                        $metricas->Suma8Pliegues,$metricas->PorcentGrasa,$metricas->PorcentOsea,$metricas->PorcentMuscular,
+                        $metricas->PorcentResidual,$metricas->MasaGrasa,$metricas->MasaOsea,$metricas->MasaMuscular,
+                        $metricas->MasaResidual,'$metricas->Somatotipo',$metricas->Endomorfo,$metricas->Mesomorfo,
+                        $metricas->Ectomorfo,NOW(),1);";
+    // var_dump($sql );
+    // die();
+    $result =  $conn->query($sql);
+    if (!$result) return FALSE;
+    return TRUE;
+
+
+}
+
 
 
 function guardarDieta($conn, $data){

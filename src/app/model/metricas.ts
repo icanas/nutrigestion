@@ -139,9 +139,6 @@ export class Metricas {
             }
           }
 
-        console.log(somatotipoArray);
-        console.log(indexMax);
-
         switch (indexMax) {
             case 0:
                 this.Somatotipo = 'Endomorfo';

@@ -138,11 +138,27 @@ create table metrica(
 
     email varchar(60),
 
-    peso numeric(8,3) null,
+    Imc numeric(8,3) null,
+    RatioCinturaCadera numeric(8,3) null,
+    Suma6Pliegues numeric(8,3) null,
+    Suma8Pliegues numeric(8,3) null,
+    PorcentGrasa numeric(8,3) null,
+    PorcentOsea numeric(8,3) null,
+    PorcentMuscular numeric(8,3) null,
+    PorcentResidual numeric(8,3) null,
+    MasaGrasa numeric(8,3) null,
+    MasaOsea numeric(8,3) null,
+    MasaMuscular numeric(8,3) null,
+    MasaResidual numeric(8,3) null,
 
+    Somatotipo varchar(15) null,
+    Endomorfo numeric(8,3) null,
+    Mesomorfo numeric(8,3) null,
+    Ectomorfo numeric(8,3) null,
 
-    fecha_modificacion datetime null,
+    fechaModificacion datetime,
     activo bit
+
 
 );
 

@@ -7,6 +7,7 @@ import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
 import { Anatomia } from '../model/anatomia';
+import { Metricas } from '../model/metricas';
 import { Dieta } from '../model/dieta';
 import { Alimento } from '../model/alimento';
 import { Patologia } from '../model/patologia';
@@ -170,6 +171,18 @@ export class DaoService {
 
      };
       console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
+    }
+
+    actualizaMetricas(paciente: Paciente, metricas: Metricas): Observable<boolean> {
+
+      const cadena = {
+        action: 'actualizaMetricas',
+        Paciente: paciente,
+        Metricas: metricas
+
+     };
+      // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 

@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DaoService } from '../dao/dao.service';
 
 import { Anatomia } from '../model/anatomia';
+import { Metricas } from '../model/metricas';
 import { Paciente } from '../model/paciente';
 
 
@@ -24,13 +25,23 @@ export class MedidasComponent implements OnInit {
 
 
   actualizaMedidas() {
-    // QUE NO SE ME OLVIDE ALMACENAR TAMBIEN LAS METRICAS //
+    // INCLUIRA TAMBIEN LAS METRICAS //
 
     this.daoService.actualizaMedidas(this.paciente, this.anatomia).subscribe(
-      R => {
-        window.location.reload();
+      Med => {
+        const metricas = new Metricas(this.paciente, this.anatomia);
+        console.log(metricas);
+        this.daoService.actualizaMetricas(this.paciente, metricas).subscribe(
+          Met => {
+            window.location.reload();
+          }
+        );
       }
     );
+
+
+
+
 
   }
 
