@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Chart} from 'Chart.js';
+import {Chart} from 'chart.js/dist/Chart.js';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { Paciente } from '../model/paciente';
