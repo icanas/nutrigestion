@@ -224,14 +224,11 @@ export class PacienteDetailComponent implements OnInit {
         } else {
           let metricasList: Metricas[] = [];
           metricasList = R;
-          localStorage.setItem('metricasList', JSON.stringify(this.anatomiaList));
+          localStorage.setItem('metricasList', JSON.stringify(metricasList));
           this.route.navigate(['progreso']);
         }
       }
     );
-
-
-    this.route.navigate(['progreso']);
   }
 
   ngOnInit() {
