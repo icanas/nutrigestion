@@ -223,14 +223,15 @@ export class PacienteDetailComponent implements OnInit {
           alert('El paciente no contiene datos');
         } else {
           let metricasList: Metricas[] = [];
-          // metricasList = R;
-          console.log(R);
+          metricasList = R;
+          localStorage.setItem('metricasList', JSON.stringify(this.anatomiaList));
+          this.route.navigate(['progreso']);
         }
       }
     );
 
 
-    //this.route.navigate(['progreso']);
+    this.route.navigate(['progreso']);
   }
 
   ngOnInit() {

@@ -18,7 +18,7 @@ export class ProgesoComponent implements OnInit {
   constructor() { }
 
   anatomiaList: Anatomia[] = [];
-
+  metricasList: Metricas[] = [];
 
 
   chartPeso() {
@@ -69,7 +69,8 @@ export class ProgesoComponent implements OnInit {
 
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
-
+    this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
+    console.log(this.metricasList);
     this.chartPeso();
 
   }
