@@ -76,26 +76,23 @@ export class ProgesoComponent implements OnInit {
 
     const labels: string[] = [];
     labels.push('% Grasa');
-    labels.push('% Óseo');
     labels.push('% Músculo');
+    labels.push('% Óseo');
     labels.push('% Residual');
 
     // const porcentGrasa = this.metricasList[this.metricasList.length - 1].PorcentGrasa;
     const porcentGrasa = this.metricasList[0].PorcentGrasa;
     const porcentMuscular = this.metricasList[0].PorcentMuscular;
+    const porcentOseo = this.metricasList[0].PorcentOsea;
+    const porcentResidual = this.metricasList[0].MasaResidual;
 
     console.log(porcentGrasa);
 
     const data = {
       labels,
       datasets: [{
-          label: '% Grasa',
-          backgroundColor: ['rgb(255, 255, 102)', 'rgb(255, 51, 0)' ],
-          data: [porcentGrasa, porcentMuscular]
-      }, {
-        label: '% Muscular',
-        backgroundColor: 'rgb(255, 51, 0)',
-        data:  [porcentMuscular]
+          backgroundColor: ['rgb(255, 255, 102)', 'rgb(255, 80, 80)', 'rgb(102, 153, 255)', 'rgb(102, 0, 102)'],
+          data: [porcentGrasa, porcentMuscular, porcentOseo, porcentResidual]
       }]
     };
 
