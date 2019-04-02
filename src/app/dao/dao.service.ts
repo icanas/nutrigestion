@@ -186,6 +186,17 @@ export class DaoService {
       return this.http.post<boolean>(Url, cadena);
     }
 
+    getMetricas(paciente: Paciente): Observable<Metricas[]> {
+
+      const cadena = {
+        action: 'getMetricas',
+        Paciente: paciente
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<Metricas[]>(Url, cadena);
+    }
+
 
     guardarDieta(paciente: Paciente, dieta: Dieta): Observable<boolean>  {
 

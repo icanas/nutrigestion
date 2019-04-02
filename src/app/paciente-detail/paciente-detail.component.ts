@@ -213,10 +213,24 @@ export class PacienteDetailComponent implements OnInit {
   }
 
   progreso() {
-    localStorage.removeItem('Paciente');
-    localStorage.setItem('Paciente', JSON.stringify(this.paciente));
-    localStorage.setItem('anatomiaList', JSON.stringify(this.anatomiaList)); ////////// Borrar es de pruebas
-    this.route.navigate(['progreso']);
+    localStorage.removeItem('anatomiaList');
+    localStorage.removeItem('metricasList');
+    localStorage.setItem('anatomiaList', JSON.stringify(this.anatomiaList));
+
+    this.daoService.getMetricas(this.paciente).subscribe(
+      R => {
+        if (R.length === 0) {
+          alert('El paciente no contiene datos');
+        } else {
+          let metricasList: Metricas[] = [];
+          // metricasList = R;
+          console.log(R);
+        }
+      }
+    );
+
+
+    //this.route.navigate(['progreso']);
   }
 
   ngOnInit() {

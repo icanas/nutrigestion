@@ -85,6 +85,11 @@ switch ($action) {
     $executionStatus = getAnatomia($conn, $data);
         break;
 
+    case 'getMetricas':
+
+    $executionStatus = getMetricas($conn, $data);
+        break;
+
     case 'actualizaMedidas':
 
     $executionStatus = actualizaMedidas($conn, $data);
@@ -395,6 +400,30 @@ function actualizaMedidas($conn, $data){
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;
+
+
+}
+
+
+function getMetricas($conn, $data){
+
+    $paciente = $data->Paciente;
+    $sql = "SELECT * FROM
+            metrica where email = '$paciente->email'
+            ORDER BY activo ASC";
+
+    $result =  $conn->query($sql);
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
+
+    if ($result->num_rows == 0) {
+        return FALSE;
+    }
+
+   // var_dump(json_encode($json, JSON_NUMERIC_CHECK));
+
+    return json_encode($json, JSON_NUMERIC_CHECK);
 
 
 }
