@@ -40,14 +40,35 @@
             </div>
         </div>
     </li>
-    <li class="list-group-item ">
+    <li class="list-group-item " [ngClass]="{
+        'verde' : (metricas.RatioCinturaCadera <= 0.9 && paciente.sexo ==='h') || (metricas.RatioCinturaCadera <= 0.85 && paciente.sexo ==='m'),
+        'rojoSup' : (metricas.RatioCinturaCadera > 0.9 && paciente.sexo ==='h') || (metricas.RatioCinturaCadera > 0.9 && paciente.sexo ==='m')
+        }">
         <div class="row">
-            <div class="col-sm-6 metrica-nombre">
-                Ratio Cintura cadera
-            </div>
-            <div class="col-sm-6 metrica-valor">
-                {{metricas.RatioCinturaCadera | number:'1.3'}}
-            </div>
+                <div class="col-sm-6 metrica-nombre">
+                    Ratio Cintura cadera
+                </div>
+                <div class="col-sm-6 metrica-valor">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{metricas.RatioCinturaCadera | number:'1.3'}}
+                        </div>
+                        <div class="col-sm-8" *ngIf="metricas.RatioCinturaCadera <= 0.9 && paciente.sexo ==='h'">
+                            OK
+                        </div>
+                        <div class="col-sm-8" *ngIf=" metricas.RatioCinturaCadera > 0.9 && paciente.sexo ==='h'">
+                            Riesgo
+                        </div>
+                        <div class="col-sm-8" *ngIf="metricas.RatioCinturaCadera <= 0.85 && paciente.sexo ==='m'">
+                            Ok
+                        </div>
+                        <div class="col-sm-8" *ngIf="metricas.RatioCinturaCadera > 0.9 && paciente.sexo ==='m'">
+                            Riesgo
+                        </div>
+
+                    </div>
+                </div>
+
         </div>
     </li>
     <li class="list-group-item ">

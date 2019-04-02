@@ -3,6 +3,7 @@ import { Anatomia } from '../model/anatomia';
 import { Paciente } from '../model/paciente';
 
 export class Metricas {
+    paciente: Paciente;
     email: string;
 
     Imc: number;
@@ -27,6 +28,8 @@ export class Metricas {
     activo: string;
 
     constructor(paciente: Paciente, medidas: Anatomia) {
+
+        this.paciente = paciente;
 
         //////////////////////////// Controlar las divisiones entre 0
 
