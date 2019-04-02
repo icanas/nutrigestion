@@ -67,10 +67,61 @@ export class ProgesoComponent implements OnInit {
 
   }
 
+  chartComposicionCorporal() {
+
+    let canvas: any;
+    canvas = document.getElementById('composicion');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    labels.push('% Grasa');
+    labels.push('% Óseo');
+    labels.push('% Músculo');
+    labels.push('% Residual');
+
+    // const porcentGrasa = this.metricasList[this.metricasList.length - 1].PorcentGrasa;
+    const porcentGrasa = this.metricasList[0].PorcentGrasa;
+    const porcentMuscular = this.metricasList[0].PorcentMuscular;
+
+    console.log(porcentGrasa);
+
+    const data = {
+      labels,
+      datasets: [{
+          label: '% Grasa',
+          backgroundColor: ['rgb(255, 255, 102)', 'rgb(255, 51, 0)' ],
+          data: [porcentGrasa, porcentMuscular]
+      }, {
+        label: '% Muscular',
+        backgroundColor: 'rgb(255, 51, 0)',
+        data:  [porcentMuscular]
+      }]
+    };
+
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'pie',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
     this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
     this.chartPeso();
+    this.chartComposicionCorporal();
 
   }
 
