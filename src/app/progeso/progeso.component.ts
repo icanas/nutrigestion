@@ -190,12 +190,56 @@ export class ProgesoComponent implements OnInit {
 
   }
 
+  chartSomatotipo() {
+
+    let canvas: any;
+    canvas = document.getElementById('somatotipo');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    const dataset: number[] = [];
+
+    labels.push('Endomorfo', 'Mesomorfo', 'Ectomorfo');
+    dataset.push(this.metricasList[0].Endomorfo); ////////////////////////
+    dataset.push(this.metricasList[0].Mesomorfo);
+    dataset.push(this.metricasList[0].Ectomorfo);
+
+
+    const data = {
+      labels,
+      datasets: [{
+          label: 'Somatotipo',
+          backgroundColor: 'rgb(153, 255, 153)',
+          borderColor: 'rgb(0, 179, 0)',
+          data:  dataset
+      }]
+    };
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'radar',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
     this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
     this.chartPeso();
     this.chartComposicionCorporal();
     this.chartEvolucionCorporal();
+    this.chartSomatotipo();
 
   }
 
