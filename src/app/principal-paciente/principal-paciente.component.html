@@ -11,7 +11,9 @@
       <button type="button" class="btn btn-primary col-sm-12">Contactar Nutricionista</button>
     </div>
     <div class="col-sm-8 minitable">
-        <app-progeso></app-progeso>
+        <div *ngIf="progreso">
+            <app-progeso></app-progeso>
+        </div>
     </div>
   </div>
 

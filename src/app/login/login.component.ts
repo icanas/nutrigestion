@@ -4,10 +4,7 @@ import {Router} from '@angular/router';
 
 import { Profesional } from '../model/profesional';
 import { Paciente } from '../model/paciente';
-import { Metricas } from '../model/metricas';
-import { Anatomia } from '../model/anatomia';
 import { MessengerService } from '../services/messenger.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -51,41 +48,13 @@ export class LoginComponent implements OnInit {
           paciente.id = R.id;
           paciente.emailProfesional = R.emailProfesional;
           sessionStorage.setItem('token', R.token);
-          this.getAnatomiayProgreso(paciente);
+          this.route.navigate(['principalPaciente']);
         }
       }
       );
 
   }
 
-  getAnatomiayProgreso(paciente: Paciente) {
-    let anatomiaList: Anatomia[] = [];
-    let metricasList: Metricas[] = [];
-
-    this.daoService.getAnatomia(paciente).subscribe (
-      R => {
-        if (R !== null) {
-          anatomiaList = R;
-          this.daoService.getMetricas(paciente).subscribe(
-            M => {
-              if (M !== null) {
-                metricasList = M;
-                localStorage.removeItem('anatomiaList');
-                localStorage.removeItem('metricasList');
-                localStorage.setItem('anatomiaList', JSON.stringify(anatomiaList));
-                localStorage.setItem('metricasList', JSON.stringify(metricasList));
-              }
-              this.route.navigate(['principalPaciente']);
-            }
-          );
-        }
-        this.route.navigate(['principalPaciente']);
-      }
-    );
-
-
-
-  }
 
 
   ngOnInit() {

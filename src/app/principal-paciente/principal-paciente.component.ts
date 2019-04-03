@@ -48,6 +48,7 @@ export class PrincipalPacienteComponent implements OnInit {
         this.paciente.email = R.email;
         this.paciente.emailProfesional = R.emailProfesional;
         this.getCitaPacienteActiva();
+        this.getAnatomiayProgreso();
       }
     });
   }
@@ -96,6 +97,31 @@ export class PrincipalPacienteComponent implements OnInit {
 
   }
 
+  getAnatomiayProgreso() {
+
+    this.daoService.getAnatomia(this.paciente).subscribe (
+      R => {
+        if (R !== null) {
+          this.anatomiaList = R;
+          this.daoService.getMetricas(this.paciente).subscribe(
+            M => {
+              if (M !== null) {
+                this.metricasList = M;
+                this.progreso = true;
+                localStorage.removeItem('anatomiaList');
+                localStorage.removeItem('metricasList');
+                localStorage.setItem('anatomiaList', JSON.stringify(this.anatomiaList));
+                localStorage.setItem('metricasList', JSON.stringify(this.metricasList));
+              }
+            }
+          );
+        }
+      }
+    );
+
+
+
+  }
 
 
   ngOnInit() {
