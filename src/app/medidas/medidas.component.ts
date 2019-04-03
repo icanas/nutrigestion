@@ -33,7 +33,7 @@ export class MedidasComponent implements OnInit {
         console.log(metricas);
         this.daoService.actualizaMetricas(this.paciente, metricas).subscribe(
           Met => {
-            window.location.reload();
+            // window.location.reload();
           }
         );
       }

@@ -219,7 +219,7 @@ export class PacienteDetailComponent implements OnInit {
 
     this.daoService.getMetricas(this.paciente).subscribe(
       R => {
-        if (R.length === 0) {
+        if (R === null) {
           alert('El paciente no contiene datos');
         } else {
           let metricasList: Metricas[] = [];

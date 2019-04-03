@@ -182,7 +182,7 @@ export class DaoService {
         Metricas: metricas
 
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 

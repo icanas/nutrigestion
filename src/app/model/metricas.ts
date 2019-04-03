@@ -33,9 +33,24 @@ export class Metricas {
 
         //////////////////////////// Controlar las divisiones entre 0
 
-        this.Imc = Number(medidas.peso) / ((Number(medidas.altura) / 100) ** 2);
+        // IMC
 
-        this.RatioCinturaCadera = (Number(medidas.PRcintura) / Number(medidas.PRcadera));
+        if ((Number(medidas.peso) === 0 ||  Number(medidas.altura) === 0)) {
+            this.Imc = 0;
+        } else {
+            this.Imc = Number(medidas.peso) / ((Number(medidas.altura) / 100) ** 2);
+        }
+
+        // Ratio Cintura-Cadera
+
+        if ((Number(medidas.PRcintura) === 0 ||  Number(medidas.PRcadera) === 0)) {
+            this.RatioCinturaCadera = 0;
+        } else {
+            this.RatioCinturaCadera = (Number(medidas.PRcintura) / Number(medidas.PRcadera));
+        }
+
+
+        // Pliegues
 
         this.Suma6Pliegues = (Number(medidas.PLabdominal) +
                             Number(medidas.PLmuslo) +
@@ -98,12 +113,18 @@ export class Metricas {
         const somatotipoArray: number[] = [];
 
         // Endomorfia
-        const sumaPliegues = Number(medidas.PLtriceps) + Number(medidas.PLsubescapular) + Number(medidas.PLsupraespinal);
-        const ratio = (170.18) / (Number(medidas.altura));    // Revisar si metros o cm la altura
-        this.Endomorfo = (-0.7182 + (0.1451 * (sumaPliegues * ratio))
-                        - 0.00068 * (sumaPliegues * ratio) ** 2)
-                        + 0.000004 * ((sumaPliegues * ratio) ** 3);
-        somatotipoArray.push(this.Endomorfo);
+
+        if ((Number(medidas.altura) === 0)) {
+            this.Endomorfo = 0;
+        } else {
+            const sumaPliegues = Number(medidas.PLtriceps) + Number(medidas.PLsubescapular) + Number(medidas.PLsupraespinal);
+            const ratio = (170.18) / (Number(medidas.altura));    // Revisar si metros o cm la altura
+            this.Endomorfo = (-0.7182 + (0.1451 * (sumaPliegues * ratio))
+                            - 0.00068 * (sumaPliegues * ratio) ** 2)
+                            + 0.000004 * ((sumaPliegues * ratio) ** 3);
+            somatotipoArray.push(this.Endomorfo);
+        }
+
 
         // Mesomorfia
         this.Mesomorfo = (
