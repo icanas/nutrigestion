@@ -491,6 +491,52 @@ export class ProgesoComponent implements OnInit {
 
   }
 
+  chartCinturaCadera() {
+
+    let canvas: any;
+    canvas = document.getElementById('ratioCinturaCadera');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    const dataset: number[] = [];
+
+    this.metricasList.forEach(
+      R => {
+        labels.push(R.fechaModificacion.toString().substring(0, 10));
+        dataset.push(R.RatioCinturaCadera);
+      }
+    );
+
+    const data = {
+      labels,
+      datasets: [{
+          label: 'Ratio Cintura Cadera ',
+          backgroundColor: 'rgb(153, 255, 204)',
+          borderColor: 'rgb(0, 204, 102)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  dataset
+      }]
+    };
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'line',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
     this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
@@ -501,6 +547,7 @@ export class ProgesoComponent implements OnInit {
     this.chartRestoPliegues();
     this.chartSumaPliegues();
     this.chartPerimetros();
+    this.chartCinturaCadera();
 
 
   }
