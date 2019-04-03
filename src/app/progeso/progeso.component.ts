@@ -233,10 +233,10 @@ export class ProgesoComponent implements OnInit {
 
   }
 
-  chartPliegues() {
+  chartSumaPliegues() {
 
     let canvas: any;
-    canvas = document.getElementById('pliegues');
+    canvas = document.getElementById('sumaPliegues');
     let ctx: any;
     ctx = canvas.getContext('2d');
 
@@ -247,8 +247,8 @@ export class ProgesoComponent implements OnInit {
     this.metricasList.forEach(
       R => {
         labels.push(R.fechaModificacion.toString().substring(0, 10));
-        seisPliegues.push(Number(R.Suma6Pliegues));
-        ochoPliegues.push(Number(R.Suma8Pliegues));
+        seisPliegues.push(R.Suma6Pliegues);
+        ochoPliegues.push(R.Suma8Pliegues);
       }
     );
 
@@ -257,7 +257,7 @@ export class ProgesoComponent implements OnInit {
       datasets: [{
           label: '6 Pliegues',
           backgroundColor: 'rgba(0, 0, 0, 0)',
-          borderColor: 'rgb(230, 230, 0)',
+          borderColor: 'rgb(0, 102, 255',
           pointBorderColor: 'rgba(255, 0, 0, 1)',
           pointBackgroundColor: 'rgba(255, 0, 0, 1)',
           data:  seisPliegues
@@ -265,11 +265,213 @@ export class ProgesoComponent implements OnInit {
       {
           label: '8 Pliegues',
           backgroundColor: 'rgba(0, 0, 0, 0)',
-          borderColor: 'rgb(255, 80, 80)',
+          borderColor: 'rgb(51, 204, 51)',
           pointBorderColor: 'rgba(255, 0, 0, 1)',
           pointBackgroundColor: 'rgba(255, 0, 0, 1)',
           data:  ochoPliegues
     }]
+    };
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'line',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
+  chartRestoPliegues() {
+
+    let canvas: any;
+    canvas = document.getElementById('restoPliegues');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    const triceps: number[] = [];
+    const subescapular: number[] = [];
+    const biceps: number[] = [];
+    const crestaIliaca: number[] = [];
+    const supraespinal: number[] = [];
+    const abdominal: number[] = [];
+    const muslo: number[] = [];
+    const pierna: number[] = [];
+
+    this.anatomiaList.forEach(
+      R => {
+        labels.push(R.fechaModificacion.toString().substring(0, 10));
+        triceps.push(Number(R.PLtriceps));
+        subescapular.push(Number(R.PLsubescapular));
+        biceps.push(Number(R.PLbiceps));
+        crestaIliaca.push(Number(R.PLcrestaIliaca));
+        supraespinal.push(Number(R.PLsupraespinal));
+        abdominal.push(Number(R.PLabdominal));
+        muslo.push(Number(R.PLmuslo));
+        pierna.push(Number(R.PLpierna));
+      }
+    );
+
+    const data = {
+      labels,
+      datasets: [{
+          label: 'Triceps',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(0, 102, 255',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  triceps
+      },
+      {
+          label: 'Subescapular',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(51, 204, 51)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  subescapular
+      },
+      {
+          label: 'Biceps',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 0, 0)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  biceps
+      },
+      {
+          label: 'CrestaIliaca',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(153, 0, 255)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  crestaIliaca
+      },
+      {
+          label: 'Supraespinal',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 102, 204)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  supraespinal
+      },
+      {
+          label: 'Abdominal',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 204, 0)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  abdominal
+      },
+      {
+          label: 'Muslo',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(0, 204, 153)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  muslo
+      },
+      {
+          label: 'Pierna',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(0, 0, 153)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  pierna
+      }]
+    };
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'line',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
+  chartPerimetros() {
+
+    let canvas: any;
+    canvas = document.getElementById('perimetros');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    const brazoRelajado: number[] = [];
+    const brazoFlexionado: number[] = [];
+    const cintura: number[] = [];
+    const cadera: number[] = [];
+    const pierna: number[] = [];
+
+    this.anatomiaList.forEach(
+      R => {
+        labels.push(R.fechaModificacion.toString().substring(0, 10));
+        brazoRelajado.push(Number(R.PRbrazoRelajado));
+        brazoFlexionado.push(Number(R.PRbrazoFlexionado));
+        cintura.push(Number(R.PRcintura));
+        cadera.push(Number(R.PRcadera));
+        pierna.push(Number(R.PRpierna));
+      }
+    );
+
+    const data = {
+      labels,
+      datasets: [{
+          label: 'Brazo relajado',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(0, 102, 255',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  brazoRelajado
+      },
+      {
+          label: 'Brazo Flexionado',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(51, 204, 51)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  brazoFlexionado
+      },
+      {
+          label: 'Cintura',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 0, 0)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  cintura
+      },
+      {
+          label: 'Cadera',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(153, 0, 255)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  cadera
+      },
+      {
+          label: 'Pierna',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 102, 204)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  pierna
+      }]
     };
 
     const options = {
@@ -296,7 +498,10 @@ export class ProgesoComponent implements OnInit {
     this.chartComposicionCorporal();
     this.chartEvolucionCorporal();
     this.chartSomatotipo();
-    this.chartPliegues();
+    this.chartRestoPliegues();
+    this.chartSumaPliegues();
+    this.chartPerimetros();
+
 
   }
 
