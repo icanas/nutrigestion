@@ -233,6 +233,62 @@ export class ProgesoComponent implements OnInit {
 
   }
 
+  chartPliegues() {
+
+    let canvas: any;
+    canvas = document.getElementById('pliegues');
+    let ctx: any;
+    ctx = canvas.getContext('2d');
+
+    const labels: string[] = [];
+    const seisPliegues: number[] = [];
+    const ochoPliegues: number[] = [];
+
+    this.metricasList.forEach(
+      R => {
+        labels.push(R.fechaModificacion.toString().substring(0, 10));
+        seisPliegues.push(Number(R.Suma6Pliegues));
+        ochoPliegues.push(Number(R.Suma8Pliegues));
+      }
+    );
+
+    const data = {
+      labels,
+      datasets: [{
+          label: '6 Pliegues',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(230, 230, 0)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  seisPliegues
+      },
+      {
+          label: '8 Pliegues',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          borderColor: 'rgb(255, 80, 80)',
+          pointBorderColor: 'rgba(255, 0, 0, 1)',
+          pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+          data:  ochoPliegues
+    }]
+    };
+
+    const options = {
+      responsive: true
+    };
+
+    const chart = new Chart(ctx, {
+      // Tipo de grafica
+      type: 'line',
+
+      // Dataset
+      data,
+
+      // Configuracion
+      options
+    });
+
+  }
+
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
     this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
@@ -240,6 +296,7 @@ export class ProgesoComponent implements OnInit {
     this.chartComposicionCorporal();
     this.chartEvolucionCorporal();
     this.chartSomatotipo();
+    this.chartPliegues();
 
   }
 
