@@ -39,10 +39,6 @@ export class MedidasComponent implements OnInit {
       }
     );
 
-
-
-
-
   }
 
   recalculaMetricas(anatomia: Anatomia) {

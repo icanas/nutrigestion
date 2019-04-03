@@ -190,10 +190,11 @@ export class PacienteDetailComponent implements OnInit {
 
     this.daoService.getAnatomia(this.paciente).subscribe(
       R => {
-        if (!R) {
+        if ( R === null) {
           this.anatomia = new Anatomia();
         } else {
           this.anatomiaList = R;
+          this.anatomiaList.reverse();
           this.anatomia = R[0];
           this.paciente.anatomia = this.anatomia;
           this.metricas = new Metricas(this.paciente, this.anatomia);
@@ -230,6 +231,7 @@ export class PacienteDetailComponent implements OnInit {
       }
     );
   }
+
 
   ngOnInit() {
     this.hora = 12;
