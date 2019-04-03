@@ -30,10 +30,10 @@ export class MedidasComponent implements OnInit {
     this.daoService.actualizaMedidas(this.paciente, this.anatomia).subscribe(
       Med => {
         const metricas = new Metricas(this.paciente, this.anatomia);
-        console.log(metricas);
+        // console.log(metricas);
         this.daoService.actualizaMetricas(this.paciente, metricas).subscribe(
           Met => {
-            // window.location.reload();
+            window.location.reload();
           }
         );
       }
@@ -47,7 +47,13 @@ export class MedidasComponent implements OnInit {
 
   recalculaMetricas(anatomia: Anatomia) {
     this.recalculaEvent.emit(anatomia);
+  }
 
+  check($event) {
+    let caracter;
+    caracter = $event.keyCode;
+    return ((caracter > 47 && caracter < 58) || caracter === 190 || caracter === 37 ||
+            caracter === 39 || caracter === 9 || caracter === 8) || caracter === 38 || caracter === 40;
   }
 
 

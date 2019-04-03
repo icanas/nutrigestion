@@ -23,7 +23,7 @@ export class MetricasComponent implements OnInit {
 
 
   recalcula() {
-    console.log('recalculando');
+     // console.log('recalculando');
 
   }
 

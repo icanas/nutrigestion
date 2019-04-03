@@ -158,7 +158,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<Anatomia[]>(Url, cadena);
     }
 
@@ -170,7 +170,7 @@ export class DaoService {
         Anatomia: anatomia
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -182,7 +182,7 @@ export class DaoService {
         Metricas: metricas
 
      };
-      console.log(JSON.stringify(cadena));
+      // console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
