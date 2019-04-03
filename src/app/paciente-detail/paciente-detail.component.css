@@ -43,7 +43,8 @@
 
 .buttonrow{
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 0px;
+    padding: 0px;
 }
 
 .minititulo{
