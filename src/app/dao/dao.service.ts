@@ -158,7 +158,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<Anatomia[]>(Url, cadena);
     }
 

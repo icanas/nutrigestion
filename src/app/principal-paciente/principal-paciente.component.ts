@@ -1,7 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Paciente } from '../model/paciente';
 import { Cita } from '../model/cita';
+import { Metricas } from '../model/metricas';
+import { Anatomia } from '../model/anatomia';
 import { DaoService } from '../dao/dao.service';
+
 
 import {Router} from '@angular/router';
 
@@ -24,6 +27,10 @@ export class PrincipalPacienteComponent implements OnInit {
   cita: Cita = new Cita();
   autorizado = false;
   proximaCita = false;
+  progreso = false;
+
+  anatomiaList: Anatomia[] = [];
+  metricasList: Metricas[] = [];
 
 
   modalRef: BsModalRef;
@@ -71,7 +78,7 @@ export class PrincipalPacienteComponent implements OnInit {
 
     this.daoService.getDietas(this.paciente).subscribe(
       R => {
-        if (R.length !== 0) {
+        if (R !== null) {
           if (Number(R[0].activo) !== 0) {
 
             localStorage.setItem('dieta', JSON.stringify(R[0]));
@@ -88,6 +95,7 @@ export class PrincipalPacienteComponent implements OnInit {
 
 
   }
+
 
 
   ngOnInit() {

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Chart} from 'chart.js/dist/Chart.js';
-import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { Paciente } from '../model/paciente';
 import { Metricas } from '../model/metricas';
-import { DaoService } from '../dao/dao.service';
 import { Anatomia } from '../model/anatomia';
 
 @Component({
