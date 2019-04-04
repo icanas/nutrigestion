@@ -15,7 +15,7 @@
         <div class = "centeredItem minititulo">Proxima Cita</div>
         <li class="list-group-item list-group-item-success py-1" *ngIf="conCita">
           {{citaActiva.fecha.getUTCDate()}}/{{citaActiva.fecha.getUTCMonth() | number : '2.0-0'}}/{{citaActiva.fecha.getUTCFullYear()}}
-          Hora ->
+          <i class="fa fa-arrow-right"></i>
           {{citaActiva.fecha.getHours() + desfase}}:{{citaActiva.fecha.getUTCMinutes() | number : '2.0-0'}}
           <i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
         </li>
@@ -25,7 +25,9 @@
           <hr>
           <div class = "centeredItem minititulo">Citas Anteriores</div>
         <li class="list-group-item list-group-item-warning py-1"  *ngFor="let cita of citas">
-            {{cita.fecha}}
+            {{cita.fecha.getUTCDate()}}/{{cita.fecha.getUTCMonth() | number : '2.0-0'}}/{{cita.fecha.getUTCFullYear()}}
+             <i class="fa fa-arrow-right"></i>
+            {{cita.fecha.getHours() + desfase}}:{{cita.fecha.getUTCMinutes() | number : '2.0-0'}}
           </li>
       </div>
     </div>
@@ -55,7 +57,7 @@
         <button (click)="openModal(template)" type="button" class="btn btn-success">Nueva Cita</button>
       </div>
       <div class="col-sm-2 ">
-        <button (click)="atendido()" type="button" class="btn btn-success">Atendido</button>
+        <button (click)="cancelCita(citaActiva)" type="button" class="btn btn-success">Atendido</button>
       </div>
       <div class="col-sm-2 ">
         <button (click)="dietas()" type="button" class="btn btn-primary">Dietas</button>

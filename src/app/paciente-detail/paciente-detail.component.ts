@@ -76,6 +76,11 @@ export class PacienteDetailComponent implements OnInit {
 
   cancelCita(cita: Cita) {
 
+    if (cita.fecha === undefined) {
+      alert('El paciente no tiene citas activas');
+      return;
+    }
+
     const dateString = cita.fecha.toString();
     console.log(dateString);
     const date = new Date(dateString);
@@ -264,18 +269,7 @@ export class PacienteDetailComponent implements OnInit {
     );
   }
 
-  atendido() {
-    this.daoService.cancelCita(this.citaActiva).subscribe(
-      R => {
-        if (!R) {
-          alert('No ha sido posible realizar la marcacion de atendido');
-        } else {
-          alert('Paciente Atendido');
-          window.location.reload();
-        }
-      }
-    );
-  }
+
 
   ngOnInit() {
     this.hora = 12;

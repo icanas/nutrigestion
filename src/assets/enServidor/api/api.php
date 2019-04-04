@@ -281,6 +281,7 @@ function cancelCita($conn, $data){
             WHERE email = '$cita->email'
             and fecha= '$cita->fecha';";
 
+
     $result =  $conn->query($sql);
 
     if (!$result) return FALSE;
