@@ -84,19 +84,16 @@ export class PacienteDetailComponent implements OnInit {
     }
 
     const dateString = cita.fecha.toString();
-    console.log(dateString);
+
     const date = new Date(dateString);
-    console.log(date);
+
     date.setMonth(date.getMonth() - 1);
     date.setHours(date.getHours() + this.desfase);
-    console.log(date);
 
     const citaLocal = new Cita();
     citaLocal.email = cita.email;
     citaLocal.activo = cita.activo;
     citaLocal.fecha = date;
-    console.log(citaLocal);
-
 
     this.daoService.cancelCita(citaLocal).subscribe(
       R => {
