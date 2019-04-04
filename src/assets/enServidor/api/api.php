@@ -279,7 +279,8 @@ function cancelCita($conn, $data){
 
     $sql = "UPDATE cita SET activo = 0
             WHERE email = '$cita->email'
-            and fecha_cita = '$cita->fecha_cita';";
+            and fecha= '$cita->fecha';";
+
     $result =  $conn->query($sql);
 
     if (!$result) return FALSE;

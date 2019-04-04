@@ -76,7 +76,21 @@ export class PacienteDetailComponent implements OnInit {
 
   cancelCita(cita: Cita) {
 
-    this.daoService.cancelCita(cita).subscribe(
+    const dateString = cita.fecha.toString();
+    console.log(dateString);
+    const date = new Date(dateString);
+    console.log(date);
+    date.setHours(date.getHours() + this.desfase);
+    console.log(date);
+
+    const citaLocal = new Cita();
+    citaLocal.email = cita.email;
+    citaLocal.activo = cita.activo;
+    citaLocal.fecha = date;
+    console.log(citaLocal);
+
+
+    this.daoService.cancelCita(citaLocal).subscribe(
       R => {
         if (!R) {
           alert('Imposible eliminar la cita');
@@ -128,7 +142,6 @@ export class PacienteDetailComponent implements OnInit {
 
               this.desfase = (date.getTimezoneOffset() * -1) / 60;
               F.fecha = date;
-
               if (F.activo === '0') {
                 this.citas.push(F);
               } else  {
