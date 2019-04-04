@@ -33,6 +33,7 @@ export class PacienteDetailComponent implements OnInit {
   citas: Cita[] = [];
   citaActiva: Cita = new Cita();
   conCita = false;
+  desfase: number;
 
   fecha: Date;
   hora: number;
@@ -122,12 +123,10 @@ export class PacienteDetailComponent implements OnInit {
             F => {
 
               const dateTimeParts = String(F.fecha).split(/[-: ]/);
-              const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]) ,
+              const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]) - 1,
               Number(dateTimeParts[2]),  Number(dateTimeParts[3]),  Number(dateTimeParts[4]));
 
-              const desfase = (date.getTimezoneOffset() * -1) / 60;
-              const horaLocal = date.getHours() + desfase;
-              date.setHours(horaLocal);
+              this.desfase = (date.getTimezoneOffset() * -1) / 60;
               F.fecha = date;
 
               if (F.activo === '0') {

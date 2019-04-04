@@ -14,7 +14,10 @@
       <div class="minitable ">
         <div class = "centeredItem minititulo">Proxima Cita</div>
         <li class="list-group-item list-group-item-success py-1" *ngIf="conCita">
-          {{citaActiva.fecha}} <i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
+          {{citaActiva.fecha.toLocaleDateString('es-Es')}}
+          Hora ->
+          {{citaActiva.fecha.getHours() + desfase}}:{{citaActiva.fecha.getUTCMinutes() | number : '2.0-0'}}
+          <i (click)="cancelCita(citaActiva)" class="far fa-times-circle"></i>
         </li>
         <li class="list-group-item list-group-item-success py-1" *ngIf="!conCita">
             Sin Cita Asignada
