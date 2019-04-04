@@ -56,7 +56,7 @@ export class PacienteDetailComponent implements OnInit {
     this.fecha.setHours(this.hora);
     this.fecha.setMinutes(this.minuto);
     this.fecha.setSeconds(0);
-    this.cita.fecha = this.fecha;
+    this.cita.fecha = this.fecha ;
 
 
     this.daoService.addCita(this.paciente, this.cita).subscribe(
@@ -116,19 +116,31 @@ export class PacienteDetailComponent implements OnInit {
     this.daoService.getCitaPacienteAll(this.paciente).subscribe(
       R => {
 
-        //this.citaActiva.fecha.getDay().toString();
-
         if (R !== null) {
-          this.citas = R;
-          this.paciente.citas = R;
-          if (R[0].activo === '1') {
-            this.citaActiva = R[0];
-            this.citaActiva.fecha = new Date(R[0].fecha);
-            this.citas.splice(0, 1);
-            this.conCita = true;
-            console.log(this.citaActiva.fecha);
-            console.log(this.citaActiva.fecha.getDay.toString());
-          }
+
+          R.forEach(
+            F => {
+
+              const dateTimeParts = String(F.fecha).split(/[-: ]/);
+              const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]) ,
+              Number(dateTimeParts[2]),  Number(dateTimeParts[3]),  Number(dateTimeParts[4]));
+
+              const desfase = (date.getTimezoneOffset() * -1) / 60;
+              const horaLocal = date.getHours() + desfase;
+              date.setHours(horaLocal);
+              F.fecha = date;
+
+              if (F.activo === '0') {
+                this.citas.push(F);
+              } else  {
+                this.citaActiva = F;
+                this.conCita = true;
+              }
+
+
+            }
+          );
+
         }
       }
     );

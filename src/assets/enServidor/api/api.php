@@ -262,8 +262,8 @@ function addCita($conn, $data){
 
     $result =  $conn->query($sql);
 
-    $sql = "INSERT INTO cita (email, fecha_cita, activo)
-                VALUES ('$paciente->email', CONVERT_TZ('$cita->fecha'$timezone), 1);";
+    $sql = "INSERT INTO cita (email, fecha, activo)
+                VALUES ('$paciente->email', '$cita->fecha', 1);";
 
     $result =  $conn->query($sql);
     if (!$result) return FALSE;

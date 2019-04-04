@@ -104,7 +104,7 @@ export class DaoService {
         Paciente: paciente,
         Cita: cita
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<Cita[]>(Url, cadena);
     }
 
