@@ -26,6 +26,8 @@ export class PacienteDetailComponent implements OnInit {
     private modalService: BsModalService,
   ) { }
 
+  minDate = new Date();
+
   @ViewChild(MetricasComponent) metricasComponent: MetricasComponent;
   paciente: Paciente;
 
@@ -282,6 +284,8 @@ export class PacienteDetailComponent implements OnInit {
     this.getListaPatologias();
 
     this.getAnatomia();
+
+    this.minDate.setDate(this.minDate.getDate());
   }
 
 }
