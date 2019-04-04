@@ -85,6 +85,7 @@ export class PacienteDetailComponent implements OnInit {
     console.log(dateString);
     const date = new Date(dateString);
     console.log(date);
+    date.setMonth(date.getMonth() - 1);
     date.setHours(date.getHours() + this.desfase);
     console.log(date);
 
@@ -142,7 +143,7 @@ export class PacienteDetailComponent implements OnInit {
             F => {
 
               const dateTimeParts = String(F.fecha).split(/[-: ]/);
-              const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]) - 1,
+              const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]),
               Number(dateTimeParts[2]),  Number(dateTimeParts[3]),  Number(dateTimeParts[4]));
 
               this.desfase = (date.getTimezoneOffset() * -1) / 60;

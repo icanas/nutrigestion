@@ -114,7 +114,7 @@ export class DaoService {
         action: 'cancelCita',
         Cita: cita
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
