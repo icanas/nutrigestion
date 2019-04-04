@@ -115,13 +115,21 @@ export class PacienteDetailComponent implements OnInit {
 
     this.daoService.getCitaPacienteAll(this.paciente).subscribe(
       R => {
-        this.citas = R;
-        this.paciente.citas = R;
-        if (R[0].activo === '1') {
-          this.citaActiva = R[0];
-          this.conCita = true;
-        }
 
+        //this.citaActiva.fecha.getDay().toString();
+
+        if (R !== null) {
+          this.citas = R;
+          this.paciente.citas = R;
+          if (R[0].activo === '1') {
+            this.citaActiva = R[0];
+            this.citaActiva.fecha = new Date(R[0].fecha);
+            this.citas.splice(0, 1);
+            this.conCita = true;
+            console.log(this.citaActiva.fecha);
+            console.log(this.citaActiva.fecha.getDay.toString());
+          }
+        }
       }
     );
 

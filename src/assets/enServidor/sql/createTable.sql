@@ -66,7 +66,7 @@ create table anatomia(
 create table cita(
 
     email varchar(60),
-    fecha_cita datetime,
+    fecha datetime,
     activo bit
 
 );

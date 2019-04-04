@@ -292,7 +292,7 @@ function getCitaPacienteAll($conn, $data){
 
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM cita WHERE email = '$paciente->email'
-            order by activo desc;";
+            order by fecha DESC;";
     $result =  $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
@@ -354,7 +354,7 @@ function getAnatomia($conn, $data){
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM
             anatomia where email = '$paciente->email'
-            ORDER BY activo DESC";
+            ORDER BY activo ASC";
 
     $result =  $conn->query($sql);
     while($row = $result->fetch_assoc()){
