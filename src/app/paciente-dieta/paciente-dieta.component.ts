@@ -539,7 +539,6 @@ export class PacienteDietaComponent implements OnInit {
 
   editarDieta($dieta: any) { // me viene la dieta desde diestas-list
 
-
     this.daoService.getDia($dieta.lunes).subscribe(
       R => {
 

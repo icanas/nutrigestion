@@ -24,18 +24,20 @@ export class DietasListComponent implements OnInit {
   dietas: Dieta[] = [];
   @Input() dietaActiva: Dieta;
   @Output() editar = new EventEmitter();
-  // dietaActiva = new Dieta();
+
+   // dietaVacia = new Dieta();
 
 
 
   getDietas() {
     this.daoService.getDietas(this.paciente).subscribe(
       R => {
-
-        this.dietas = R;
-        this.dietas.reverse();
-        this.dietaActiva = this.dietas.pop();
-        this.dietas.reverse();
+        if (R !== null) {
+          this.dietas = R;
+          this.dietas.reverse();
+          this.dietaActiva = this.dietas.pop();
+          this.dietas.reverse();
+        }
 
       }
     );

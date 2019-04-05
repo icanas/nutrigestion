@@ -10,8 +10,12 @@
         Dietas predefinidas
       </div>
       <select (change)="onChange(dieta)" [(ngModel)]="dieta" class="selecthistory">
+        <option>
+          Seleciona una dieta predefinida
+        </option>
           <option *ngFor="let d of dietas" [ngValue]="d">
-              <span >{{d.nombre}}{{d.fecha}}</span>
+              <span *ngIf="d.nombre == ' '">{{d.fecha}}</span>
+              <span *ngIf="d.nombre != ' '">{{d.nombre}}</span>
           </option>
         </select>
   </div>
@@ -1192,4 +1196,8 @@
     <option value="unidades">
         unidades
     </option>
+</ng-template>
+
+<ng-template #showPredefinida>
+    <!-- <span >{{d.nombre}}{{d.fecha}}</span>  -->
 </ng-template>
