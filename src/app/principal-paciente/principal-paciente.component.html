@@ -8,7 +8,7 @@
     <div class="col-sm-4 row botonera">
       <button type="button" class="btn btn-primary col-sm-12" (click)="verDieta()">Mi Dieta</button>
       <button type="button" class="btn btn-primary col-sm-12" (click)="openModal(template)" >Mi Proxima Cita</button>
-      <button type="button" class="btn btn-primary col-sm-12">Contactar Nutricionista</button>
+      <button type="button" class="btn btn-primary col-sm-12" (click)="email()">Contactar Nutricionista</button>
     </div>
     <div class="col-sm-8 minitable">
         <div *ngIf="progreso">

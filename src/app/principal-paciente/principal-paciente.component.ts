@@ -68,7 +68,6 @@ export class PrincipalPacienteComponent implements OnInit {
           this.desfase = (date.getTimezoneOffset() * -1) / 60;
           this.cita.fecha = date;
 
-          console.log(this.cita.fecha);
           this.proximaCita = true;
         }
 
@@ -126,9 +125,10 @@ export class PrincipalPacienteComponent implements OnInit {
         }
       }
     );
+  }
 
-
-
+  email() {
+    window.location.href = 'mailto:' + this.paciente.emailProfesional;
   }
 
 
