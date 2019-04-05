@@ -27,6 +27,8 @@ export class PacientesListComponent implements OnInit {
   listaPacientesCita: Paciente[] = [];
   listaPacientesBaja: Paciente[] = [];
 
+  desfase: number;
+
 
   verDetalle(paciente: Paciente) {
     localStorage.removeItem('Paciente');
@@ -44,14 +46,26 @@ export class PacientesListComponent implements OnInit {
 
         this.listaPacientes.forEach(  // Separo los pacientes de baja de los activos
           paciente => {
-            const aux: Paciente = paciente;
+
             this.daoService.getCitaPacienteAll(paciente).subscribe( // Me traigo sus citas
               citas => {
-                paciente.citas = citas;
 
-                if (paciente.citas != null && paciente.activo === '1') {
+                citas.sort( // Ordeno descendientemente las citas para tener las activas en la posicion 0
+                  (a, b) => Number(b.activo) - Number(a.activo)
+                );
+
+                const dateTimeParts = String(citas[0].fecha).split(/[-: ]/);
+                const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]),
+                Number(dateTimeParts[2]),  Number(dateTimeParts[3]),  Number(dateTimeParts[4]));
+
+                this.desfase = (date.getTimezoneOffset() * -1) / 60;
+                citas[0].fecha = date;
+
+                if (citas[0].activo === '1' && paciente.activo === '1') {
+                  paciente.citas = citas;
                   this.listaPacientesCita.push(paciente);
-                } else if (paciente.activo === '1') {
+                } else if (citas[0].activo === '0' && paciente.activo === '1') {
+                  paciente.citas = citas;
                   this.listaPacientesActivo.push(paciente);
                 } else {
                   this.listaPacientesBaja.push(paciente);
@@ -65,6 +79,14 @@ export class PacientesListComponent implements OnInit {
 
       }
     );
+
+    this.listaPacientesCita.sort(
+      (a, b) => b.citas[0].fecha.getMilliseconds() - a.citas[0].fecha.getMilliseconds()
+    );
+    this.listaPacientesActivo.sort(
+      (a, b) => b.citas[0].fecha.getMilliseconds() - a.citas[0].fecha.getMilliseconds()
+    );
+
   }
 
 

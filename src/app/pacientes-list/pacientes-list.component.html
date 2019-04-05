@@ -3,7 +3,17 @@
   Pacientes con Cita <br>
   <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesCita"
     (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}} {{paciente.apellido}} {{paciente.citas[0].fecha_cita}} </span>
+    <div class="row">
+      <div class="col-sm-6">
+          {{paciente.nombre}} {{paciente.apellido}}
+      </div>
+      <div class="col-sm-6">
+        {{paciente.citas[0].fecha.getUTCDate()}}/{{paciente.citas[0].fecha.getUTCMonth() | number : '2.0-0'}}/{{paciente.citas[0].fecha.getUTCFullYear()}}
+        <i class="fa fa-arrow-right"></i>
+        {{paciente.citas[0].fecha.getHours() + desfase}}:{{paciente.citas[0].fecha.getUTCMinutes() | number : '2.0-0'}}
+      </div>
+    </div>
+
   </li>
 
 
