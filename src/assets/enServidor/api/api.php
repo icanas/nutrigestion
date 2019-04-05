@@ -262,8 +262,16 @@ function addCita($conn, $data){
 
     $result =  $conn->query($sql);
 
+
+    $str='2017-09-02T00:00:00.000Z';
+    $str2= '2019-04-16T10:00:00.000';
+    $str3 = $cita->fecha;
+    $formato = 'Y/m/d H:i:s';
+    $fecha=date_format(date_create($str3), $formato);
+
     $sql = "INSERT INTO cita (email, fecha, activo)
-                VALUES ('$paciente->email', '$cita->fecha', 1);";
+                VALUES ('$paciente->email', '$fecha', 1);";
+
 
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
@@ -277,9 +285,15 @@ function cancelCita($conn, $data){
 
     $cita = $data->Cita;
 
+    $str='2017-09-02T00:00:00.000Z';
+    $str2= '2019-04-16T10:00:00.000';
+    $str3 = $cita->fecha;
+    $formato = 'Y/m/d H:i:s';
+    $fecha=date_format(date_create($str3), $formato);
+
     $sql = "UPDATE cita SET activo = 0
             WHERE email = '$cita->email'
-            and fecha= '$cita->fecha';";
+            and fecha= '$fecha';";
 
 
     $result =  $conn->query($sql);
