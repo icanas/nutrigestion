@@ -71,6 +71,14 @@ export class PacientesListComponent implements OnInit {
                   this.listaPacientesBaja.push(paciente);
                 }
 
+                this.listaPacientesCita.sort((a, b) => {
+                  return new Date(a.citas[0].fecha) as any - new Date(b.citas[0].fecha) as any;
+                });
+
+                this.listaPacientesActivo.sort((a, b) => {
+                  return new Date(a.citas[0].fecha) as any - new Date(b.citas[0].fecha) as any;
+                });
+
               }
             );
 
@@ -80,12 +88,6 @@ export class PacientesListComponent implements OnInit {
       }
     );
 
-    this.listaPacientesCita.sort(
-      (a, b) => b.citas[0].fecha.getMilliseconds() - a.citas[0].fecha.getMilliseconds()
-    );
-    this.listaPacientesActivo.sort(
-      (a, b) => b.citas[0].fecha.getMilliseconds() - a.citas[0].fecha.getMilliseconds()
-    );
 
   }
 
