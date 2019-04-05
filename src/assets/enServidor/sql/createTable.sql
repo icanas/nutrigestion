@@ -1,3 +1,7 @@
+
+create database nutriGestion;
+use nutriGestion;
+
 create table profesional(
 
     id numeric(10,0) null,
@@ -17,6 +21,8 @@ create table codigoregistro(
     email varchar(20) null,
     fecha_activacion datetime null
 );
+INSERT INTO codigoregistro (codigo)
+VALUES ('123');
 
 create table paciente(
 
