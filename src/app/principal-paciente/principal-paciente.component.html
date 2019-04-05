@@ -31,7 +31,9 @@
   <div class="modal-body">
       <div *ngIf="proximaCita" class="row col-sm-12" >
         <div class="cita col-sm-12 cita">
-          {{cita.fecha_cita}}
+            {{cita.fecha.getUTCDate()}}/{{cita.fecha.getUTCMonth() | number : '2.0-0'}}/{{cita.fecha.getUTCFullYear()}}
+            <i class="fa fa-arrow-right"></i>
+            {{cita.fecha.getHours() + desfase}}:{{cita.fecha.getUTCMinutes() | number : '2.0-0'}}
         </div>
       </div>
       <div *ngIf="!proximaCita" class="noCita">

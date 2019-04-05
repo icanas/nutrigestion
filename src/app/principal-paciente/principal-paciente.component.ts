@@ -29,6 +29,8 @@ export class PrincipalPacienteComponent implements OnInit {
   proximaCita = false;
   progreso = false;
 
+  desfase: number;
+
   anatomiaList: Anatomia[] = [];
   metricasList: Metricas[] = [];
 
@@ -60,8 +62,14 @@ export class PrincipalPacienteComponent implements OnInit {
         if (!R) {
           this.proximaCita = false;
         } else {
+          const dateTimeParts = String(R.fecha).split(/[-: ]/);
+          const date = new Date(Number(dateTimeParts[0]) , Number(dateTimeParts[1]),
+          Number(dateTimeParts[2]),  Number(dateTimeParts[3]),  Number(dateTimeParts[4]));
+          this.desfase = (date.getTimezoneOffset() * -1) / 60;
+          this.cita.fecha = date;
+
+          console.log(this.cita.fecha);
           this.proximaCita = true;
-          this.cita = R;
         }
 
       }
