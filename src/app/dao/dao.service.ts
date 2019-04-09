@@ -39,7 +39,7 @@ export class DaoService {
     registrarProfesional(profesional: Profesional): Observable<boolean> {
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
-      // console.log(profesionalParse);
+      console.log(profesionalParse);
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
@@ -182,7 +182,7 @@ export class DaoService {
         Metricas: metricas
 
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<boolean>(Url, cadena);
     }
 
