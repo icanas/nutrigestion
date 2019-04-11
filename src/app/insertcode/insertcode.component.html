@@ -4,11 +4,11 @@
     </h1>
     <div>
       <label>
-        <input [(ngModel)] = codigo><br>
+        <input class="input-group-text" [(ngModel)] = codigo><br>
 
       </label>
 
     </div>
-    <button (click)="validate()">Validar</button><br>
+    <button (click)="validate()" class="btn btn-primary">Validar</button><br>
     <div *ngIf="!Valido">No Valido</div>
   </div>
