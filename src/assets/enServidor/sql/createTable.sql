@@ -11,17 +11,14 @@ create table profesional(
     password varchar(64),
     salt varchar(60) null,
     activo bit null,
-    token varchar (60) null,
-    ultimaconexion datetime null
+    token varchar (60) null
 );
 INSERT INTO profesional (nombre, email, password, activo, token)
                 VALUES ('Profesional','a', 'a', 1, '7e240de74fb1ed08fa08d38063f6a6a91462a815');
 
 create table codigoregistro(
 
-    codigo varchar(10) primary key,
-    email varchar(20) null,
-    fecha_activacion datetime null
+    codigo varchar(10) primary key
 );
 INSERT INTO codigoregistro (codigo)
 VALUES ('123');
@@ -39,8 +36,7 @@ create table paciente(
     activo bit,
     emailProfesional varchar(60),
     salt varchar(60) null,
-    token varchar (60) null,
-    ultimaconexion datetime null
+    token varchar (60) null
 );
 INSERT INTO paciente (nombre, apellido, apellido2, edad, sexo, email, password, emailProfesional, activo, token)
                 VALUES ('Ivan', 'Canas', 'Ramos',

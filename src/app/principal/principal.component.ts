@@ -83,9 +83,16 @@ export class PrincipalComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  checkNumber($event) {
+    let caracter;
+    caracter = $event.keyCode;
+    return ((caracter > 47 && caracter < 58) || caracter === 37 ||
+            caracter === 39 || caracter === 9 || caracter === 8) || caracter === 38 || caracter === 40;
+  }
 
   ngOnInit() {
     this.getProfesional();
+    this.nuevoPaciente.sexo = 'h';
   }
 
 }
