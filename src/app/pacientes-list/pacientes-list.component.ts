@@ -86,7 +86,7 @@ export class PacientesListComponent implements OnInit {
                   });
 
                   this.listaPacientesActivo.sort((a, b) => {
-                    return Number(a.citas[0].fecha)  - Number(b.citas[0].fecha) ;
+                    return Number(a.nombre)  - Number(b.nombre) ;
                   });
 
                 }
