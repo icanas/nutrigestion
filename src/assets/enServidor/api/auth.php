@@ -16,7 +16,9 @@ $fetch = $result->fetch_assoc(); //Tengo en fetch la respuesta de db
 
 if( $result->num_rows == 1){ //Es un email profesional
 
-    if ($passUser == $fetch["password"]){ //loginCorrecto
+    $correcto = checkPassword($fetch, $passUser , $pepper);
+
+    if ($correcto){ //loginCorrecto
         $fetch["rol"] = "profesional";      //Le paso el rol que tiene el login
         echo json_encode($fetch);
         return;
@@ -32,7 +34,9 @@ $fetch = $result->fetch_assoc();
 
 if( $result->num_rows == 1){ //Es un email paciente
 
-    if ($passUser == $fetch["password"]){
+    $correcto = checkPassword($fetch, $passUser , $pepper);
+
+    if ($correcto){
         $fetch["rol"] = "paciente";
         echo json_encode($fetch);
         return;
@@ -44,4 +48,16 @@ if( $result->num_rows == 1){ //Es un email paciente
 
     return false;
 
+}
+
+
+function checkPassword($fetch, $passUser, $pepper){
+
+    $salt = $fetch['salt'];
+    $passUser .= strval($salt);
+    $passUser .= strval($pepper);
+
+    $passdatabase = $fetch['password'];
+
+    return password_verify($passUser,$passdatabase);
 }

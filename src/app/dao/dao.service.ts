@@ -53,6 +53,7 @@ export class DaoService {
         password: pass
 
      };
+      console.log(JSON.stringify(credentials));
       return this.http.post<any>(UrlAuth, credentials);
     }
 
