@@ -14,8 +14,6 @@ create table profesional(
     token varchar (60) null,
     ultimaconexion datetime null
 );
-INSERT INTO profesional (nombre, email, password, activo, token)
-                VALUES ('Profesional','a', 'a', 1, '7e240de74fb1ed08fa08d38063f6a6a91462a815');
 
 create table codigoregistro(
 
@@ -42,9 +40,6 @@ create table paciente(
     token varchar (60) null,
     ultimaconexion datetime null
 );
-INSERT INTO paciente (nombre, apellido, apellido2, edad, sexo, email, password, emailProfesional, activo, token)
-                VALUES ('Ivan', 'Canas', 'Ramos',
-                28, 'h', 'b', 'b', 'a', 1, '220a31725a58542d927cb0f2d52e6861a59ad8f8');
 
 create table anatomia(
 
@@ -73,21 +68,6 @@ create table anatomia(
     activo bit
 
 );
-INSERT INTO anatomia (
-                            email, peso, altura, PLtriceps,
-                            PLsubescapular, PLbiceps, PLcrestaIliaca,
-                            PLsupraespinal, PLabdominal, PLmuslo, PLpierna,
-                            PRbrazoRelajado, PRbrazoFlexionado, PRcintura,
-                            PRcadera, PRpierna, Dmuneca,
-                            Dhumero, DbiepicondilarFemur, fechaModificacion, activo
-                        )
-                VALUES ('b', 74.700, 179.800, 11.000,
-                        10.500, 3.500, 16.000,
-                        9.000, 21.000, 15.000,
-                        7.000, 33.000, 34.900,
-                        81.500, 92.000, 38.000, 14.000,
-                        6.900, 10.100,
-                        NOW(), 1 );
 
 create table cita(
 
@@ -187,15 +167,4 @@ create table metrica(
 
 
 );
-
-INSERT INTO metrica (
-                            email,Imc,RatioCinturaCadera,Suma6Pliegues,Suma8Pliegues,PorcentGrasa,
-                            PorcentOsea,PorcentMuscular,PorcentResidual,MasaGrasa,MasaOsea,MasaMuscular,
-                            MasaResidual,Somatotipo,Endomorfo,Mesomorfo,Ectomorfo,fechaModificacion,activo
-                        )
-                VALUES ('b',22.488217658726,0.69615384615385,69.5,
-                        92,9.88945,4.4467195372174,61.563830462783,
-                        24.1,7.18963015,3.232765103557,44.756904746443,
-                        17.5207,'Mesomorfo',1.0331654392211,83.8753,
-                        2.954743160704,NOW(),1);
 

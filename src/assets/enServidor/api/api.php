@@ -140,6 +140,11 @@ switch ($action) {
     $executionStatus = actualizaPatologias($conn, $data);
     break;
 
+    case 'insertaPatologia':
+
+    $executionStatus = insertaPatologia($conn, $data);
+    break;
+
 }
 
 echo $executionStatus;
@@ -198,7 +203,8 @@ function insertPaciente($conn, $data){
         WHERE email = '$paciente->email';";
 
     }
-    // var_dump($sql);
+     // var_dump($sql);
+     // die();
 
     $succes = $conn->query($sql);
 
@@ -834,6 +840,38 @@ function actualizaPatologias($conn, $data){
                 VALUES ($patologia->id, '$paciente->email');";
         $conn->query($sql);
     }
+
+    return TRUE;
+}
+
+function insertaPatologia($conn, $data){
+
+    $patologia = $data->Patologia;
+
+    // Compruebo si ya existe
+    $sql = "SELECT nombre FROM
+            patologia
+            where nombre = '$patologia->nombre'";
+
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+
+    if($result->num_rows !== 0){
+        return false;
+    }
+
+    // Si no existe lo introduzco
+
+    $id = maxID("patologia", $conn);
+    $id = intval($id)  + 1;
+
+    $sql = "INSERT INTO patologia (id, nombre)
+            VALUES ($id, '$patologia->nombre');";
+
+
+    $conn->query($sql);
+
 
     return TRUE;
 }

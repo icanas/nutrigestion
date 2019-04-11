@@ -43,6 +43,7 @@ export class PacienteDetailComponent implements OnInit {
 
   patologiasPaciente: Patologia[] = [];
   listaPatologias: Patologia[] = [];
+  nuevaPatologia: Patologia = new Patologia();
 
   anatomia: Anatomia = new Anatomia();
   anatomiaList: Anatomia[] = [];
@@ -264,6 +265,25 @@ export class PacienteDetailComponent implements OnInit {
           metricasList = R;
           localStorage.setItem('metricasList', JSON.stringify(metricasList));
           this.route.navigate(['progreso']);
+        }
+      }
+    );
+  }
+
+  agregarNuevaPatologia() {
+    this.nuevaPatologia.nombre = this.nuevaPatologia.nombre.toLowerCase();
+    console.log( this.nuevaPatologia);
+    this.daoService.insertaPatologia(this.nuevaPatologia).subscribe(
+      R => {
+        if (!R) {
+          alert('La patologia ya existe');
+        } else {
+          this.daoService.getListaPatologias().subscribe(
+            L => {
+              this.listaPatologias = L;
+            }
+          );
+
         }
       }
     );

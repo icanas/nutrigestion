@@ -176,4 +176,7 @@ hr{
     border-radius: 50%;
   }
 
-
+  .nuevaPatologia{
+    margin-bottom: 20px;
+    padding-left: 2px;
+  }

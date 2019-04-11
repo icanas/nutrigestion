@@ -135,7 +135,6 @@ export class DietaVisorComponent implements OnInit {
 
           this.daoService.getComida(R[0].cena).subscribe(
             T => {
-              console.log(T);
               if (T) {
                 T.forEach(
                   element => {

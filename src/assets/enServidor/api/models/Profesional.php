@@ -25,6 +25,9 @@ class Profesional {
         $sql = "INSERT INTO profesional (nombre, email, password, activo, token)
                 VALUES ('$this->nombre','$this->email', '$this->pass', 1, '$token');";
 
+                // var_dump($sql);
+                // die();
+
         return $this->conn->query($sql);
 
     }

@@ -291,5 +291,16 @@ export class DaoService {
       return this.http.post<boolean>(Url, cadena);
     }
 
+    insertaPatologia(patologia: Patologia): Observable<boolean> {
+
+      const cadena = {
+        action: 'insertaPatologia',
+        Patologia: patologia
+
+     };
+      console.log(JSON.stringify(cadena));
+      return this.http.post<boolean>(Url, cadena);
+    }
+
 
   }

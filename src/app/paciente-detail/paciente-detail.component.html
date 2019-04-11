@@ -121,23 +121,34 @@
               <div class="col-md-12">
                 <div class="card" style="margin:50px 0">
 
-              <div class="card-header">Patologias</div>
+                  <div class="card-header">Patologias</div>
 
-                <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">
 
-                  <li *ngFor="let patologia of listaPatologias" class="list-group-item">
-                    {{patologia.nombre | uppercase}}
-                    <label class="switch ">
-                    <input type="checkbox" class="default" name="patologias" value={{patologia.id}}
-                     (change)="changePatologias($event, patologia)" [checked]="patologia.checked ">
-                    <span class="slider round"></span>
-                    </label>
-                  </li>
+                      <li *ngFor="let patologia of listaPatologias" class="list-group-item">
+                        {{patologia.nombre | uppercase}}
+                        <label class="switch ">
+                        <input type="checkbox" class="default" name="patologias" value={{patologia.id}}
+                        (change)="changePatologias($event, patologia)" [checked]="patologia.checked ">
+                        <span class="slider round"></span>
+                        </label>
+                      </li>
 
-                </ul>
+                    </ul>
+                  </div>
+
               </div>
-              </div>
+
             </div>
+            <div class="row nuevaPatologia">
+                <div class="col-md-10">
+                    <input [(ngModel)] = "nuevaPatologia.nombre" class="input-group input-group-sm" type="text" >
+                </div>
+                <div class="col-md-2">
+                    <button (click)="agregarNuevaPatologia()" type="button" class="btn btn-success btn-sm">+</button>
+                </div>
+            </div>
+
             <button (click)="actualizaPatologias()" type="button" class="btn btn-success">Guardar</button>
         </div>
 
