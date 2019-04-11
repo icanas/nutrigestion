@@ -192,17 +192,17 @@ function insertPaciente($conn, $data){
             WHERE email = '$paciente->email' AND
             emailProfesional = '$profesional->email';";
 
+    //salt and pepper
+    $salt = rand(100000000,999999999);
+    $pepper = "jje[)=836!43¿Ç0´Ç1";
+    $passUser = $paciente->password;
+    $passUser .= strval($salt);
+    $passUser .= strval($pepper);
+    $passUser = password_hash($passUser,PASSWORD_DEFAULT);
+    //end salt and pepper
+
     $result = $conn->query($sql);
     if ($result->num_rows === 0){   // Si no existe, lo creo
-
-        //salt and pepper
-        $salt = rand(100000000,999999999);
-        $pepper = "jje[)=836!43¿Ç0´Ç1";
-        $passUser = $paciente->password;
-        $passUser .= strval($salt);
-        $passUser .= strval($pepper);
-        $passUser = password_hash($passUser,PASSWORD_DEFAULT);
-        //end salt and pepper
 
         $sql = "INSERT INTO paciente (nombre, apellido, apellido2, edad, sexo, email, password, emailProfesional, salt, activo, token)
                 VALUES ('$paciente->nombre', '$paciente->apellido', '$paciente->apellido2',
@@ -210,12 +210,12 @@ function insertPaciente($conn, $data){
     } else{ // Si ya existe le coloco el bit a 1
 
         $sql = "UPDATE paciente
-        SET activo = 1
+        SET activo = 1 , password = '$passUser', salt = '$salt'
         WHERE email = '$paciente->email';";
 
     }
-     // var_dump($sql);
-     // die();
+      // var_dump($sql);
+      // die();
 
     $succes = $conn->query($sql);
 
