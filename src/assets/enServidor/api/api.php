@@ -162,6 +162,8 @@ function validateCode($conn, $data){
 
         return False;
     } else {
+        $sql = "DELETE FROM codigoregistro WHERE codigo = '$data->codigo';";
+        $result = $conn->query($sql);
         return $row["codigo"];
     }
 

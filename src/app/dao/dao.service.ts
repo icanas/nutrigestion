@@ -33,12 +33,14 @@ export class DaoService {
 
        };
 
+      console.log(JSON.stringify(cadena));
       return this.http.post<string>(Url, cadena);
     }
 
     registrarProfesional(profesional: Profesional): Observable<boolean> {
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
+
       console.log(profesionalParse);
       return this.http.post<boolean>(Url, profesionalParse);
     }
