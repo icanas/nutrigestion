@@ -29,6 +29,8 @@ export class PacientesListComponent implements OnInit {
 
   desfase: number;
 
+  textoBusqueda: string;
+
 
   verDetalle(paciente: Paciente) {
     localStorage.removeItem('Paciente');
@@ -105,7 +107,9 @@ export class PacientesListComponent implements OnInit {
   }
 
 
+  busca() {
 
+  }
 
 
   ngOnInit() {

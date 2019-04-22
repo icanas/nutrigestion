@@ -1,3 +1,19 @@
 li {
     color:black;
   }
+
+
+  .busqueda{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+    width: 100%;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+
+.textoBusqueda{
+  width: 100%;
+}
+
