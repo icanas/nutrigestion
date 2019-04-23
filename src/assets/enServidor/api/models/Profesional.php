@@ -30,9 +30,9 @@ class Profesional {
         $passUser = password_hash($passUser,PASSWORD_DEFAULT);
         //end salt and pepper
 
-        var_dump($salt);
-        var_dump($passUser);
-        die();
+        //var_dump($salt);
+        //var_dump($passUser);
+       //die();
 
         $token = sha1($this->email. $this->pass. $correoTrim);
 
