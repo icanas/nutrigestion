@@ -31,6 +31,8 @@ export class PacientesListComponent implements OnInit {
 
   textoBusqueda: string;
 
+  listaPacientesCitaCopy: Paciente[] = [];
+
 
   verDetalle(paciente: Paciente) {
     localStorage.removeItem('Paciente');
@@ -76,6 +78,7 @@ export class PacientesListComponent implements OnInit {
                   if (citas[0].activo === '1' && paciente.activo === '1') {
                     paciente.citas = citas;
                     this.listaPacientesCita.push(paciente);
+                    this.listaPacientesCitaCopy.push(paciente);
                   } else if (citas[0].activo === '0' && paciente.activo === '1') {
                     paciente.citas = citas;
                     this.listaPacientesActivo.push(paciente);
@@ -99,7 +102,6 @@ export class PacientesListComponent implements OnInit {
 
           }
         );
-
       }
     );
 
@@ -108,6 +110,16 @@ export class PacientesListComponent implements OnInit {
 
 
   busca() {
+
+    this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
+      F => {
+        return F.nombre.includes(this.textoBusqueda);
+      }
+    );
+    console.log(this.textoBusqueda);
+    console.log(this.listaPacientesCita);
+    console.log(this.listaPacientesCitaCopy);
+
 
   }
 
