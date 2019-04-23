@@ -1,4 +1,4 @@
-<div >
+<div>
 
   Pacientes con Cita <br>
   <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesCita"
@@ -28,20 +28,12 @@
     <span id="baja">{{paciente.nombre}} {{paciente.apellido}}</span>
   </li>
 
-
-</div>
-
-
-<div class="busqueda row">
-
-        <input  [(ngModel)] = textoBusqueda type="numeric" (keyup)=busca()   class=" col-sm-10 form-control textoBusqueda" >
-
-
-        <button type="button" class=" col-sm-1 btn btn-success">
-            <i class="fas fa-search fa-2x"></i>
-        </button>
-
-
+  <div class="busqueda">
+      <div class="col-sm-12 ">
+          <input  (keyup)="busca()" [(ngModel)] = textoBusqueda type="numeric"   class="form-control textoBusqueda" >
+      </div>
+  </div>
 
 
 </div>
+

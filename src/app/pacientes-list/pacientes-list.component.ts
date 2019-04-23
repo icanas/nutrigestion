@@ -113,13 +113,9 @@ export class PacientesListComponent implements OnInit {
 
     this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
       F => {
-        return F.nombre.includes(this.textoBusqueda);
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
     );
-    console.log(this.textoBusqueda);
-    console.log(this.listaPacientesCita);
-    console.log(this.listaPacientesCitaCopy);
-
 
   }
 
