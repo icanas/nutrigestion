@@ -6,25 +6,30 @@
 </nav>
 
 
-
 <div class="principal col-sm-12 row " *ngIf="autorizado">
 
   <div class="col-sm-5">
     <div class="minitable">
-      Proximas Citas
-      <hr>
+        <div class="minititulo ">
+            Próximas Citas
+        </div>
       <app-pacientes-list [profesional]="profesional"></app-pacientes-list>
     </div>
   </div>
 
   <div class="col-sm-7" >
       <div class="minitable" >
-        Controles
-        <hr>
+          <div class="minititulo ">
+              Controles
+          </div>
 
-        <div class="row" id = "controles">
-          <button type="button" class="btn btn-info botonMenu col-sm-4" (click)="openModal(template)"><i class="fas fa-plus fa-5x"></i></button>
-          <button type="button" class="btn botonMenu col-sm-4" id = "botonSearch" (click)="dietasPredeterminadas()">Dietas Predeterminadas</button>
+        <div class="row botonera" >
+          <div class="col-sm-6">
+              <button type="button" class="btn btn-info botonMenu" (click)="openModal(template)"><i class="fas fa-plus fa-5x"></i></button>
+          </div>
+          <div class="col-sm-6">
+              <button type="button" class="btn  botonMenu" id = "botonDietas" (click)="dietasPredeterminadas()">Dietas Predeterminadas</button>
+          </div>
         </div>
 
 

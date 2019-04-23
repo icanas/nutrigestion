@@ -33,7 +33,12 @@ hr{
 
 }
 
-
+.minititulo{
+    background-color: aliceblue;
+    text-align: center;
+    border-bottom-style: solid;
+    margin-bottom: 2%;
+}
 
 
 
@@ -71,15 +76,29 @@ hr{
     padding-left: 20px;
 }
 
+.botonera{
+    padding: 30px;
+}
+
 .botonMenu {
     padding:80px;
-    margin: 10px;
+
     border-radius: 8px;
+    width: 100%;
+    height: 100%
 }
 
-#botonSearch {
+#botonDietas {
     background-color: rgb(233, 105, 0);
     color: white;
+    font-size: 22px;
+    font-weight: bold;
 }
 
+#botonDietas:hover {
+    background-color: rgb(204, 92, 0);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
 
