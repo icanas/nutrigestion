@@ -121,19 +121,22 @@ export class PacientesListComponent implements OnInit {
 
     this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
       F => {
-        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ;
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
     );
 
     this.listaPacientesActivo = this.listaPacientesActivoCopy.filter(
       F => {
-        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
     );
 
     this.listaPacientesBaja = this.listaPacientesBajaCopy.filter(
       F => {
-        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
     );
 

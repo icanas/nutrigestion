@@ -214,7 +214,7 @@ function insertPaciente($conn, $data){
         WHERE email = '$paciente->email';";
 
     }
-      // var_dump($sql);
+      //  var_dump($sql);
       // die();
 
     $succes = $conn->query($sql);
