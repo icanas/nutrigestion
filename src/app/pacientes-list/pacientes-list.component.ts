@@ -103,8 +103,6 @@ export class PacientesListComponent implements OnInit {
                   this.listaPacientesActivo.sort((a, b) => {
                     return Number(a.nombre)  - Number(b.nombre) ;
                   });
-                  console.log(this.listaPacientesActivo);
-                  console.log(this.listaPacientesActivoCopy);
                 }
 
 
