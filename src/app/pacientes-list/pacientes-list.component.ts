@@ -29,9 +29,14 @@ export class PacientesListComponent implements OnInit {
 
   desfase: number;
 
+  /*
+  Para la busqueda
+  */
   textoBusqueda: string;
 
   listaPacientesCitaCopy: Paciente[] = [];
+  listaPacientesActivoCopy: Paciente[] = [];
+  listaPacientesBajaCopy: Paciente[] = [];
 
 
   verDetalle(paciente: Paciente) {
@@ -82,8 +87,10 @@ export class PacientesListComponent implements OnInit {
                   } else if (citas[0].activo === '0' && paciente.activo === '1') {
                     paciente.citas = citas;
                     this.listaPacientesActivo.push(paciente);
+                    this.listaPacientesActivoCopy.push(paciente);
                   } else {
                     this.listaPacientesBaja.push(paciente);
+                    this.listaPacientesBajaCopy.push(paciente);
                   }
 
                   this.listaPacientesCita.sort((a, b) => {
@@ -112,6 +119,18 @@ export class PacientesListComponent implements OnInit {
   busca() {
 
     this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
+      F => {
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+      }
+    );
+
+    this.listaPacientesActivo = this.listaPacientesActivoCopy.filter(
+      F => {
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+      }
+    );
+
+    this.listaPacientesBaja = this.listaPacientesBajaCopy.filter(
       F => {
         return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
