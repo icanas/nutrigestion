@@ -17,6 +17,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 import { MedidasComponent } from './medidas/medidas.component';
 import { MetricasComponent } from './metricas/metricas.component';
 import { PacienteDietaComponent } from './paciente-dieta/paciente-dieta.component';
@@ -60,7 +62,8 @@ registerLocaleData(es);
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

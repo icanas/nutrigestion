@@ -3,7 +3,7 @@
   Pacientes con Cita <br>
   <li class="list-group-item list-group-item-success py-1" *ngFor="let paciente of listaPacientesCita"
     (click)="verDetalle(paciente)">
-    <div class="row">
+    <div class="row" tooltip={{paciente.email}} placement="bottom">
       <div class="col-sm-6">
           {{paciente.nombre}} {{paciente.apellido}}
       </div>
@@ -20,13 +20,27 @@
   Pacientes <br>
   <li class="list-group-item list-group-item-warning py-1" *ngFor="let paciente of listaPacientesActivo"
     (click)="verDetalle(paciente)">
-    <span >{{paciente.nombre}} {{paciente.apellido}} Sin cita </span>
+    <div class="row" tooltip={{paciente.email}} placement="bottom">
+        <div class="col-sm-6">
+            {{paciente.nombre}} {{paciente.apellido}}
+        </div>
+        <div class="col-sm-6">
+            Sin cita
+        </div>
+    </div>
+
   </li>
 
   Pacientes Baja <br>
-  <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja">
-    <span id="baja">{{paciente.nombre}} {{paciente.apellido}}</span>
-  </li>
+  <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja"
+  (click)="verDetalle(paciente)">
+  <div class="row" tooltip={{paciente.email}} placement="bottom">
+      <div class="col-sm-6">
+          {{paciente.nombre}} {{paciente.apellido}}
+      </div>
+  </div>
+
+</li>
 
   <div class="busqueda">
       <div class="col-sm-12 ">

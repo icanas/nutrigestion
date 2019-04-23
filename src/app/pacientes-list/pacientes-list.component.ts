@@ -7,6 +7,7 @@ import { MessengerService } from '../services/messenger.service';
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-pacientes-list',
   templateUrl: './pacientes-list.component.html',
@@ -120,7 +121,7 @@ export class PacientesListComponent implements OnInit {
 
     this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
       F => {
-        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ;
       }
     );
 
