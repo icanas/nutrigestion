@@ -64,8 +64,10 @@ export class PacientesListComponent implements OnInit {
 
                   if (paciente.activo === '1') {
                     this.listaPacientesActivo.push(paciente);
+                    this.listaPacientesActivoCopy.push(paciente);
                   } else {
                     this.listaPacientesBaja.push(paciente);
+                    this.listaPacientesBajaCopy.push(paciente);
                   }
 
                 } else {
@@ -101,7 +103,8 @@ export class PacientesListComponent implements OnInit {
                   this.listaPacientesActivo.sort((a, b) => {
                     return Number(a.nombre)  - Number(b.nombre) ;
                   });
-
+                  console.log(this.listaPacientesActivo);
+                  console.log(this.listaPacientesActivoCopy);
                 }
 
 
