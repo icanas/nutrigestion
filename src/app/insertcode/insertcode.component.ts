@@ -23,6 +23,7 @@ export class InsertcodeComponent implements OnInit {
     this.daoService.validateCode(this.codigo).subscribe(
       R => {
         if (R == this.codigo) {
+          sessionStorage.setItem('codigoValido', 'true');
           this.route.navigate(['/nuevoProfesional']);
         } else {
           this.Valido = false;

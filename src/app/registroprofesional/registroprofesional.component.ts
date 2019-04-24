@@ -40,6 +40,12 @@ export class RegistroprofesionalComponent implements OnInit {
   }
 
   ngOnInit() {
+    const codigoValido = sessionStorage.getItem('codigoValido');
+    if (codigoValido !== 'true') {
+      this.route.navigate(['./login']);
+    } else {
+      sessionStorage.removeItem('codigoValido');
+    }
   }
 
 }
