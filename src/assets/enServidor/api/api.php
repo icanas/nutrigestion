@@ -387,7 +387,7 @@ function getAnatomia($conn, $data){
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM
             anatomia where email = '$paciente->email'
-            ORDER BY activo ASC";
+            ORDER BY fechaModificacion ASC";
 
     $result =  $conn->query($sql);
     while($row = $result->fetch_assoc()){
@@ -443,7 +443,7 @@ function getMetricas($conn, $data){
     $paciente = $data->Paciente;
     $sql = "SELECT * FROM
             metrica where email = '$paciente->email'
-            ORDER BY activo ASC";
+            ORDER BY fechaModificacion ASC";
 
     $result =  $conn->query($sql);
     while($row = $result->fetch_assoc()){

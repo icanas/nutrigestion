@@ -537,6 +537,7 @@ export class ProgesoComponent implements OnInit {
 
   ngOnInit() {
     this.anatomiaList = JSON.parse(localStorage.getItem('anatomiaList'));
+    this.anatomiaList.reverse();
     this.metricasList = JSON.parse(localStorage.getItem('metricasList'));
     this.chartPeso();
     this.chartComposicionCorporal();
