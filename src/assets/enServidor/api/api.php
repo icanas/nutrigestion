@@ -530,13 +530,13 @@ function guardarDieta($conn, $data){
     ];
 
     $dietaArray = [
-        "Lunes" => 0,
-        "Martes" => 0,
-        "Miercoles" => 0,
-        "Jueves" => 0,
-        "Viernes" => 0,
-        "Sabado" => 0,
-        "Domingo" => 0
+        "lunes" => 0,
+        "martes" => 0,
+        "miercoles" => 0,
+        "jueves" => 0,
+        "viernes" => 0,
+        "sabado" => 0,
+        "domingo" => 0
     ];
 
 
@@ -624,26 +624,26 @@ function guardarDieta($conn, $data){
         if(empty($valor2)) $diaId = 0;
 
         switch($key){
-            case "Lunes":
-            $dietaArray["Lunes"] = $diaId;
+            case "lunes":
+            $dietaArray["lunes"] = $diaId;
             break;
-            case "Martes":
-            $dietaArray["Martes"] = $diaId;
+            case "martes":
+            $dietaArray["martes"] = $diaId;
             break;
-            case "Miercoles":
-            $dietaArray["Miercoles"] = $diaId;
+            case "miercoles":
+            $dietaArray["miercoles"] = $diaId;
             break;
-            case "Jueves":
-            $dietaArray["Jueves"] = $diaId;
+            case "jueves":
+            $dietaArray["jueves"] = $diaId;
             break;
-            case "Viernes":
-            $dietaArray["Viernes"] = $diaId;
+            case "viernes":
+            $dietaArray["viernes"] = $diaId;
             break;
-            case "Sabado":
-            $dietaArray["Sabado"] = $diaId;
+            case "sabado":
+            $dietaArray["sabado"] = $diaId;
             break;
-            case "Domingo":
-            $dietaArray["Domingo"] = $diaId;
+            case "domingo":
+            $dietaArray["domingo"] = $diaId;
             break;
         }
 
@@ -653,10 +653,10 @@ function guardarDieta($conn, $data){
 
     $dietaId = maxID("dieta",$conn) + 1;
 
-    $sql= "INSERT INTO dieta (id, emailPaciente, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, fecha, nombre, activo)
-    VALUES($dietaId, '$paciente->email', $dietaArray[Lunes],$dietaArray[Martes],
-    $dietaArray[Miercoles], $dietaArray[Jueves], $dietaArray[Viernes],
-    $dietaArray[Sabado] ,$dietaArray[Domingo], NOW(),'$nombreDieta', 1);";
+    $sql= "INSERT INTO dieta (id, emailPaciente, lunes, martes, miercoles, jueves, viernes, sabado, domingo, fecha, nombre, activo)
+    VALUES($dietaId, '$paciente->email', $dietaArray[lunes],$dietaArray[martes],
+    $dietaArray[miercoles], $dietaArray[jueves], $dietaArray[viernes],
+    $dietaArray[sabado] ,$dietaArray[domingo], NOW(),'$nombreDieta', 1);";
 
     $conn->query($sql);   //Ejecuto sql de Dieta
 
