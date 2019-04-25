@@ -179,7 +179,7 @@ export class PacienteDetailComponent implements OnInit {
 
   getListaPatologias() {
 
-    this.daoService.getListaPatologias().subscribe(
+    this.daoService.getListaPatologias(this.paciente.emailProfesional).subscribe(
       R => {
         this.listaPatologias = R;
 
@@ -273,12 +273,12 @@ export class PacienteDetailComponent implements OnInit {
   agregarNuevaPatologia() {
     this.nuevaPatologia.nombre = this.nuevaPatologia.nombre.toLowerCase();
     console.log( this.nuevaPatologia);
-    this.daoService.insertaPatologia(this.nuevaPatologia).subscribe(
+    this.daoService.insertaPatologia(this.nuevaPatologia, this.paciente.emailProfesional).subscribe(
       R => {
         if (!R) {
           alert('La patologia ya existe');
         } else {
-          this.daoService.getListaPatologias().subscribe(
+          this.daoService.getListaPatologias(this.paciente.emailProfesional).subscribe(
             L => {
               this.listaPatologias = L;
             }

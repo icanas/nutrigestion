@@ -792,8 +792,14 @@ function maxID($table, $conn){
 
  function getListaPatologias($conn, $data){
 
+    $email = $data->Email;
+
     $sql = "SELECT * FROM patologia
+            WHERE email = '$email' OR email = 'all'
             ORDER BY id asc;";
+
+            //var_dump($sql);
+            //die();
 
     $result =  $conn->query($sql);
 
@@ -858,6 +864,7 @@ function actualizaPatologias($conn, $data){
 function insertaPatologia($conn, $data){
 
     $patologia = $data->Patologia;
+    $email = $data->Email;
 
     // Compruebo si ya existe
     $sql = "SELECT nombre FROM
@@ -877,8 +884,8 @@ function insertaPatologia($conn, $data){
     $id = maxID("patologia", $conn);
     $id = intval($id)  + 1;
 
-    $sql = "INSERT INTO patologia (id, nombre)
-            VALUES ($id, '$patologia->nombre');";
+    $sql = "INSERT INTO patologia (id, email, nombre)
+            VALUES ($id,'$email', '$patologia->nombre');";
 
 
     $conn->query($sql);

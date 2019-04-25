@@ -261,13 +261,13 @@ export class DaoService {
     }
 
 
-    getListaPatologias(): Observable<Patologia[]> {
+    getListaPatologias(emailProfesional: string): Observable<Patologia[]> {
 
       const cadena = {
         action: 'getListaPatologias',
-
+        Email: emailProfesional
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<Patologia[]>(Url, cadena);
     }
 
@@ -294,11 +294,12 @@ export class DaoService {
       return this.http.post<boolean>(Url, cadena);
     }
 
-    insertaPatologia(patologia: Patologia): Observable<boolean> {
+    insertaPatologia(patologia: Patologia, emailProfesional: string): Observable<boolean> {
 
       const cadena = {
         action: 'insertaPatologia',
-        Patologia: patologia
+        Patologia: patologia,
+        Email: emailProfesional
 
      };
       console.log(JSON.stringify(cadena));

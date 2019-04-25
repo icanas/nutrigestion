@@ -142,6 +142,7 @@ create table dieta(
 create table patologia(
 
     id numeric(10,0) primary key,
+    email varchar(60),
     nombre varchar(50)
 
 
