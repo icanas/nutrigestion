@@ -363,10 +363,8 @@ export class PacienteDietaComponent implements OnInit {
 
   guardarDieta() {
 
-    console.log(this.desayunoLunes);
 
     this.desayunoLunes.forEach(element => {
-      console.log(this.dieta.lunes);
       element.nombre = element.nombre.toLowerCase();
       this.dieta.lunes.push(element);
     });
@@ -522,7 +520,7 @@ export class PacienteDietaComponent implements OnInit {
 
     this.daoService.guardarDieta(this.paciente, this.dieta).subscribe(
       R => {
-       window.location.reload();
+       // window.location.reload();
       }
     );
 
@@ -539,10 +537,10 @@ export class PacienteDietaComponent implements OnInit {
     );
   }
 
-  editarDieta($dieta: any) { // me viene la dieta desde diestas-list
+  editarDieta($dieta: Dieta) { // me viene la dieta desde diestas-list
 
-    console.log($dieta.lunes);
-    this.daoService.getDia($dieta.lunes).subscribe(
+    this.dieta = new Dieta();
+    this.daoService.getDia(Number($dieta.lunes)).subscribe(
       R => {
 
         if (R != null) {
@@ -629,7 +627,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.martes).subscribe(
+    this.daoService.getDia(Number($dieta.martes)).subscribe(
       R => {
 
         if (R != null) {
@@ -716,7 +714,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.miercoles).subscribe(
+    this.daoService.getDia(Number($dieta.miercoles)).subscribe(
       R => {
 
         if (R != null) {
@@ -803,7 +801,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.jueves).subscribe(
+    this.daoService.getDia(Number($dieta.jueves)).subscribe(
       R => {
 
         if (R != null) {
@@ -890,7 +888,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.viernes).subscribe(
+    this.daoService.getDia(Number($dieta.viernes)).subscribe(
       R => {
 
         if (R != null) {
@@ -977,7 +975,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.sabado).subscribe(
+    this.daoService.getDia(Number($dieta.sabado)).subscribe(
       R => {
 
         if (R != null) {
@@ -1064,7 +1062,7 @@ export class PacienteDietaComponent implements OnInit {
       }
     );
 
-    this.daoService.getDia($dieta.domingo).subscribe(
+    this.daoService.getDia(Number($dieta.domingo)).subscribe(
       R => {
 
         if (R != null) {
@@ -1157,8 +1155,7 @@ export class PacienteDietaComponent implements OnInit {
 
   }
 
-  onChange($dieta: any) {
-    console.log($dieta.lunes);
+  onChange($dieta: Dieta) {
     this.editarDieta($dieta);
   }
 
