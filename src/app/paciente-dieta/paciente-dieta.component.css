@@ -34,23 +34,22 @@
 }
 
 .minititulo{
-  position: absolute;
-  right:    0;
-  bottom:   0;
   width:100%;
   text-align: center;
-  margin-bottom: 7%;
   background-color: aliceblue;
   border-top-style: solid;
   border-bottom-style: solid;
 }
 
 .selecthistory{
-  position: absolute;
-  right:    0;
-  bottom:   0;
   width:100%;
   text-align: center
+}
+
+.predefinidas{
+  position: sticky;
+  right:    0;
+  bottom:   0;
 }
 
 .greenBoxed{

@@ -6,18 +6,21 @@
   <div class="minitable col-sm-3">
       <app-dietas-list (editar)="editarDieta($event)"[dietaActiva]="dieta"></app-dietas-list>
 
-      <div class="minititulo">
-        Dietas predefinidas
-      </div>
-      <select (change)="onChange(dieta)" [(ngModel)]="dieta" class="selecthistory">
-        <option>
-          Seleciona una dieta predefinida
-        </option>
-          <option *ngFor="let d of dietas" [ngValue]="d">
-              <span *ngIf="d.nombre == ' '">{{d.fecha}}</span>
-              <span *ngIf="d.nombre != ' '">{{d.nombre}}</span>
+      <div class="predefinidas">
+        <div class="minititulo">
+          Dietas predefinidas
+        </div>
+        <select (change)="onChange(dieta)" [(ngModel)]="dieta" class="selecthistory">
+          <option>
+            Seleciona una dieta predefinida
           </option>
-        </select>
+            <option *ngFor="let d of dietas" [ngValue]="d">
+                <span *ngIf="d.nombre == ' '">{{d.fecha}}</span>
+                <span *ngIf="d.nombre != ' '">{{d.nombre}}</span>
+            </option>
+          </select>
+      </div>
+
   </div>
 
   <div class="minitable col-sm-9">
