@@ -795,11 +795,11 @@ function maxID($table, $conn){
     $email = $data->Email;
 
     $sql = "SELECT * FROM patologia
-            WHERE email = '$email' OR email = 'all'
+            WHERE email = '$email' OR email = 'all' OR email = ''
             ORDER BY id asc;";
 
-            //var_dump($sql);
-            //die();
+            // var_dump($sql);
+            // die();
 
     $result =  $conn->query($sql);
 
