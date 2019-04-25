@@ -32,8 +32,7 @@
   </li>
 
   Pacientes Baja <br>
-  <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja"
-  (click)="verDetalle(paciente)">
+  <li class="list-group-item list-group-item-danger py-1" *ngFor="let paciente of listaPacientesBaja">
   <div class="row" tooltip={{paciente.email}} placement="bottom">
       <div class="col-sm-6">
           {{paciente.nombre}} {{paciente.apellido}}
