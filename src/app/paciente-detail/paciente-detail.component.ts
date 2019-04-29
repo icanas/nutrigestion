@@ -190,7 +190,12 @@ export class PacienteDetailComponent implements OnInit {
 
               this.patologiasPaciente.forEach(
                 F => {
-                  this.listaPatologias[F.id].checked = true;
+                  let indice = 0;
+
+                  indice = this.listaPatologias.findIndex(
+                    I => I.nombre === F.nombre
+                  );
+                  this.listaPatologias[indice].checked = true;
                 }
               );
             }
