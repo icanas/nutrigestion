@@ -43,6 +43,7 @@ export class PrincipalComponent implements OnInit {
 
         } else {  // Login correcto, devuelve al profesional
           // window.location.reload();
+          this.nuevoPaciente.emailProfesional = this.profesional.email;
           this.modalRef.hide();
           localStorage.removeItem('Paciente');
           localStorage.setItem('Paciente', JSON.stringify(this.nuevoPaciente));
