@@ -145,7 +145,7 @@
                     <input [(ngModel)] = "nuevaPatologia.nombre" class="input-group input-group-sm" type="text" [disabled] = "isDisabled" >
                 </div>
                 <div class="col-md-2">
-                    <button (click)="agregarNuevaPatologia()" type="button" class="btn btn-success btn-sm">+</button>
+                    <button (click)="agregarNuevaPatologia()" type="button" class="btn btn-success btn-sm" [disabled] = "isDisabled">+</button>
                 </div>
             </div>
 
