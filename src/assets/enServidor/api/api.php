@@ -866,10 +866,11 @@ function insertaPatologia($conn, $data){
     $patologia = $data->Patologia;
     $email = $data->Email;
 
-    // Compruebo si ya existe
+    // Compruebo si ya existe ese nombre para ese email
     $sql = "SELECT nombre FROM
             patologia
-            where nombre = '$patologia->nombre'";
+            where nombre = '$patologia->nombre'
+                    AND email = '$email'";
 
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();

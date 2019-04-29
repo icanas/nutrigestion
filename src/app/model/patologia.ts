@@ -4,4 +4,11 @@ export class Patologia {
     nombre: string;
     checked: boolean;
 
+
+    constructor() {
+      this.checked = false;
+    }
+
+
   }
+

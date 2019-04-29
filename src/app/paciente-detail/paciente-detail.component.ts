@@ -44,6 +44,7 @@ export class PacienteDetailComponent implements OnInit {
   patologiasPaciente: Patologia[] = [];
   listaPatologias: Patologia[] = [];
   nuevaPatologia: Patologia = new Patologia();
+  isDisabled: boolean;
 
   anatomia: Anatomia = new Anatomia();
   anatomiaList: Anatomia[] = [];
@@ -170,6 +171,7 @@ export class PacienteDetailComponent implements OnInit {
   }
 
   openModalPatologias(templatePatologias: TemplateRef<any>) {
+    this.isDisabled = false;
     this.modalRefPatologias = this.modalService.show(templatePatologias);
   }
 
@@ -215,10 +217,14 @@ export class PacienteDetailComponent implements OnInit {
       this.patologiasPaciente.push(patologia);
     } else {  // Quito el elemento
       const posicion = this.patologiasPaciente.findIndex(
-        F => F === patologia
+        F => F.nombre === patologia.nombre
         );
+      console.log(posicion);
       this.patologiasPaciente.splice(posicion, 1);
     }
+
+    this.isDisabled = true;
+
   }
 
   actualizaPatologias() {
@@ -277,7 +283,6 @@ export class PacienteDetailComponent implements OnInit {
 
   agregarNuevaPatologia() {
     this.nuevaPatologia.nombre = this.nuevaPatologia.nombre.toLowerCase();
-    console.log( this.nuevaPatologia);
     this.daoService.insertaPatologia(this.nuevaPatologia, this.paciente.emailProfesional).subscribe(
       R => {
         if (!R) {
@@ -286,12 +291,14 @@ export class PacienteDetailComponent implements OnInit {
           this.daoService.getListaPatologias(this.paciente.emailProfesional).subscribe(
             L => {
               this.listaPatologias = L;
+              this.getListaPatologias();
             }
           );
 
         }
       }
     );
+
   }
 
 
@@ -308,6 +315,7 @@ export class PacienteDetailComponent implements OnInit {
     this.getAnatomia();
 
     this.minDate.setDate(this.minDate.getDate());
+
   }
 
 }
