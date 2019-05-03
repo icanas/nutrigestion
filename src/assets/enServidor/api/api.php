@@ -602,6 +602,8 @@ function guardarDieta($conn, $data){
         $sql= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
+        //var_dump($sql);
+        //die();
 
 
         if($diaArray["desayuno"] != 0 || $diaArray["postdesayuno"]  != 0 || $diaArray["comida"]  != 0 ||

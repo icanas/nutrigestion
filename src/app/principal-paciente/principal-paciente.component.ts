@@ -110,6 +110,7 @@ export class PrincipalPacienteComponent implements OnInit {
       R => {
         if (R !== null) {
           this.anatomiaList = R;
+          this.anatomiaList.reverse();
           this.daoService.getMetricas(this.paciente).subscribe(
             M => {
               if (M !== null) {

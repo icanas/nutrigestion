@@ -148,6 +148,11 @@ create table patologia(
 
 );
 
+insert into patologia(id,email,nombre) values (0,'all','diabetes');
+insert into patologia(id,email,nombre) values (1,'all','hipertension');
+insert into patologia(id,email,nombre) values (2,'all','obesidad');
+insert into patologia(id,email,nombre) values (3,'all','ovario poliquistico');
+
 create table patologia_paciente(
 
     id numeric(10,0),
