@@ -1,6 +1,7 @@
 
 <div class="cabeceraDatos">
-    <h3>{{paciente.nombre}} {{paciente.apellido}} {{paciente.email}}</h3>
+    <h3><i class="fas fa-home" (click)="home()"></i> {{paciente.nombre}} {{paciente.apellido}} {{paciente.email}} </h3>
+
 </div>
 <div *ngIf="patologiasPaciente.length != 0" class="cabeceraPatologias row">
   <div *ngFor="let patologia of patologiasPaciente" class="col-sm-2">

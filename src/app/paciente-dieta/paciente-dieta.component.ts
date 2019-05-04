@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { Paciente } from '../model/paciente';
 import { Profesional } from '../model/profesional';
@@ -15,7 +16,8 @@ import { DaoService } from '../dao/dao.service';
 export class PacienteDietaComponent implements OnInit {
 
   constructor(
-    private daoService: DaoService
+    private daoService: DaoService,
+    private route: Router
   ) { }
 
   isOpenLunes = true;
@@ -1191,6 +1193,10 @@ export class PacienteDietaComponent implements OnInit {
     caracter = $event.keyCode;
     return ((caracter > 47 && caracter < 58) || caracter === 190 || caracter === 37 ||
             caracter === 39 || caracter === 9 || caracter === 8) || caracter === 38 || caracter === 40;
+  }
+
+  home() {
+    this.route.navigate(['principal']);
   }
 
 

@@ -301,6 +301,10 @@ export class PacienteDetailComponent implements OnInit {
 
   }
 
+  home() {
+    this.route.navigate(['principal']);
+  }
+
 
 
   ngOnInit() {
