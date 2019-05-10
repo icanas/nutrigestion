@@ -563,10 +563,13 @@ function guardarDieta($conn, $data){
             $sql = "INSERT INTO alimento (id, nombre, unidades)
                             VALUES($alimentoId, '$valor2->nombre', '$valor2->unidades');";
 
+
             $conn->query($sql);    //Ejecuto sql alimentos
 
             $sql= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
+
+
 
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
@@ -599,11 +602,11 @@ function guardarDieta($conn, $data){
         $diaId = maxID("dia",$conn);
         $diaId = $diaId + 1;
 
-        $sql= "INSERT INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
+        $sql= " INSERT  INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
-        //var_dump($sql);
-        //die();
+        // var_dump($sql);
+        // die();
 
 
         if($diaArray["desayuno"] != 0 || $diaArray["postdesayuno"]  != 0 || $diaArray["comida"]  != 0 ||
@@ -655,10 +658,13 @@ function guardarDieta($conn, $data){
 
     $dietaId = maxID("dieta",$conn) + 1;
 
-    $sql= "INSERT INTO dieta (id, emailPaciente, lunes, martes, miercoles, jueves, viernes, sabado, domingo, fecha, nombre, activo)
+    $sql= "INSERT  INTO dieta (id, emailPaciente, lunes, martes, miercoles, jueves, viernes, sabado, domingo, fecha, nombre, activo)
     VALUES($dietaId, '$paciente->email', $dietaArray[lunes],$dietaArray[martes],
     $dietaArray[miercoles], $dietaArray[jueves], $dietaArray[viernes],
     $dietaArray[sabado] ,$dietaArray[domingo], NOW(),'$nombreDieta', 1);";
+
+    //var_dump($sql);
+    //die();
 
     $conn->query($sql);   //Ejecuto sql de Dieta
 
@@ -713,7 +719,7 @@ function getComida($conn, $data){
     $id = $data->Id;
     $sql = "SELECT c.cantidad, a.nombre, a.unidades
     FROM comida c, alimento a
-    WHERE c.idAlimento = a.id and c.id = '$id'";
+    WHERE c.idAlimento = a.id and c.id = '$id' and a.id != 0";
 
     $result =  $conn->query($sql);
 
