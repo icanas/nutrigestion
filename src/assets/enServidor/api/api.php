@@ -569,6 +569,9 @@ function guardarDieta($conn, $data){
             $sql= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
 
+            // var_dump($sql);
+            // die();
+
 
 
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
@@ -719,7 +722,7 @@ function getComida($conn, $data){
     $id = $data->Id;
     $sql = "SELECT c.cantidad, a.nombre, a.unidades
     FROM comida c, alimento a
-    WHERE c.idAlimento = a.id and c.id = '$id' and a.id != 0";
+    WHERE c.idAlimento = a.id and c.id = '$id'";
 
     $result =  $conn->query($sql);
 
