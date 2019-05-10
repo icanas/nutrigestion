@@ -118,7 +118,7 @@ export class PacientesListComponent implements OnInit {
   }
 
 
-  busca() {
+  busca() { // No utilizada, nueva version busca2()
 
     this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
       F => {
@@ -140,6 +140,65 @@ export class PacientesListComponent implements OnInit {
         F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
       }
     );
+
+  }
+
+
+
+  busca2() {
+
+    let arrayBusqueda = [];
+    arrayBusqueda[0] = '';
+    arrayBusqueda[1] = '';
+
+    if (this.textoBusqueda.includes(' ')) {
+      arrayBusqueda = this.textoBusqueda.split(' ');
+
+      this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(arrayBusqueda[0].toLowerCase()) &&
+          F.apellido.toLowerCase().includes(arrayBusqueda[1].toLowerCase());
+        }
+      );
+
+      this.listaPacientesActivo = this.listaPacientesActivoCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(arrayBusqueda[0].toLowerCase()) &&
+          F.apellido.toLowerCase().includes(arrayBusqueda[1].toLowerCase());
+        }
+      );
+
+      this.listaPacientesBaja = this.listaPacientesBajaCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(arrayBusqueda[0].toLowerCase()) &&
+          F.apellido.toLowerCase().includes(arrayBusqueda[1].toLowerCase());
+        }
+      );
+
+    } else {
+
+      this.listaPacientesCita = this.listaPacientesCitaCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        }
+      );
+
+      this.listaPacientesActivo = this.listaPacientesActivoCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        }
+      );
+
+      this.listaPacientesBaja = this.listaPacientesBajaCopy.filter(
+        F => {
+          return F.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+          F.apellido.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+        }
+      );
+    }
+
 
   }
 
