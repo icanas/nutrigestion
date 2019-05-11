@@ -657,6 +657,7 @@ function guardarDieta($conn, $data){
 
         unset($valor2);
     }
+
     unset($valor); // rompe la referencia con el último elemento
 
     $dietaId = maxID("dieta",$conn) + 1;
