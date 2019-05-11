@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
         if (!R) {
           this.valido = false;
 
-        } else if (R.rol === 'profesional') {  // Login correcto, devuelve al profesional
+        // tslint:disable-next-line:triple-equals
+        } else if (R.rol === 'profesional' && R.activo == '1') {  // Login correcto, devuelve al profesional
           const profesional = new Profesional();
           profesional.nombre = R.nombre;
           profesional.apellido = R.apellido;
@@ -40,7 +41,8 @@ export class LoginComponent implements OnInit {
           // this.messenger.sendProfesional(profesional);
           this.route.navigate(['principal']);
 
-        } else if (R.rol === 'paciente') {  // Login correcto, devuelve al paciente
+        // tslint:disable-next-line:triple-equals
+        } else if (R.rol === 'paciente' && R.activo == '1') {  // Login correcto, devuelve al paciente
           const paciente = new Paciente();
           paciente.nombre = R.nombre;
           paciente.apellido = R.apellido;
@@ -48,7 +50,11 @@ export class LoginComponent implements OnInit {
           paciente.id = R.id;
           paciente.emailProfesional = R.emailProfesional;
           sessionStorage.setItem('token', R.token);
+          console.log(R);
+          console.log(paciente);
           this.route.navigate(['principalPaciente']);
+        } else {
+          this.valido = false;
         }
       }
       );

@@ -73,7 +73,7 @@ export class DaoService {
         token: token2
 
      };
-      // console.log(JSON.stringify(cadena));
+      console.log(JSON.stringify(cadena));
       return this.http.post<Paciente>(Url, cadena);
     }
 

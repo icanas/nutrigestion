@@ -185,7 +185,7 @@ function insertPaciente($conn, $data){
     $paciente = $data->Paciente;
     $profesional = $data->Profesional;
 
-    $token = sha1($paciente->nombre. $profesional->email);
+    $token = sha1($paciente->nombre. $profesional->email. $paciente->password);
 
     // Comprobar si ya existe, poner su bit a 1
     $sql = "SELECT * FROM paciente
