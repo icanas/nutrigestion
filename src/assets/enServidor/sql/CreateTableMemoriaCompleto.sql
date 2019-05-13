@@ -209,8 +209,12 @@ create table patologia_paciente(
 
 
 
-INSERT INTO codigoregistro (codigo)
-VALUES ('123');
+INSERT INTO codigoregistro (codigo) VALUES
+('123'),
+('124'),
+('125'),
+('126'),
+('127');
 
 
 INSERT INTO `profesional` (`id`, `nombre`, `apellido`, `email`, `password`, `salt`, `activo`, `token`) VALUES
