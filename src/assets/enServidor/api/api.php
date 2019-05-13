@@ -214,8 +214,6 @@ function insertPaciente($conn, $data){
         WHERE email = '$paciente->email';";
 
     }
-      //  var_dump($sql);
-      // die();
 
     $succes = $conn->query($sql);
 
@@ -428,8 +426,7 @@ function actualizaMedidas($conn, $data){
                         $anatomia->PRcintura, $anatomia->PRcadera, $anatomia->PRpierna, $anatomia->Dmuneca,
                         $anatomia->Dhumero, $anatomia->DbiepicondilarFemur,
                         NOW(), 1 );";
-    // var_dump($sql );
-    // die();
+
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;
@@ -453,8 +450,6 @@ function getMetricas($conn, $data){
     if ($result->num_rows == 0) {
         return FALSE;
     }
-
-   // var_dump(json_encode($json, JSON_NUMERIC_CHECK));
 
     return json_encode($json, JSON_NUMERIC_CHECK);
 
@@ -482,8 +477,7 @@ function actualizaMetricas($conn, $data){
                         $metricas->PorcentResidual,$metricas->MasaGrasa,$metricas->MasaOsea,$metricas->MasaMuscular,
                         $metricas->MasaResidual,'$metricas->Somatotipo',$metricas->Endomorfo,$metricas->Mesomorfo,
                         $metricas->Ectomorfo,NOW(),1);";
-    // var_dump($sql );
-    // die();
+
     $result =  $conn->query($sql);
     if (!$result) return FALSE;
     return TRUE;
@@ -544,7 +538,7 @@ function guardarDieta($conn, $data){
     $comidaId = maxID("comida", $conn);
 
     foreach ($dieta as  $key=>$valor) {
-        //var_dump($key);
+
         $franjaAnterior = "0";  //Nuevo dia de la semana, esto fuerza a comida nueva
 
         foreach ($valor as $valor2) {
@@ -568,11 +562,6 @@ function guardarDieta($conn, $data){
 
             $sql= "INSERT INTO comida (id, idAlimento, cantidad)
                             VALUES($comidaId, $alimentoId, $valor2->cantidad);";
-
-            // var_dump($sql);
-            // die();
-
-
 
             $conn->query($sql);   //Ejecuto sql de comida pero no incremento su idComida
 
@@ -608,9 +597,6 @@ function guardarDieta($conn, $data){
         $sql= " INSERT  INTO dia (id, desayuno, postdesayuno, comida, merienda, cena)
                     VALUES($diaId, $diaArray[desayuno],$diaArray[postdesayuno],
                     $diaArray[comida],$diaArray[merienda],$diaArray[cena]);";
-        // var_dump($sql);
-        // die();
-
 
         if($diaArray["desayuno"] != 0 || $diaArray["postdesayuno"]  != 0 || $diaArray["comida"]  != 0 ||
             $diaArray["merienda"]  != 0 || $diaArray["cena"]  != 0){    // Si tiene comidas ejecuto
@@ -667,11 +653,7 @@ function guardarDieta($conn, $data){
     $dietaArray[miercoles], $dietaArray[jueves], $dietaArray[viernes],
     $dietaArray[sabado] ,$dietaArray[domingo], NOW(),'$nombreDieta', 1);";
 
-    //var_dump($sql);
-    //die();
-
     $conn->query($sql);   //Ejecuto sql de Dieta
-
 
 
 }
@@ -810,8 +792,6 @@ function maxID($table, $conn){
             WHERE email = '$email' OR email = 'all' OR email = ''
             ORDER BY id asc;";
 
-            // var_dump($sql);
-            // die();
 
     $result =  $conn->query($sql);
 
