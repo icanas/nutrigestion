@@ -33,7 +33,6 @@ export class DaoService {
 
        };
 
-      console.log(JSON.stringify(cadena));
       return this.http.post<string>(Url, cadena);
     }
 
@@ -41,7 +40,7 @@ export class DaoService {
       profesional['action'] = 'creaProfesional';
       const profesionalParse = JSON.stringify(profesional);
 
-      console.log(profesionalParse);
+
       return this.http.post<boolean>(Url, profesionalParse);
     }
 
@@ -53,7 +52,7 @@ export class DaoService {
         password: pass
 
      };
-      console.log(JSON.stringify(credentials));
+
       return this.http.post<any>(UrlAuth, credentials);
     }
 
@@ -63,7 +62,7 @@ export class DaoService {
         token: token2
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<Profesional>(Url, cadena);
     }
 
@@ -73,7 +72,7 @@ export class DaoService {
         token: token2
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Paciente>(Url, cadena);
     }
 
@@ -85,7 +84,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -96,7 +95,7 @@ export class DaoService {
         Profesional: profesional
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<Paciente[]>(Url, cadena);
     }
 
@@ -107,7 +106,7 @@ export class DaoService {
         Paciente: paciente,
         Cita: cita
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Cita[]>(Url, cadena);
     }
 
@@ -117,7 +116,7 @@ export class DaoService {
         action: 'cancelCita',
         Cita: cita
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -139,7 +138,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<Cita>(Url, cadena);
     }
 
@@ -150,7 +149,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -161,7 +160,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<Anatomia[]>(Url, cadena);
     }
 
@@ -173,7 +172,7 @@ export class DaoService {
         Anatomia: anatomia
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -185,7 +184,7 @@ export class DaoService {
         Metricas: metricas
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -196,7 +195,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<Metricas[]>(Url, cadena);
     }
 
@@ -209,7 +208,7 @@ export class DaoService {
         Dieta: dieta
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -220,7 +219,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Dieta[]>(Url, cadena);
     }
 
@@ -233,7 +232,7 @@ export class DaoService {
         Id: id
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<any>(Url, cadena);
     }
 
@@ -245,7 +244,7 @@ export class DaoService {
         Id: id
 
      };
-      // console.log(JSON.stringify(cadena));
+
       return this.http.post<any>(Url, cadena);
     }
 
@@ -256,7 +255,7 @@ export class DaoService {
         Nombre: nombre
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Alimento>(Url, cadena);
     }
 
@@ -267,7 +266,7 @@ export class DaoService {
         action: 'getListaPatologias',
         Email: emailProfesional
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Patologia[]>(Url, cadena);
     }
 
@@ -278,7 +277,7 @@ export class DaoService {
         Paciente: paciente
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<Patologia[]>(Url, cadena);
     }
 
@@ -290,7 +289,7 @@ export class DaoService {
         Patologias: patologias
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 
@@ -302,7 +301,7 @@ export class DaoService {
         Email: emailProfesional
 
      };
-      console.log(JSON.stringify(cadena));
+
       return this.http.post<boolean>(Url, cadena);
     }
 

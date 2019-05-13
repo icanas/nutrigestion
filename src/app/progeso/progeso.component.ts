@@ -84,7 +84,7 @@ export class ProgesoComponent implements OnInit {
     const porcentOseo = this.metricasList[0].PorcentOsea;
     const porcentResidual = this.metricasList[0].MasaResidual;
 
-    console.log(porcentGrasa);
+
 
     const data = {
       labels,

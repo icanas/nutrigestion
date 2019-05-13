@@ -50,8 +50,7 @@ export class LoginComponent implements OnInit {
           paciente.id = R.id;
           paciente.emailProfesional = R.emailProfesional;
           sessionStorage.setItem('token', R.token);
-          console.log(R);
-          console.log(paciente);
+
           this.route.navigate(['principalPaciente']);
         } else {
           this.valido = false;

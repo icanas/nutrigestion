@@ -24,7 +24,7 @@ export class RegistroprofesionalComponent implements OnInit {
 
     this.daoService.registrarProfesional(this.profesional).subscribe(
       R => {
-        console.log(R);
+
         if (!R) {  // Fracaso
           this.correoDuplicado = true;
         } else {  // Exito

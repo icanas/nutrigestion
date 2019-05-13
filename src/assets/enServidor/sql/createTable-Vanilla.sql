@@ -11,18 +11,17 @@ create table profesional(
     password varchar(64),
     salt varchar(60) null,
     activo bit null,
-    token varchar (60) null,
-    ultimaconexion datetime null
+    token varchar (60) null
 );
+
+
 
 create table codigoregistro(
 
-    codigo varchar(10) primary key,
-    email varchar(20) null,
-    fecha_activacion datetime null
+    codigo varchar(30) primary key
 );
-INSERT INTO codigoregistro (codigo)
-VALUES ('123');
+
+
 
 create table paciente(
 
@@ -38,8 +37,13 @@ create table paciente(
     emailProfesional varchar(60),
     salt varchar(60) null,
     token varchar (60) null,
-    ultimaconexion datetime null
+
+    FOREIGN KEY (emailProfesional) REFERENCES profesional(email)
+    ON DELETE CASCADE
+
 );
+
+
 
 create table anatomia(
 
@@ -65,80 +69,12 @@ create table anatomia(
     DbiepicondilarFemur numeric(8,3) null,
 
     fechaModificacion datetime null,
-    activo bit
+    activo bit,
+
+    FOREIGN KEY (email) REFERENCES paciente(email)
+    ON DELETE CASCADE
 
 );
-
-create table cita(
-
-    email varchar(60),
-    fecha datetime,
-    activo bit
-
-);
-
-create table alimento(
-
-    id numeric(30,0) primary key,
-    nombre varchar(40),
-    calorias numeric(8,2) null,
-    unidades varchar(30) null
-
-);
-
-create table comida(
-
-    id numeric(30,0),
-    idAlimento  numeric(30,0),
-    cantidad numeric(8,2)
-
-);
-
-create table dia(
-
-    id numeric(30,0) primary key,
-    desayuno  numeric(30,0) null,
-    postdesayuno  numeric(30,0) null,
-    comida  numeric(30,0) null,
-    merienda  numeric(30,0) null,
-    cena  numeric(30,0) null
-);
-
-create table dieta(
-
-    id numeric(30,0) primary key,
-    emailPaciente varchar(60),
-    lunes numeric(30,0) null,
-    martes numeric(30,0) null,
-    miercoles numeric(30,0) null,
-    jueves numeric(30,0) null,
-    viernes numeric(30,0) null,
-    sabado numeric(30,0) null,
-    domingo numeric(30,0) null,
-
-    nombre varchar(35) null,
-    fecha datetime,
-    activo bit
-
-
-);
-
-create table patologia(
-
-    id numeric(10,0) primary key,
-    nombre varchar(50)
-
-
-);
-
-create table patologia_paciente(
-
-    id numeric(10,0),
-    email varchar(60)
-
-
-);
-
 
 create table metrica(
 
@@ -163,8 +99,116 @@ create table metrica(
     Ectomorfo numeric(8,3) null,
 
     fechaModificacion datetime,
+    activo bit,
+
+    FOREIGN KEY (email) REFERENCES paciente(email)
+    ON DELETE CASCADE
+
+
+);
+
+
+create table cita(
+
+    email varchar(60),
+    fecha datetime,
+    activo bit,
+
+    FOREIGN KEY (email) REFERENCES paciente(email)
+    ON DELETE CASCADE
+
+);
+
+
+
+create table dieta(
+
+    id numeric(30,0) primary key,
+    emailPaciente varchar(60),
+    lunes numeric(30,0) not null,
+    martes numeric(30,0) not null,
+    miercoles numeric(30,0) not null,
+    jueves numeric(30,0) not null,
+    viernes numeric(30,0) not null,
+    sabado numeric(30,0) not null,
+    domingo numeric(30,0) not null,
+
+    nombre varchar(35) null,
+    fecha datetime,
     activo bit
 
 
 );
+
+
+
+create table dia(
+
+    id numeric(30,0) primary key,
+    desayuno  numeric(30,0) not null,
+    postdesayuno  numeric(30,0) not null,
+    comida  numeric(30,0) not null,
+    merienda  numeric(30,0) not null,
+    cena  numeric(30,0) not null
+
+
+);
+
+
+
+create table comida(
+
+    id numeric(30,0)  not null,
+    idAlimento  numeric(30,0) not null,
+    cantidad numeric(8,2)
+
+);
+
+
+
+create table alimento(
+
+    id numeric(30,0) primary key,
+    nombre varchar(40),
+    calorias numeric(8,2) null,
+    unidades varchar(30) null
+
+);
+
+
+create table patologia(
+
+    id numeric(10,0) primary key,
+    email varchar(60),
+    nombre varchar(50)
+
+);
+
+INSERT INTO `patologia` (`id`, `email`, `nombre`) VALUES
+('0', 'all', 'diabetes'),
+('1', 'all', 'hipertension'),
+('2', 'all', 'obesidad'),
+('3', 'all', 'ovario poliquistico'),
+('4', 'a', 'celiaco'),
+('5', 'profesor@ucm.es', 'celiaco');
+
+
+
+
+create table patologia_paciente(
+
+    id numeric(10,0),
+    email varchar(60),
+
+    FOREIGN KEY (id) REFERENCES patologia(id)
+    ON DELETE CASCADE,
+    FOREIGN KEY (email) REFERENCES paciente(email)
+    ON DELETE CASCADE
+
+);
+
+
+
+INSERT INTO codigoregistro (codigo)
+VALUES ('123');
 

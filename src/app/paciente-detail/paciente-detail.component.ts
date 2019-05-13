@@ -113,7 +113,7 @@ export class PacienteDetailComponent implements OnInit {
   desactivarPaciente() {
 
     const respuesta = prompt('Escribe "si" para confirmar la desactivacion del paciente');
-    console.log(this.paciente);
+
 
     if (respuesta === 'si') {
 
@@ -219,7 +219,7 @@ export class PacienteDetailComponent implements OnInit {
       const posicion = this.patologiasPaciente.findIndex(
         F => F.nombre === patologia.nombre
         );
-      console.log(posicion);
+
       this.patologiasPaciente.splice(posicion, 1);
     }
 
@@ -258,7 +258,7 @@ export class PacienteDetailComponent implements OnInit {
   recalculaMetricas(anatomia: Anatomia) {
     this.anatomia = anatomia;
     this.metricas = new Metricas(this.paciente, this.anatomia);
-    // console.log(anatomia);
+
     this.metricasComponent.recalcula();
   }
 
