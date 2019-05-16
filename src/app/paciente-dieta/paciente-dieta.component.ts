@@ -1191,9 +1191,16 @@ export class PacienteDietaComponent implements OnInit {
   checkNumber($event) {
     let caracter;
     caracter = $event.keyCode;
-    return ((caracter > 47 && caracter < 58) || (caracter > 96 && caracter < 105) ||
-            caracter === 190 || caracter === 37 || caracter === 110 ||
-            caracter === 39 || caracter === 9 || caracter === 8) || caracter === 38 || caracter === 40;
+
+    if (caracter === 188 || caracter === 110) {
+      $event.target.value = $event.target.value + '.';
+    }
+
+    return ((caracter > 47 && caracter < 58) || (caracter >= 96 && caracter <= 105) ||
+    caracter === 190 || caracter === 37 ||
+    caracter === 39 || caracter === 9 || caracter === 8) || caracter === 38 || caracter === 40;
+
+
   }
 
   home() {
